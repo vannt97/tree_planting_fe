@@ -1,0 +1,2 @@
+export const TOKEN_MANAGE_OTP = 'TOKEN_MANAGE_OTP';
+export const TOKEN_QUIZ_GAME = 'TOKEN_QUIZ_GAME';

@@ -1,0 +1,57 @@
+.ant-popover-arrow {
+    display: none;
+}
+.ant-select-item-option {
+    padding-left: 16px !important;
+}
+.ant-picker-dropdown {
+    width: 100% !important;
+    padding: 0 1rem !important;
+
+    @include responsive(md-screen) {
+        padding: 0 9rem !important;
+    }
+
+    @include responsive(lg-screen) {
+        padding: 0 12rem !important;
+    }
+
+    @include responsive(xl-screen) {
+        padding: 0 23rem !important;
+    }
+
+    .ant-picker-panel {
+        width: 100%;
+    }
+    .ant-picker-date-panel {
+        width: 100%;
+    }
+    .ant-picker-content {
+        width: 100% !important;
+    }
+    .ant-picker-cell-inner {
+        &::before {
+            border: 1px solid $green-primary !important;
+        }
+    }
+    .ant-picker-cell > div {
+        &:hover {
+            background-color: $green-primary !important;
+            color: #fff !important;
+        }
+    }
+    .ant-picker-panel-container {
+        border-radius: 20px;
+    }
+    .ant-picker-cell-selected > div {
+        background-color: $green-primary !important;
+    }
+    .ant-picker-today-btn {
+        color: $green-primary;
+        font-weight: 500;
+
+        &:hover {
+            color: $green-29;
+        }
+    }
+}

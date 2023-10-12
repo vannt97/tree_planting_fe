@@ -1,0 +1,870 @@
+.tree-detail {
+  font-size: 14px;
+  width: 100%;
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .time-sheet {
+    width: 100%;
+    position: relative;
+    &__left__item {
+      width: 10%;
+      @media only screen and (min-width: 768px) {
+        width: 5%;
+      }
+      text-align: end;
+      margin-right: 20px;
+    }
+    &__right {
+      position: relative;
+      border-left: 1px solid #dceec0;
+      padding-left: 20px;
+      width: calc(100% - 70px);
+      @media only screen and (min-width: 768px) {
+        width: calc(100% - 80px);
+      }
+      &__item {
+        &::before {
+          display: block;
+          height: 20px;
+          border-radius: 10px;
+          content: " ";
+          position: absolute;
+          width: 20px;
+          top: 6px;
+          left: -10px;
+          background-image: url("../../public/icons/timesheetTree.svg");
+          background-repeat: no-repeat;
+        }
+        &.active {
+          background-color: #eff5ec;
+          &::before {
+            display: block;
+            height: 20px;
+            border-radius: 10px;
+            content: " ";
+            position: absolute;
+            width: 20px;
+            top: 5px;
+            // left: -30px;
+            background-image: url("../../public/icons/timesheetTreeActive.svg");
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+  .tree-detail {
+    &__story {
+      min-height: auto;
+      box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
+      @include responsive(lg-screen) {
+      }
+    }
+    &__map {
+      min-height: 680px;
+      @media only screen and (min-width: 300px) {
+        font-size: 0.6rem !important;
+      }
+
+      @media only screen and (min-width: 350px) {
+        font-size: 0.7rem !important;
+      }
+
+      @media only screen and (min-width: 400px) {
+        font-size: 0.7rem !important;
+      }
+
+      @media only screen and (min-width: 450px) {
+        font-size: 0.7rem !important;
+      }
+
+      @media only screen and (min-width: 500px) {
+        font-size: 0.9rem !important;
+      }
+
+      @media only screen and (min-width: 768px) {
+        min-height: 1000px !important;
+      }
+
+      @media only screen and (min-width: 800px) {
+        min-height: 1000px !important;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        min-height: 1000px !important;
+      }
+
+      @media only screen and (min-width: 1200px) {
+        min-height: 1000px !important;
+      }
+    }
+  }
+  .tree-info {
+    width: 100%;
+
+    &__title {
+      padding: 12px 8px 12px 16px;
+      background: #eff5ec;
+    }
+    &__text {
+      padding: 8px 0;
+      @media only screen and (min-width: 768px) {
+        padding: 14px 0;
+      }
+      &.none-border {
+        border-bottom: none;
+      }
+      &.line {
+        border-bottom: 1px solid #dceec0;
+      }
+      p {
+        &:first-child {
+          font-size: 12px;
+          @media only screen and (min-width: 768px) {
+            font-size: 14px;
+          }
+          color: #333333;
+        }
+        &:last-child {
+          font-size: 14px;
+          @media only screen and (min-width: 768px) {
+            font-size: 16px;
+          }
+          font-weight: 600;
+          color: #222222;
+        }
+      }
+    }
+    &__certificate {
+      max-width: 100%;
+
+      .certificateComponent__content {
+        max-width: calc(100% - 1rem);
+      }
+      .certificateComponent__title {
+        font-size: 0.5rem !important;
+
+        @media only screen and (min-width: 300px) {
+          font-size: 0.6rem !important;
+        }
+
+        @media only screen and (min-width: 350px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 400px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 450px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 500px) {
+          font-size: 0.9rem !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 800px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          font-size: 1rem !important;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 1.2rem !important;
+        }
+      }
+      .certificateComponent__des {
+        font-size: 0.3rem !important;
+
+        @media only screen and (min-width: 300px) {
+          font-size: 0.35rem !important;
+        }
+
+        @media only screen and (min-width: 350px) {
+          font-size: 0.4rem !important;
+        }
+
+        @media only screen and (min-width: 400px) {
+          font-size: 0.5rem !important;
+        }
+
+        @media only screen and (min-width: 450px) {
+          font-size: 0.6rem !important;
+        }
+
+        @media only screen and (min-width: 500px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.45rem !important;
+        }
+
+        @media only screen and (min-width: 780px) {
+          font-size: 0.43rem !important;
+        }
+        @media only screen and (min-width: 800px) {
+          font-size: 0.5rem !important;
+        }
+
+        @media only screen and (min-width: 850px) {
+          font-size: 0.55rem !important;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 0.8rem !important;
+        }
+      }
+      .certificateComponent__sign-title {
+        font-size: 0.4rem;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.4rem;
+        }
+
+        @media only screen and (min-width: 1000px) {
+          font-size: 0.6rem;
+        }
+      }
+      .certificateComponent__sign-img {
+        width: 2.7rem;
+
+        @media only screen and (min-width: 1024px) {
+          width: 4rem;
+        }
+      }
+      .certificateComponent__sign-name {
+        font-size: 0.4rem;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.5rem !important;
+        }
+
+        @media only screen and (min-width: 1000px) {
+          font-size: 0.7rem !important;
+        }
+      }
+      .certificateComponent__sign-wrapper {
+        margin-bottom: 1.4rem;
+      }
+      .certificateComponent__logo {
+        transform: scale(0.9);
+
+        // @media only screen and (min-width: 768px) {
+        //   transform: scale(0.9);
+        // }
+      }
+      .certificateComp__show {
+        font-size: 0.46rem !important;
+
+        @media only screen and (min-width: 300px) {
+          font-size: 0.5rem !important;
+        }
+
+        @media only screen and (min-width: 350px) {
+          font-size: 0.55rem !important;
+        }
+
+        @media only screen and (min-width: 400px) {
+          font-size: 0.55rem !important;
+        }
+
+        @media only screen and (min-width: 450px) {
+          font-size: 0.65rem !important;
+        }
+
+        @media only screen and (min-width: 500px) {
+          font-size: 0.9rem !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.9rem !important;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          font-size: 1rem !important;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 1.1rem !important;
+        }
+      }
+      .certificateComp__text-title {
+        font-size: 0.35rem !important;
+
+        @media only screen and (min-width: 300px) {
+          font-size: 0.35rem !important;
+        }
+
+        @media only screen and (min-width: 350px) {
+          font-size: 0.45rem !important;
+        }
+
+        @media only screen and (min-width: 400px) {
+          font-size: 0.55rem !important;
+        }
+
+        @media only screen and (min-width: 450px) {
+          font-size: 0.65rem !important;
+        }
+
+        @media only screen and (min-width: 500px) {
+          font-size: 0.9rem !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size: 0.7rem !important;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          font-size: 0.8rem !important;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 0.9rem !important;
+        }
+      }
+      .certificateComponent__logo {
+        &-1 {
+          span {
+            width: 14px !important;
+
+            @media only screen and (min-width: 500px) {
+              width: 20px !important;
+            }
+
+            @media only screen and (min-width: 768px) {
+              width: 20px !important;
+            }
+          }
+        }
+        &-japan {
+          span {
+            width: 15px !important;
+
+            @media only screen and (min-width: 500px) {
+              width: 17px !important;
+            }
+
+            @media only screen and (min-width: 768px) {
+              width: 20px !important;
+            }
+          }
+        }
+        &-solution {
+          width: 15px !important;
+
+          @media only screen and (min-width: 500px) {
+            width: 17px !important;
+          }
+
+          @media only screen and (min-width: 768px) {
+            width: 20px !important;
+          }
+        }
+      }
+      .certificateComponent__name {
+        font-size: 0.7rem !important;
+
+        @media only screen and (min-width: 300px) {
+          font-size: 0.9rem !important;
+        }
+
+        @media only screen and (min-width: 500px) {
+          font-size: 1.3rem !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+          font-size: 1rem !important;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          font-size: 1.35rem !important;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          font-size: 1.5rem !important;
+        }
+      }
+      .certificateComponent__pana {
+        img {
+          width: 60px !important;
+
+          @media only screen and (min-width: 500px) {
+            width: 90px !important;
+          }
+
+          @media only screen and (min-width: 768px) {
+            width: 100px !important;
+          }
+
+          @media only screen and (min-width: 1200px) {
+            width: 100px !important;
+          }
+        }
+      }
+      // transform: scale(1, 1);
+      // @media only screen and (max-width: 300px) {
+      //   transform: scale(1, 0.7);
+      // }
+      // @media only screen and (max-width: 360px) {
+      //   transform: scale(1, 0.7);
+      // }
+      // @media only screen and (min-width: 768px) {
+      //   transform: scale(1, 0.5);
+      // }
+
+      // @media only screen and (min-width: 800px) {
+      //   transform: scale(1, 0.5);
+      // }
+
+      // @media only screen and (min-width: 1300px) {
+      //   transform: scale(1, 1);
+      // }
+      // .certificateComponent__bg {
+      //   // transform: scale(1.35, 1.05);
+
+      //   // @media only screen and (min-width: 768px) {
+      //   //   transform: scale(1.35, 1.05);
+      //   // }
+
+      //   // @media only screen and (min-width: 1024px) {
+      //   //   transform: scale(1, 1);
+      //   // }
+      // }
+
+      // .certificateComponent__logo-1 {
+      //   span {
+      //     @media only screen and (max-width: 500px) {
+      //       width: 20px !important;
+      //     }
+      //   }
+      // }
+      // .certificateComponent__pana {
+      //   span {
+      //     @media only screen and (max-width: 500px) {
+      //       width: 80px !important;
+      //       height: 15px !important;
+      //     }
+      //   }
+      // }
+
+      // .certificateComponent__content {
+      //   transform: scale(1, 1);
+
+      //   @media only screen and (max-width: 380px) {
+      //     transform: scale(0.99, 1);
+      //   }
+
+      //   @media only screen and (max-width: 360px) {
+      //     transform: scale(0.98, 1);
+      //   }
+
+      //   @media only screen and (max-width: 350px) {
+      //     transform: scale(0.96, 1);
+      //   }
+
+      //   @media only screen and (max-width: 328px) {
+      //     transform: scale(0.88, 1);
+      //   }
+
+      //   @media only screen and (max-width: 320px) {
+      //     transform: scale(0.8, 1);
+      //   }
+
+      //   @media only screen and (max-width: 300px) {
+      //     transform: scale(0.8, 1);
+      //   }
+
+      //   @media only screen and (max-width: 270px) {
+      //     transform: scale(0.7, 1);
+      //   }
+
+      //   @media only screen and (min-width: 768px) {
+      //     transform: scale(0.62, 1);
+      //   }
+
+      //   @media only screen and (min-width: 790px) {
+      //     transform: scale(0.68, 1);
+      //   }
+
+      //   @media only screen and (min-width: 800px) {
+      //     transform: scale(0.65, 1);
+      //   }
+
+      //   @media only screen and (min-width: 820px) {
+      //     transform: scale(0.7, 1);
+      //   }
+
+      //   @media only screen and (min-width: 850px) {
+      //     transform: scale(0.75, 1);
+      //   }
+
+      //   @media only screen and (min-width: 900px) {
+      //     transform: scale(0.8, 1);
+      //   }
+
+      //   @media only screen and (min-width: 910px) {
+      //     transform: scale(0.8, 1);
+      //   }
+
+      //   @media only screen and (min-width: 950px) {
+      //     transform: scale(0.85, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1000px) {
+      //     transform: scale(0.9, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1024px) {
+      //     transform: scale(0.82, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1060px) {
+      //     transform: scale(0.87, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1070px) {
+      //     transform: scale(0.87, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1096px) {
+      //     transform: scale(0.88, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1100px) {
+      //     transform: scale(0.9, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1120px) {
+      //     transform: scale(0.92, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1160px) {
+      //     transform: scale(0.96, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1190px) {
+      //     transform: scale(1, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1200px) {
+      //     transform: scale(1, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1240px) {
+      //     transform: scale(1, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1250px) {
+      //     transform: scale(1, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1280px) {
+      //     transform: scale(0.92, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1300px) {
+      //     transform: scale(0.96, 1);
+      //   }
+
+      //   @media only screen and (min-width: 1350px) {
+      //     transform: scale(1, 1);
+      //   }
+      //   @media only screen and (min-width: 1400px) {
+      //     transform: scale(1, 1);
+      //   }
+      //   @media only screen and (min-width: 1450px) {
+      //     transform: scale(0.99, 1);
+      //   }
+      // }
+      // zoom: 0.3;
+
+      // @media only screen and (min-width: 300px) {
+      //   zoom: 0.35;
+      // }
+      // @media only screen and (min-width: 350px) {
+      //   zoom: 0.5;
+      // }
+
+      // @media only screen and (min-width: 400px) {
+      //   zoom: 0.5;
+      // }
+
+      // @media only screen and (min-width: 450px) {
+      //   zoom: 0.65;
+      // }
+
+      // @media only screen and (min-width: 500px) {
+      //   zoom: 0.77;
+      // }
+
+      // @media only screen and (min-width: 600px) {
+      //   zoom: 0.85;
+      // }
+
+      // @media only screen and (min-width: 650px) {
+      //   zoom: 0.9;
+      // }
+
+      // @media only screen and (min-width: 700px) {
+      //   zoom: 1;
+      // }
+
+      // @media only screen and (min-width: 800px) {
+      //   zoom: 0.5;
+      // }
+
+      // @media only screen and (min-width: 900px) {
+      //   zoom: 0.6;
+      // }
+
+      // @media only screen and (min-width: 1024px) {
+      //   zoom: 0.66;
+      // }
+
+      // @media only screen and (min-width: 1200px) {
+      //   zoom: 0.72;
+      // }
+
+      // @media only screen and (min-width: 1300px) {
+      //   zoom: 0.72;
+      // }
+
+      // @media only screen and (min-width: 1500px) {
+      //   zoom: 0.88;
+      // }
+
+      // @media only screen and (min-width: 1700px) {
+      //   zoom: 1;
+      // }
+
+      // @include responsive(lg-screen) {
+      //   zoom: 0.65;
+      // }
+      // @include responsive(xl-screen) {
+      //   zoom: 0.85;
+      // }
+    }
+    &__certification {
+      background: url("../../public/images/treeDetailBackgroundCertification.png");
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      &__button {
+      }
+    }
+    .map__name {
+      color: #fff;
+      background: rgba(79, 149, 50, 0.3);
+      border: 1px solid #0c321e;
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.treeDetail {
+  &__share {
+    position: absolute;
+    top: -100%;
+    display: none;
+    z-index: 3;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #fff;
+    left: 0;
+
+    &.active {
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 9px 10px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
+  }
+  &__story {
+    &-image {
+      .swiper {
+        padding-bottom: 2.5rem;
+      }
+      .swiper-pagination-bullet {
+        margin: 0 0.3rem !important;
+        background-color: #d9d9d9;
+        opacity: 1;
+        &-active {
+          background-color: $green-primary;
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}
+
+.journey {
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+  &__swiper {
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+      height: auto !important;
+    }
+  }
+
+  &__line {
+    height: 20px;
+    position: relative;
+    margin-top: 20px;
+
+    &.left {
+      &::before {
+        position: absolute;
+        content: " ";
+        border-bottom: 1px solid #dceec0;
+        width: 50%;
+        height: 1px;
+        top: 10px;
+        left: 0;
+        right: none;
+      }
+    }
+
+    &.right {
+      &::before {
+        position: absolute;
+        content: " ";
+        border-bottom: 1px solid #dceec0;
+        width: 50%;
+        height: 1px;
+        top: 10px;
+        right: 0;
+        left: 50%;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: " ";
+      border-bottom: 1px solid #dceec0;
+      width: 100%;
+      height: 1px;
+      top: 10px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+.react-multi-carousel-track {
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    .line {
+      height: 20px;
+      position: relative;
+      margin-top: 20px;
+      &::before {
+        position: absolute;
+        content: " ";
+        border-bottom: 1px solid #dceec0;
+        width: 100%;
+        height: 1px;
+        top: 10px;
+        left: 0;
+        right: 0;
+      }
+    }
+    &:first-child {
+      .line {
+        &::before {
+          position: absolute;
+          content: " ";
+          width: 50%;
+          height: 1px;
+          top: 10px;
+          right: 0;
+          transform: translateX(100%);
+        }
+      }
+    }
+    &:last-child {
+      .line {
+        &::before {
+          position: absolute;
+          content: " ";
+          width: 50%;
+          height: 1px;
+          top: 10px;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+.custom-carousel {
+  .react-multi-carousel-dot-list {
+    gap: 16px;
+    align-items: center;
+    margin-top: 12px;
+    position: unset;
+    .custom-dot {
+      width: 12px;
+      height: 12px;
+      &.active {
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        p {
+          width: 12px;
+          height: 12px;
+        }
+      }
+      &.inactive {
+        width: 12px;
+        height: 12px;
+        p {
+          width: 8px;
+          height: 8px;
+          background-color: #d9d9d9;
+          line-height: 9px;
+          display: block;
+          margin: 0 auto;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}

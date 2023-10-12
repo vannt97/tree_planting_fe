@@ -1,0 +1,121 @@
+.header {
+  background-color: #fff;
+
+  &__list {
+    @media only screen and (min-width: 1300px) {
+      width: 60%;
+      justify-content: space-between;
+    }
+    li {
+      transition: all ease 0.3s;
+    }
+  }
+
+  &__container {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    &.float {
+      position: fixed;
+      animation: fadeTopToDown ease 0.3s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__icon {
+    span {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__logo {
+    span {
+      width: 140px !important;
+      height: 21px !important;
+
+      @include responsive(md-screen) {
+        width: 140px !important;
+        height: 21px !important;
+      }
+
+      @include responsive(lg-screen) {
+        width: 160px !important;
+        height: 24px !important;
+      }
+
+      @include responsive(xl-screen) {
+        width: 180px !important;
+        height: 26px !important;
+      }
+
+      @media only screen and (min-width: 900px) {
+      }
+    }
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 1.9rem;
+  }
+
+  &__link {
+    font-size: 0.98em;
+    margin-right: 0.55rem;
+    transition: all ease 0.3s;
+
+    &:hover {
+      color: $green-primary;
+    }
+
+    @media only screen and (min-width: 845px) {
+      font-size: 1rem;
+      margin-right: 0.7rem;
+    }
+  }
+
+  &__nav {
+    .ant-drawer-header {
+      border: none;
+      .ant-drawer-header-title {
+        justify-content: flex-end;
+      }
+      .ant-drawer-close {
+        margin: 0;
+      }
+    }
+    .ant-drawer-body {
+      padding: 0 !important;
+    }
+    .ant-drawer-wrapper-body {
+      background-color: $green-primary;
+    }
+    &-list {
+      &-item {
+        &-link {
+          color: #fff;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all ease 0.3s;
+
+          &:hover {
+            background-color: $green-29;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeTopToDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

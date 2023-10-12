@@ -1,0 +1,47 @@
+.footer {
+  background-color: $green-primary;
+  color: #fff;
+  font-weight: 400;
+  font-size: 0.72rem;
+  margin-top: 2rem;
+
+  @media only screen and (max-width: 380px) {
+    font-size: 0.6rem;
+  }
+
+  @include responsive(sm-screen) {
+    font-size: 0.72rem;
+  }
+
+  @include responsive(md-screen) {
+    font-size: 1rem;
+  }
+
+  &__social {
+    span {
+      width: 20px !important;
+      height: 20px !important;
+
+      @include responsive(md-screen) {
+        width: 27px !important;
+        height: 27px !important;
+      }
+    }
+  }
+
+  &__text {
+    &-link {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        background-color: #fff;
+        height: 100%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.garden {
+  color: red;
+  // background-image: url('../../public/images/garden.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  &__title {
+    color: #00874a;
+    padding: 40px 0px 20px;
+    text-transform: uppercase;
+    p {
+      text-align: center;
+      font-weight: 900;
+    }
+  }
+  &__trees {
+    display: grid;
+    height: calc((100%) * 1.4 / 3);
+    width: 100%;
+    position: absolute;
+  }
+}
+.garden-tree-modal {
+  .ant-modal-header,
+  .ant-modal-close-x {
+    display: none;
+  }
+}

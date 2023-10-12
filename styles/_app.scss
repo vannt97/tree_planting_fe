@@ -1,0 +1,31 @@
+// Base
+@import "./base/variables";
+@import "./base/mixin";
+@import "./base/base";
+@import "./base/custom-antd.scss";
+
+// Components
+@import "./components/product-item";
+@import "./components/post-item";
+@import "./components/wheel-lucky";
+@import "./components/modal-custom";
+@import "./components/certificateComponent";
+@import "./components/certificateComp";
+@import "./components/tree-share";
+@import "./components/back-to-top";
+@import "./components/card-game";
+
+// Pages
+@import "./containers/landing";
+@import "./containers/home";
+@import "./base/variables";
+@import "./containers/treeDetail";
+@import "./containers/garden";
+@import "./containers/quiz-verify";
+@import "./containers/quiz";
+
+//Layouts
+@import "./layouts/header";
+@import "./layouts/footer";
+
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Zen+Maru+Gothic:wght@300;500;700;900&display=swap");

@@ -1,0 +1,82 @@
+.certificateComp {
+    position: relative;
+    background-size: 100% 100%;
+    width: 800px;
+    max-width: 100%;
+    background-repeat: no-repeat;
+
+    &__download {
+        position: fixed;
+        top: -100%;
+        z-index: 10;
+        left: 0;
+        transform: translate(-100%, -100%);
+
+        &-comp {
+            position: relative;
+            background-size: 100% 100%;
+            width: 800px;
+            background-repeat: no-repeat;
+        }
+        &-content {
+            height: 90%;
+            width: calc(100% - 22rem);
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+    }
+
+    &__bg {
+        width: 100%;
+        height: 100%;
+    }
+    &__show {
+        color: #414042;
+        font-weight: 600;
+    }
+    &__content {
+        height: 90%;
+        width: calc(100% - 5rem);
+        margin: 0 auto;
+        padding: 3rem 0;
+
+        &.w-5rem {
+            width: calc(100% - 5rem);
+        }
+
+        @include responsive(md-screen) {
+            width: calc(100% - 15rem);
+
+            padding: 4rem 0;
+        }
+
+        @include responsive(lg-screen) {
+            width: calc(100% - 22rem);
+
+            padding: 5rem 0;
+        }
+
+        @include responsive(xl-screen) {
+            width: calc(100% - 22rem);
+        }
+    }
+    &__title {
+    }
+    &__text-title {
+        color: #414042;
+        margin: 0 auto;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            background-color: #ccc;
+            width: 100%;
+            top: 100%;
+        }
+    }
+    &__text {
+        color: #414042;
+    }
+}
