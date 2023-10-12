@@ -36,7 +36,6 @@ export const store = configureStore({
       QuizManageAPI.middleware,
     ]),
 });
-
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<

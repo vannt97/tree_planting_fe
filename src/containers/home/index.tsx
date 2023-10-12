@@ -564,7 +564,7 @@ function HomePage({ imageData: dataImage }) {
           </div>
         )}
         <Map></Map>
-        {/* <article id="partner" className="home__partner mb-10">
+        <article id="partner" className="home__partner mb-10">
           <div className="container-custom">
             <div className="py-10">
               <h1 className="text-white-500 font-semibold uppercase text-center mb-8 text-2xl tablet:text-2.5xl">
@@ -586,7 +586,7 @@ function HomePage({ imageData: dataImage }) {
           <HomePost />
         </div>
 
-        <Script src="https://sp.zalo.me/plugins/sdk.js"></Script> */}
+        <Script src="https://sp.zalo.me/plugins/sdk.js"></Script>
       </section>
     </>
   );

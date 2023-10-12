@@ -155,6 +155,7 @@ const Map = ({ trackingData, children }: any) => {
     return stringLocationArr;
   }, [MergeArr, trackingData]);
 
+
   const StoryAndHistory = useMemo(() => {
     if (screenWidth) {
       return (
@@ -215,6 +216,7 @@ const Map = ({ trackingData, children }: any) => {
   }, [screenWidth, screenHeight]);
 
   const projection = geoPolyhedralWaterman().translate([-3550, 1900]).scale(2300).rotate([0, 0, 0]);
+  // const projection = geoPolyhedralWaterman().translate([-3650, 1900]).scale(2300).rotate([0, 0, 0]);
 
   const TreeMap = useMemo(() => {
     if (screenWidth) {
@@ -235,49 +237,51 @@ const Map = ({ trackingData, children }: any) => {
               {({ geographies }) => {
                 return geographies.map(
                   (geography, i: number) =>
-                    geography.id !== 'ATA' && (
-                      <Geography
-                        onClick={() => handleClick(geography)}
-                        key={i}
-                        geography={geography}
-                        className="cursor-pointer"
-                        style={{
-                          default: {
-                            fill:
-                              router.pathname === '/'
-                                ? HomeHighlight(geography)
-                                : router.pathname === '/tree-detail/[id]'
-                                ? DetailHighlight(geography)
-                                : '',
-                            stroke: '#F59FBC',
-                            strokeWidth: 1,
-                            outline: 'none',
-                          },
-                          hover: {
-                            fill:
-                              router.pathname === '/'
-                                ? HomeHighlight(geography)
-                                : router.pathname === '/tree-detail/[id]'
-                                ? DetailHighlight(geography)
-                                : '',
-                            stroke: '#F59FBC',
-                            strokeWidth: 1,
-                            outline: 'none',
-                          },
-                          pressed: {
-                            fill:
-                              router.pathname === '/'
-                                ? HomeHighlight(geography)
-                                : router.pathname === '/tree-detail/[id]'
-                                ? DetailHighlight(geography)
-                                : '',
-                            stroke: '#F59FBC',
-                            strokeWidth: 1,
-                            outline: 'none',
-                          },
-                        }}
-                      />
-                    )
+                    {
+                      return geography.id !== 'ATA' && (
+                        <Geography
+                          onClick={() => handleClick(geography)}
+                          key={i}
+                          geography={geography}
+                          className="cursor-pointer"
+                          style={{
+                            default: {
+                              fill:
+                                router.pathname === '/'
+                                  ? HomeHighlight(geography)
+                                  : router.pathname === '/tree-detail/[id]'
+                                  ? DetailHighlight(geography)
+                                  : '',
+                              stroke: '#F59FBC',
+                              strokeWidth: 1,
+                              outline: 'none',
+                            },
+                            hover: {
+                              fill:
+                                router.pathname === '/'
+                                  ? HomeHighlight(geography)
+                                  : router.pathname === '/tree-detail/[id]'
+                                  ? DetailHighlight(geography)
+                                  : '',
+                              stroke: '#F59FBC',
+                              strokeWidth: 1,
+                              outline: 'none',
+                            },
+                            pressed: {
+                              fill:
+                                router.pathname === '/'
+                                  ? HomeHighlight(geography)
+                                  : router.pathname === '/tree-detail/[id]'
+                                  ? DetailHighlight(geography)
+                                  : '',
+                              stroke: '#F59FBC',
+                              strokeWidth: 1,
+                              outline: 'none',
+                            },
+                          }}
+                        />
+                      )
+                    }
                 );
               }}
             </Geographies>

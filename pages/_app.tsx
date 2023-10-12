@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
 `;
+
 moment.locale('vi');
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
