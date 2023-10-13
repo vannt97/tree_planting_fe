@@ -305,115 +305,128 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
 
   return (
     <>
-      <Form form={form} layout="vertical" onFinish={handleSubmitForm} autoComplete="off">
-        <Form.Item
-          name="fullName"
-          label="Họ và tên"
-          rules={[
-            { required: true, message: 'Vui lòng nhập họ và tên' },
-            { max: 255, message: 'Độ dài không quá 255 kí tự' },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="phoneNumber"
-          label="Số điện thoại"
-          rules={[
-            { required: true, message: 'Vui lòng nhập số điện thoại' },
-            { max: 20, message: 'Độ dài không quá 20 kí tự' },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <div className="custom-datepicker">
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={handleSubmitForm}
+        autoComplete="off"
+        className="relative pt-6 pb-10 px-4 w-[80%] mx-auto"
+      >
+        <div className="absolute top-0 left-0 w-full h-full bg-white-500 opacity-10 rounded-3xl"></div>
+        <div className="px-10 relative">
+          <p className="text-center text-white-500 mb-4">
+            Kích hoạt bảo hành để nhận mã số cây và các thông tin chi tiết về hành trình phát triển
+            cây của bạn
+          </p>
           <Form.Item
-            rules={[{ required: true, message: 'Vui lòng nhập ngày mua' }]}
-            name="buyDate"
-            label="Ngày mua"
+            name="fullName"
+            rules={[
+              { required: true, message: 'Vui lòng nhập họ và tên' },
+              { max: 255, message: 'Độ dài không quá 255 kí tự' },
+            ]}
           >
-            <DatePicker
-              className="custom-datepicker"
+            <Input placeholder="Họ và tên*" className="placeholder:" />
+          </Form.Item>
+          <div className="flex ">
+            <Form.Item
+              name="phoneNumber"
+              className="mr-3 w-[70%]"
+              rules={[
+                { required: true, message: 'Vui lòng nhập số điện thoại' },
+                { max: 20, message: 'Độ dài không quá 20 kí tự' },
+              ]}
+            >
+              <Input placeholder="Số điện thoại*" />
+            </Form.Item>
+            <div className="custom-datepicker ml-3 w-[30%]">
+              <Form.Item
+                rules={[{ required: true, message: 'Vui lòng nhập ngày mua' }]}
+                name="buyDate"
+              >
+                <DatePicker
+                  className="custom-datepicker"
+                  allowClear={false}
+                  placement="bottomRight"
+                  placeholder="Ngày mua*"
+                  format={'DD/MM/YYYY'}
+                  disabledDate={(d) => !d || d.isBefore(moment('01/11/2022', 'DD/MM/YYYY'))}
+                />
+              </Form.Item>
+            </div>
+          </div>
+          <Form.Item
+            name="model"
+            rules={[
+              { required: true, message: 'Vui lòng nhập model' },
+              { max: 100, message: 'Độ dài không quá 100 kí tự' },
+            ]}
+          >
+            <Input placeholder="Model*" />
+          </Form.Item>
+          <Form.Item
+            name="serial"
+            rules={[
+              { required: true, message: 'Vui lòng nhập serial' },
+              { max: 100, message: 'Độ dài không quá 100 kí tự' },
+            ]}
+          >
+            <Input placeholder="Serial*" />
+          </Form.Item>
+
+          <Form.Item
+            name="province"
+            rules={[{ required: true, message: 'Vui lòng nhập tỉnh thành' }]}
+          >
+            <Select
+              placeholder="Tỉnh thành*"
               allowClear={false}
-              placement="bottomRight"
-              placeholder=""
-              format={'DD/MM/YYYY'}
-              disabledDate={(d) => !d || d.isBefore(moment('01/11/2022', 'DD/MM/YYYY'))}
-            />
+              showSearch
+              filterOption={(input, option) =>
+                option.children.toString().toLowerCase().includes(input.toLowerCase())
+              }
+              suffixIcon={<Image src={chevronIcon} alt="" />}
+              onChange={(value, option) => handleChangeProvinces(value, option)}
+            >
+              {provinces.map((province) => (
+                <Option key={province.code} value={province.code}>
+                  {province.province}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+          {/* <Form.Item
+            name="PGCode"
+            label="Mã giới thiệu PG"
+            rules={[{ max: 100, message: 'Độ dài không quá 100 kí tự' }]}
+          >
+            <Input />
+          </Form.Item> */}
+          <Form.Item className="m-0">
+            <div
+              onClick={() => setShowPolicy(!showPolicy)}
+              className="flex cursor-pointer items-start tablet:items-center"
+            >
+              <span className="flex justify-center items-center">
+                <Image src={checkCircle} width={25} height={25} alt="" />
+              </span>
+              <p className="color-text-e text-base ml-3">
+                Bằng việc đăng ký kích hoạt bảo hành, bạn đã đồng ý với&nbsp;
+                <span className="color-text-green-29 cursor-pointer">điều khoản</span>
+                &nbsp; của chương trình
+              </p>
+            </div>
           </Form.Item>
         </div>
-        <Form.Item
-          name="model"
-          label="Model"
-          rules={[
-            { required: true, message: 'Vui lòng nhập model' },
-            { max: 100, message: 'Độ dài không quá 100 kí tự' },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="serial"
-          label="Serial"
-          rules={[
-            { required: true, message: 'Vui lòng nhập serial' },
-            { max: 100, message: 'Độ dài không quá 100 kí tự' },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="province"
-          label="Tỉnh thành"
-          rules={[{ required: true, message: 'Vui lòng nhập tỉnh thành' }]}
-        >
-          <Select
-            allowClear={false}
-            showSearch
-            filterOption={(input, option) =>
-              option.children.toString().toLowerCase().includes(input.toLowerCase())
-            }
-            suffixIcon={<Image src={chevronIcon} alt="" />}
-            onChange={(value, option) => handleChangeProvinces(value, option)}
-          >
-            {provinces.map((province) => (
-              <Option key={province.code} value={province.code}>
-                {province.province}
-              </Option>
-            ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-          name="PGCode"
-          label="Mã giới thiệu PG"
-          rules={[{ max: 100, message: 'Độ dài không quá 100 kí tự' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item>
-          <div
-            onClick={() => setShowPolicy(!showPolicy)}
-            className="flex cursor-pointer items-start tablet:items-center"
-          >
-            <span className="flex justify-center items-center">
-              <Image src={checkCircle} width={25} height={25} alt="" />
-            </span>
-            <p className="color-text-e text-base ml-3">
-              Bằng việc đăng ký kích hoạt bảo hành, bạn đã đồng ý với&nbsp;
-              <span className="color-text-green-29 cursor-pointer">điều khoản</span>
-              &nbsp; của chương trình
-            </p>
+        <div className="flex justify-center absolute bottom-[0px]  translate-y-2/4  left-[50%] -translate-x-2/4">
+            <button
+              type="submit"
+              className={`py-3 px-10 font-bold home__form-btn text-white-500 ${
+                loading ? 'loading' : ''
+              }`}
+            >
+              Kích hoạt <Spin spinning={loading}></Spin>
+            </button>
           </div>
-        </Form.Item>
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className={`py-3 px-10 home__form-btn color-text-1e ${loading ? 'loading' : ''}`}
-          >
-            Kích hoạt <Spin spinning={loading}></Spin>
-          </button>
-        </div>
       </Form>
       {showError500 && (
         <p className="color-text-red-9d text-sl mt-3">
@@ -446,7 +459,7 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
         onClose={() => setShow(false)}
         hideTextAndButton={hideTextAndButton}
       />
-      <div className="home__tree-share">
+      {/* <div className="home__tree-share">
         <div className="flex items-center justify-center" ref={treeShare}>
           <TreeShareFacebook
             defaultImage
@@ -483,7 +496,7 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
             }}
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

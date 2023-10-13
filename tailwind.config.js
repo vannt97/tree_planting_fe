@@ -42,6 +42,7 @@ module.exports = {
     extend: {
       colors: {
         // set up theme colors
+        "secondary-color": "#e8f8ee",
         primary: {
           50: "#EB4B4F",
           100: "#70F0B5",

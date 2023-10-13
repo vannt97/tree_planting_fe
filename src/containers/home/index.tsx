@@ -11,6 +11,17 @@ import registerCropImg from 'public/images/dangkytrongcay.png';
 import downloadStoreImg from 'public/images/download-app-store.png';
 import downloadGgPlayImg from 'public/images/download-gg-play.png';
 import home1Img from 'public/images/home-1.png';
+import decorLeaf1 from 'public/images/decor-leaf-1.png';
+import decorLeaf2 from 'public/images/decor-leaf-2.png';
+import decorLeaf3 from 'public/images/decor-leaf-3.png';
+import decorLeaf4 from 'public/images/decor-leaf-4.png';
+import decorLeaf5 from 'public/images/decor-leaf-5.png';
+import decorLeaf6 from 'public/images/decor-leaf-6.png';
+import productHome1 from 'public/images/product-home-1.png';
+import productHome2 from 'public/images/product-home-2.png';
+import productHome3 from 'public/images/product-home-3.png';
+import productHome4 from 'public/images/product-home-4.png';
+import productHome5 from 'public/images/product-home-5.png';
 import { useEffect, useMemo, useState } from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -46,7 +57,7 @@ function HomePage({ imageData: dataImage }) {
       }
       return { ...item, isVideo: false };
     });
-    if (dataImage?.bannerIsVideo) {
+    if (!dataImage?.bannerIsVideo) {
       arr = [...formatVideo.sort((a: any, b: any) => a.order - b.order)];
     } else {
       arr = [...formatImage.sort((a: any, b: any) => a.order - b.order)];
@@ -82,11 +93,9 @@ function HomePage({ imageData: dataImage }) {
             </div>
           );
         } else {
-          return <>
-          </>;
+          return <></>;
         }
       }
-
       return (
         <SwiperSlide key={index}>
           <div key={item.url}>
@@ -131,7 +140,6 @@ function HomePage({ imageData: dataImage }) {
     }
   });
 
-
   return (
     <>
       <Head>
@@ -164,37 +172,44 @@ function HomePage({ imageData: dataImage }) {
             {VideoMemo}
           </Swiper>
         </div>
-        <article className="container-custom">
-          <h1 className="color-primary font-semibold uppercase text-center mb-3 mt-8 text-2xl tablet:text-2.5xl">
-            MỖI SẢN PHẨM&nbsp;
+        <article className="container-custom relative z-[5]">
+          <img src={decorLeaf1.src} alt="leaf" className="absolute -top-[4%] left-0" />
+          <img src={decorLeaf2.src} alt="leaf" className="absolute -bottom-[40%] right-0" />
+
+          <h1 className="color-primary font-bold uppercase text-center mb-3 mt-8 text-2xl tablet:text-2.5xl">
+            CÁCH THỨC THAM GIA&nbsp;
             <br className="block tablet:hidden" />
-            MỘT CÂY XANH
+            CHƯƠNG TRÌNH
           </h1>
 
-          <p className="color-text-55 text-center color-text-33 mb-3">
-            Từ ngày 01/11/2022 đến 31/03/2023, với mỗi sản phẩm thuộc bộ{' '}
-            <span className="color-primary font-semibold">GIẢI PHÁP SỨC KHỎE TOÀN DIỆN</span> được
-            bán ra, Panasonic Việt Nam sẽ trồng một cây xanh
-            <br className="hidden desktop:block" /> phát triển rừng.
+          <p className="color-text-55 text-center color-text-33 ">
+            Rừng đầy ắp những câu chuyện truyền cảm hứng về cuộc sống khỏe mạnh. Nếu rừng không còn
+          </p>
+          <p className="color-text-55 text-center color-text-33 mb-6">
+            {/* <span>
+              Rừng đầy ắp những câu chuyện truyền cảm hứng về cuộc sống khỏe mạnh. Nếu rừng không
+              còn{' '}
+            </span> */}
+            cây, chuyện hay cũng không còn. Hãy cùng Panasonic sống khỏe, góp xanh để giữ chuyện
+            rừng còn mãi.
           </p>
 
-          <h3 className="color-primary font-semibold text-1xl text-center mb-3 uppercase">
-            VÌ MỘT VIỆT NAM XANH KHỎE MẠNH
-          </h3>
-
-          <p className="text-center color-text-33 mb-3">
-            Mỗi cây sẽ có một mã số riêng giúp bạn có thể theo dõi và ngắm nhìn tiến trình sinh
-            trưởng bất kỳ lúc nào.
+          <p className="text-center color-text-33 ">
+            Từ ngày 1/11/2023 - 31/3/2024 với mỗi sản phẩm thuộc bộ GIẢI PHÁP SỨC KHỎE TOÀN DIỆN
+            được
           </p>
 
           <p className="text-center color-text-33">
-            Mời bạn đăng kí bảo hành điện tử để nhận mã cây và có cơ hội nhận nhiều ưu đãi hấp dẫn
-            từ Panasonic Việt Nam.
+            {/* <span>
+              Từ ngày 1/11/2023 - 31/3/2024 với mỗi sản phẩm thuộc bộ GIẢI PHÁP SỨC KHỎE TOÀN DIỆN
+              được
+            </span> */}
+            bán ra, Panasonic Việt Nam sẽ trồng một cây xanh để phát triển rừng.
           </p>
-          <div className="grid grid-cols-3 my-10 gap-4 tablet:gap-8">
+          <div className="w-[85%] mx-auto grid grid-cols-3 my-10 gap-4 tablet:gap-8">
             <a
               href={'#regiterWarranty'}
-              className="border-primary home__intro flex p-2 tablet:p-3 laptop:p-5 flex-col items-center"
+              className="bg-secondary-color home__intro flex  tablet:p-3 laptop:px-5 laptop:py-16 flex-col items-center"
             >
               <span className="home__intro-img">
                 <svg
@@ -253,7 +268,7 @@ function HomePage({ imageData: dataImage }) {
                   </defs>
                 </svg>
               </span>
-              <span className="color-primary home__intro-text text-base tablet:text-1xl mt-2 text-center font-semibold">
+              <span className="color-primary home__intro-text text-base tablet:text-1xl mt-2 text-center font-bold">
                 Kích hoạt
                 <br className="block tablet:hidden" /> bảo hành
               </span>
@@ -262,7 +277,7 @@ function HomePage({ imageData: dataImage }) {
             <a
               href="#followTree"
               to="followTree"
-              className="border-primary home__intro flex p-2 tablet:p-3 laptop:p-5 flex-col items-center"
+              className="bg-secondary-color home__intro flex  tablet:p-3 laptop:p-5 laptop:py-16 flex-col items-center"
             >
               <span className="home__intro-img">
                 <svg
@@ -298,7 +313,7 @@ function HomePage({ imageData: dataImage }) {
                   />
                 </svg>
               </span>
-              <span className="color-primary mt-2 text-center text-base tablet:text-1xl font-semibold home__intro-text">
+              <span className="color-primary mt-2 text-center text-base tablet:text-1xl font-bold home__intro-text">
                 Theo dõi cây
               </span>
             </a>
@@ -306,7 +321,7 @@ function HomePage({ imageData: dataImage }) {
             <a
               href="#registerPlanting"
               to="registerPlanting"
-              className="border-primary home__intro flex p-2 tablet:p-3 laptop:p-5 flex-col items-center"
+              className="bg-secondary-color home__intro flex  tablet:p-3 laptop:p-5 laptop:py-16 flex-col items-center"
             >
               <span className="home__intro-img">
                 <svg
@@ -390,28 +405,70 @@ function HomePage({ imageData: dataImage }) {
                   </defs>
                 </svg>
               </span>
-              <span className="color-primary mt-2 text-center text-base tablet:text-1xl font-semibold home__intro-text">
+              <span className="color-primary mt-2 text-center text-base tablet:text-1xl font-bold home__intro-text">
                 Đăng ký
                 <br className="block tablet:hidden" /> trồng cây
               </span>
             </a>
+
+            <p className="text-center">
+              Khi mua mỗi sản phẩm trong bộ GIẢI PHÁP SỨC KHỎE TOÀN DIỆN, bạn góp thêm 1 cây xanh
+              mới được trồng
+            </p>
+            <p className="text-center">
+              Kích hoạt bảo hành trên ứng dụng My Panasonic, nhận mã cây để theo dõi thông tin, hành
+              trình trưởng thành của cây
+            </p>
+            <p className="text-center">
+              Khi mua mỗi sản phẩm trong bộ GIẢI PHÁP SỨC KHỎE TOÀN DIỆN, bạn góp thêm 1 cây xanh
+              mới được trồng
+            </p>
           </div>
         </article>
-        <article id="regiterWarranty" className="home__form py-12">
-          <div
-            className="home__form-bg"
-            style={{ backgroundImage: `url(${bgHomeForm.src})` }}
-          ></div>
+
+        <article id="" className="bg-secondary-color pt-4 pb-10 relative z-[4]">
+          <img className="absolute -bottom-[28%] left-0 z-1" src={decorLeaf3.src} alt="" />
+          <img className="absolute -bottom-[22%] right-0 z-1" src={decorLeaf4.src} alt="" />
+          <div className="container-custom relative z-[5]">
+            <h1 className="color-primary font-bold uppercase text-center mb-3 mt-4 text-2xl tablet:text-2.5xl">
+              MỖI SẢN PHẨM SỐNG KHỎE,
+              <span className="block">GÓP MỘT CÂY XANH CHO RỪNG </span>
+            </h1>
+            <p className="text-center w-[65%] mx-auto">
+              Tận hưởng cuộc sống khỏe mạnh hơn mỗi ngày với GIẢI PHÁP SỨC KHỎE TOÀN DIỆN từ
+              Panasonic Việt Nam. Khỏe từ bầu không khí trong lành, khỏe từ thực phẩm tươi xanh và
+              khỏe từ nguồn dòng nước tinh khiết. Sống khỏe với Panasonic để cùng góp xanh ngay hôm
+              nay.
+            </p>
+            <div className="grid grid-cols-4 my-10 gap-4 tablet:gap-8 ">
+              <div className="flex justify-center">
+                <img src={productHome1.src} alt="product" />
+              </div>
+              <div className="flex justify-center">
+                <img src={productHome2.src} alt="product" />
+              </div>
+              <div className="flex justify-center">
+                <img src={productHome3.src} alt="product" />
+              </div>
+              <div className="flex justify-center">
+                <img src={productHome4.src} alt="product" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="regiterWarranty" className="home__form py-12 z-[3]">
+          <img className='absolute -bottom-[35%] left-0' src={decorLeaf5.src} alt="" />
           <div className="container-custom">
-            <div className="home__form-body">
-              <h1 className="text-white-500 font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">
+          {/* <h1 className="text-white-500 font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">
                 Đăng Ký&nbsp;
                 <br className="block tablet:hidden" />
                 Bảo Hành Điện Tử
-              </h1>
+              </h1> */}
 
-              <div className="">
-                <p className="color-text-e text-start text-sl mb-6 tablet:text-xl color-text-e">
+              <div className='flex items-center'>
+                <div className="w-[35%] text-center">
+                  {/* <p className="color-text-e text-start text-sl mb-6 tablet:text-xl color-text-e">
                   Tải ứng dụng My Panasonic để đăng kí bảo hành và tích lũy hạng Thành viên chính
                   thức.
                   <br />
@@ -424,48 +481,50 @@ function HomePage({ imageData: dataImage }) {
                   >
                     Tại đây.
                   </a>
-                </p>
+                </p> */}
 
-                <div className="my-0 tablet:my-10">
-                  <div className="flex home__form-image justify-center my-4">
-                    <Image src={home1Img} alt="" />
-                  </div>
-                  <div className="tablet:flex mobile:block justify-center gap-4">
-                    <div className="flex justify-center my-4">
-                      <a
-                        href="https://apps.apple.com/vn/app/my-panasonic/id6444000200"
-                        target={'_blank'}
-                        rel="noreferrer"
-                        className="flex justify-center items-center"
-                      >
-                        <Image src={downloadStoreImg} alt="" />
-                      </a>
+                  <div className="my-0 ">
+                    <div className=" home__form-image  my-4">
+                      <Image src={productHome5} alt="" />
                     </div>
-                    <div className="flex justify-center my-3">
-                      <a
-                        className="flex justify-center items-center"
-                        href="https://play.google.com/store/apps/details?id=com.piscap.mypanasonic"
-                        target={'_blank'}
-                        rel="noreferrer"
-                      >
-                        <Image src={downloadGgPlayImg} alt="" />
-                      </a>
+                    <div className=" gap-4">
+                      <div className="flex justify-center">
+                        <a
+                          href="https://apps.apple.com/vn/app/my-panasonic/id6444000200"
+                          target={'_blank'}
+                          rel="noreferrer"
+                          className="flex justify-center items-center"
+                        >
+                          <Image src={downloadStoreImg} alt="" />
+                        </a>
+                      </div>
+                      <div className="flex justify-center my-3">
+                        <a
+                          className="flex justify-center items-center"
+                          href="https://play.google.com/store/apps/details?id=com.piscap.mypanasonic"
+                          target={'_blank'}
+                          rel="noreferrer"
+                        >
+                          <Image src={downloadGgPlayImg} alt="" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="">
-                <p className="color-text-dc text-sl tablet:text-xl mb-4">
-                  Hoặc điền thông tin để kích hoạt bảo hành:
-                </p>
-                <HomeFormRegister onShowPopupThank={(body) => handleShowPopupThank(body)} />
+                <div className="w-[65%]">
+                  <h2 className='mb-4 text-center font-bold text-4xl text-secondary-color'>
+                    ĐĂNG KÝ BẢO HÀNH ĐIỆN TỬ
+
+                  </h2>
+                  
+                  <HomeFormRegister onShowPopupThank={(body) => handleShowPopupThank(body)} />
+                </div>
               </div>
-            </div>
           </div>
-        </article> 
+        </article>
 
-        <article id="followTree" className="my-12">
+        <article id="followTree" className="my-12 relative z-[2]">
           <div className="container-custom">
             <div className="home__follow">
               <h1 className="color-primary font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">

@@ -19,8 +19,15 @@
   }
   &__form {
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(180deg, #0c321e 0%, #00874a 100%);
+    // overflow: hidden;
+    background: #048649;
+    
+
+    .ant-select-selection-placeholder{
+      display: flex;
+      align-items: center;
+      color: $green-primary;
+    }
 
     &-body {
       padding: 0 0;
@@ -97,6 +104,9 @@
       border-radius: 40px !important;
       padding: 0.7rem 1.1rem;
     }
+    .ant-picker input::placeholder{
+      color: $green-primary;
+    }
     .ant-form-item-label {
       padding-bottom: 3px !important;
     }
@@ -113,6 +123,9 @@
       border-radius: 40px;
       padding: 0.7rem 1.1rem;
     }
+    .ant-input::placeholder{
+      color: $green-primary;
+    }
     .ant-input-status-error {
       background: rgba(255, 255, 255, 0.6) !important;
     }
@@ -126,13 +139,14 @@
     }
 
     &-btn {
-      background-color: $green-29 !important;
+      background: linear-gradient(to top, #508916 ,  #86d50b) !important;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
       border-radius: 40px;
-      font-weight: 600;
+      font-weight: 700;
       position: relative;
       text-transform: uppercase;
       margin: 0 auto;
+      color: white;
       transition: all ease 0.3s;
       // animation: fadeBorder ease 7s infinite;
       animation: pulse ease 1s infinite;
@@ -308,8 +322,8 @@
         height: auto !important;
 
         @include responsive(md-screen) {
-          width: 48px !important;
-          height: 60px !important;
+          width: 97px !important;
+          height: 120px !important;
         }
       }
       span {

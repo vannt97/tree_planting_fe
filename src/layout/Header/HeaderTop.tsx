@@ -4,10 +4,10 @@ import cartIcon from "public/icons/cart.svg";
 function HeaderTop() {
     return (
         <div className="flex justify-end items-center">
-            <p className="text-end italic color-text-1e text-sl">
-                <span className="uppercase font-medium color-primary">
+            <p className="text-end  color-text-1e text-sl">
+                <span className="uppercase font-bold color-primary">
                     Mua
-                </span> sản phẩm -  <span className="uppercase font-medium color-primary">
+                </span> sản phẩm -  <span className="uppercase font-bold color-primary">
                     trồng
                 </span> cây xanh
             </p>
