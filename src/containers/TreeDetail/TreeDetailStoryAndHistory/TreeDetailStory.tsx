@@ -79,8 +79,7 @@ const TreeDetailStory = ({ data }: any) => {
           <img
             src={item?.imageLinkTreePlantingsiteStory}
             alt=""
-            className="w-full h-[300px]"
-            style={{ objectFit: 'contain' }}
+            className="w-full "
           />
         </div>
       </SwiperSlide>
@@ -88,7 +87,7 @@ const TreeDetailStory = ({ data }: any) => {
   }, []);
 
   return (
-    <div className="w-full tree-detail__story bg-white-500 laptop:pt-5 laptop:px-5 laptop:pb-0 mobile:p-0">
+    <div className="w-full tree-detail__story  laptop:pt-5  laptop:pb-0 mobile:p-0">
       <div className="mb-2">
         <p
           className="text-[16px] font-bold laptop:text-[24px] mobile:text-[16px]"

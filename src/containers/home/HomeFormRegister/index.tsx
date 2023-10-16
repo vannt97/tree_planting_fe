@@ -420,7 +420,7 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
         <div className="flex justify-center absolute bottom-[0px]  translate-y-2/4  left-[50%] -translate-x-2/4">
             <button
               type="submit"
-              className={`py-3 px-10 font-bold home__form-btn text-white-500 ${
+              className={`py-3 px-10 font-bold home__form-btn text-white-500 text-2xl ${
                 loading ? 'loading' : ''
               }`}
             >

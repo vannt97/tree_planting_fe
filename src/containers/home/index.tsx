@@ -7,16 +7,24 @@ import 'swiper/css/pagination';
 
 import Script from 'next/script';
 import bgHomeForm from 'public/images/bg-home-form.png';
+import bgTheoDoiCayCuaBan from 'public/images/bg-theo-doi-cay-cua-ban.png';
 import registerCropImg from 'public/images/dangkytrongcay.png';
 import downloadStoreImg from 'public/images/download-app-store.png';
 import downloadGgPlayImg from 'public/images/download-gg-play.png';
 import home1Img from 'public/images/home-1.png';
+import bgPattern from 'public/images/bg-pattern.png';
+import bgAboutProgram from 'public/images/bg-about-program.png';
+import aboutProgram from 'public/images/about-program.png';
 import decorLeaf1 from 'public/images/decor-leaf-1.png';
 import decorLeaf2 from 'public/images/decor-leaf-2.png';
 import decorLeaf3 from 'public/images/decor-leaf-3.png';
 import decorLeaf4 from 'public/images/decor-leaf-4.png';
 import decorLeaf5 from 'public/images/decor-leaf-5.png';
 import decorLeaf6 from 'public/images/decor-leaf-6.png';
+import decorLeaf7 from 'public/images/decor-leaf-7.png';
+import decorLeaf8 from 'public/images/decor-leaf-8.png';
+import decorLeaf9 from 'public/images/decor-leaf-9.png';
+import decorLeaf10 from 'public/images/decor-leaf-10.png';
 import productHome1 from 'public/images/product-home-1.png';
 import productHome2 from 'public/images/product-home-2.png';
 import productHome3 from 'public/images/product-home-3.png';
@@ -173,7 +181,7 @@ function HomePage({ imageData: dataImage }) {
           </Swiper>
         </div>
         <article className="container-custom relative z-[5]">
-          <img src={decorLeaf1.src} alt="leaf" className="absolute -top-[4%] left-0" />
+          <img src={decorLeaf1.src} alt="leaf" className="absolute w-[12%] -top-[4%] left-0" />
           <img src={decorLeaf2.src} alt="leaf" className="absolute -bottom-[40%] right-0" />
 
           <h1 className="color-primary font-bold uppercase text-center mb-3 mt-8 text-2xl tablet:text-2.5xl">
@@ -457,18 +465,18 @@ function HomePage({ imageData: dataImage }) {
           </div>
         </article>
 
-        <article id="regiterWarranty" className="home__form py-12 z-[3]">
-          <img className='absolute -bottom-[35%] left-0' src={decorLeaf5.src} alt="" />
+        <article id="regiterWarranty" className="home__form pt-12 pb-24 z-[3]">
+          <img className="absolute -bottom-[35%] left-0" src={decorLeaf5.src} alt="" />
           <div className="container-custom">
-          {/* <h1 className="text-white-500 font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">
+            {/* <h1 className="text-white-500 font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">
                 Đăng Ký&nbsp;
                 <br className="block tablet:hidden" />
                 Bảo Hành Điện Tử
               </h1> */}
 
-              <div className='flex items-center'>
-                <div className="w-[35%] text-center">
-                  {/* <p className="color-text-e text-start text-sl mb-6 tablet:text-xl color-text-e">
+            <div className="flex items-center">
+              <div className="w-[35%] text-center">
+                {/* <p className="color-text-e text-start text-sl mb-6 tablet:text-xl color-text-e">
                   Tải ứng dụng My Panasonic để đăng kí bảo hành và tích lũy hạng Thành viên chính
                   thức.
                   <br />
@@ -483,64 +491,163 @@ function HomePage({ imageData: dataImage }) {
                   </a>
                 </p> */}
 
-                  <div className="my-0 ">
-                    <div className=" home__form-image  my-4">
-                      <Image src={productHome5} alt="" />
+                <div className="my-0 ">
+                  <div className=" home__form-image  my-4">
+                    <Image src={productHome5} alt="" />
+                  </div>
+                  <div className=" gap-4">
+                    <div className="flex justify-center">
+                      <a
+                        href="https://apps.apple.com/vn/app/my-panasonic/id6444000200"
+                        target={'_blank'}
+                        rel="noreferrer"
+                        className="flex justify-center items-center"
+                      >
+                        <Image src={downloadStoreImg} alt="" />
+                      </a>
                     </div>
-                    <div className=" gap-4">
-                      <div className="flex justify-center">
-                        <a
-                          href="https://apps.apple.com/vn/app/my-panasonic/id6444000200"
-                          target={'_blank'}
-                          rel="noreferrer"
-                          className="flex justify-center items-center"
-                        >
-                          <Image src={downloadStoreImg} alt="" />
-                        </a>
-                      </div>
-                      <div className="flex justify-center my-3">
-                        <a
-                          className="flex justify-center items-center"
-                          href="https://play.google.com/store/apps/details?id=com.piscap.mypanasonic"
-                          target={'_blank'}
-                          rel="noreferrer"
-                        >
-                          <Image src={downloadGgPlayImg} alt="" />
-                        </a>
-                      </div>
+                    <div className="flex justify-center my-3">
+                      <a
+                        className="flex justify-center items-center"
+                        href="https://play.google.com/store/apps/details?id=com.piscap.mypanasonic"
+                        target={'_blank'}
+                        rel="noreferrer"
+                      >
+                        <Image src={downloadGgPlayImg} alt="" />
+                      </a>
                     </div>
                   </div>
                 </div>
-
-                <div className="w-[65%]">
-                  <h2 className='mb-4 text-center font-bold text-4xl text-secondary-color'>
-                    ĐĂNG KÝ BẢO HÀNH ĐIỆN TỬ
-
-                  </h2>
-                  
-                  <HomeFormRegister onShowPopupThank={(body) => handleShowPopupThank(body)} />
-                </div>
               </div>
-          </div>
-        </article>
 
-        <article id="followTree" className="my-12 relative z-[2]">
-          <div className="container-custom">
-            <div className="home__follow">
-              <h1 className="color-primary font-semibold uppercase text-center mb-4 text-2xl tablet:text-2.5xl">
-                theo dõi cây của bạn
-              </h1>
+              <div className="w-[65%]">
+                <h2 className="mb-4 text-center font-bold text-4xl text-secondary-color">
+                  ĐĂNG KÝ BẢO HÀNH ĐIỆN TỬ
+                </h2>
 
-              <p className="font-medium text-sl color-text-22 mb-4">
-                Nhập ngay MÃ SỐ CÂY và SỐ ĐIỆN THOẠI để theo dõi hành trình sinh trưởng của cây và
-                tham gia các hoạt động thú vị từ Panasonic Việt Nam.
-              </p>
-              <HomeFormFollow />
+                <HomeFormRegister onShowPopupThank={(body) => handleShowPopupThank(body)} />
+              </div>
             </div>
           </div>
         </article>
 
-        <article id="registerPlanting" className="home__crop">
+        <article id="followTree" className=" relative z-[2]">
+          <img src={bgTheoDoiCayCuaBan.src} className="w-full" alt="theo-doi-cay-cua-ban" />
+          <img
+            className="absolute top-[20%] right-0"
+            src={decorLeaf6.src}
+            alt="theo-doi-cay-cua-ban"
+          />
+          <div className=" absolute top-[10%] right-[12%]">
+            <div
+              className="home__follow"
+              style={{
+                maxWidth: 460,
+                padding: 0,
+              }}
+            >
+              <h1 className="color-primary font-bold uppercase text-center mb-2 text-2xl tablet:text-4xl">
+                theo dõi cây của bạn
+              </h1>
+              <p className="font-medium text-sl color-text-22 mb-4 text-center">
+                Chỉ với một bước nhập thông tin. Dù ở đâu, bạn vẫn có thể dễ dàng ghé rừng thăm cây.
+              </p>
+              <HomeFormFollow />
+            </div>
+          </div>
+          <div className="absolute bottom-[35%] translate-y-1/2 transte left-[15%]">
+            <div className="w-[550px]">
+              <h1 className="color-primary font-bold uppercase mb-3 text-2xl tablet:text-4xl">
+                cuộc thi
+                <span className="block">"kể chuyện rừng của bạn"</span>
+              </h1>
+              <p className=" pb-6">
+                Mỗi câu chuyện chia sẻ về phút giây sống khỏe hay trải nghiệm đặc biệt của bạn với
+                rừng, bạn sẽ góp phần trồng thêm cây xanh để gìn giữ những chuyện thú vị về rừng.
+                <br />
+                Chia sẻ chuyện rừng của bạn để nhận ngay những phần quà hấp dẫn.
+              </p>
+              <button
+                type="button"
+                className="py-3 px-10 font-bold home__form-btn text-white-500 text-2xl "
+              >
+                Tham gia ngay
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article id="aboutProgram" className="relative z-[3] -translate-y-[100px] -mb-[100px]">
+          <img src={bgAboutProgram.src} className="w-full" alt="" />
+          <div className="grid grid-cols-2 gap-7 w-[70%] absolute top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2">
+            <div>
+              <img className='w-full' src={aboutProgram.src} alt="" />
+            </div>
+            <div className="text-white-500">
+              <h2 className="text-white-500 font-bold uppercase  text-2xl tablet:text-4xl">
+                về chương trình
+              </h2>
+              <p className='mb-2'>
+                Chương trình "Sống khỏe góp xanh - Giữ chuyện rừng còn mãi" năm 2023 tiếp nối sự
+                thành công của chương trình "Sống khỏe góp xanh" năm trước nhằm hiện thực hóa cam
+                kết Green Impact của Tập đoàn Panasonic:{' '}
+              </p>
+              <ul className="list-disc pl-7 pb-4">
+                <li>Hướng tới mục tiêu giảm phát thải khí CO2 đến năm 2050.</li>
+                <li>Hưởng ứng lời kêu gọi trồng 1 tỷ cây xanh của Thủ tướng Chính phủ.</li>
+                <li>
+                  Lan tỏa lối sống khỏe mạnh toàn diện, góp xanh cho rừng vì một Việt Nam xanh -
+                  khỏe mạnh.
+                </li>
+              </ul>
+              <p className='mb-3'>
+                Mang nhiều sứ mệnh lớn lao, chương trình trồng cây của Panasonic luôn chú trọng vào
+                tính minh bạch, quy mô lớn, phạm vi ảnh hưởng
+              </p>
+              <p>
+                <svg
+                  className="map-pin inline-block"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 35 35"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28.4375 14.2188C28.4375 24.0625 17.5 31.7188 17.5 31.7188C17.5 31.7188 6.56251 24.0625 6.56251 14.2188C6.56251 11.3179 7.71485 8.53595 9.76603 6.48477C11.8172 4.43359 14.5992 3.28125 17.5 3.28125C20.4008 3.28125 23.1828 4.43359 25.234 6.48477C27.2852 8.53595 28.4375 11.3179 28.4375 14.2188V14.2188Z"
+                    stroke="#fff"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M17.6336 20.5751C21.5148 20.5751 24.6611 17.3937 24.6611 13.4693C24.6611 9.54489 21.5148 6.36353 17.6336 6.36353C13.7524 6.36353 10.6061 9.54489 10.6061 13.4693C10.6061 17.3937 13.7524 20.5751 17.6336 20.5751Z"
+                    fill="#DCEEC0"
+                  />
+                  <path d="M16.9217 12.0564H16.6963V24.3937H16.9217V12.0564Z" fill="#00874A" />
+                  <path
+                    d="M15.1611 16.8172C14.4811 16.8164 13.8269 16.5537 13.3315 16.0826C12.8361 15.6116 12.5367 14.9674 12.4941 14.2812L12.4843 14.1161L12.6074 14.0053C12.9792 13.6633 13.4395 13.4352 13.9346 13.3475C14.4297 13.2599 14.9392 13.3163 15.4038 13.5103C15.8696 13.7009 16.2723 14.0213 16.5649 14.4344C16.8575 14.8475 17.028 15.3361 17.0566 15.8434L17.0671 16.009L16.9439 16.1192C16.4557 16.5672 15.8204 16.8159 15.1611 16.8172ZM13.1869 14.4063C13.2365 14.7532 13.3748 15.0809 13.5882 15.3571C13.8016 15.6333 14.0827 15.8483 14.4035 15.9809C14.7244 16.1134 15.074 16.1589 15.4176 16.1129C15.7612 16.0668 16.0869 15.9308 16.3626 15.7182C16.3142 15.3709 16.1764 15.0425 15.9628 14.7661C15.7492 14.4897 15.4674 14.275 15.1457 14.1435C14.8252 14.0095 14.4754 13.9632 14.1315 14.0094C13.7876 14.0555 13.4618 14.1924 13.1869 14.4063Z"
+                    fill="#00874A"
+                  />
+                  <path
+                    d="M18.7857 16.98C17.9884 16.9782 17.2194 16.6814 16.6237 16.1456L16.5005 16.036L16.5091 15.871C16.5407 15.2495 16.7451 14.6496 17.099 14.1403C17.4528 13.6311 17.9417 13.2333 18.5093 12.9926C19.0769 12.7519 19.7001 12.6781 20.3074 12.7797C20.9146 12.8814 21.4811 13.1543 21.9417 13.5672L22.0649 13.6761L22.0562 13.8418C22.0271 14.464 21.8237 15.0651 21.4697 15.5749C21.1157 16.0848 20.6257 16.4825 20.0568 16.7215C19.6543 16.8923 19.2222 16.9801 18.7857 16.98ZM17.1988 15.7396C17.5613 16.027 17.9933 16.2109 18.4499 16.2722C18.9065 16.3335 19.371 16.27 19.795 16.0883C20.2202 15.9096 20.5903 15.619 20.8668 15.2467C21.1433 14.8744 21.3161 14.434 21.3672 13.9713C21.004 13.6853 20.572 13.5023 20.1158 13.4411C19.6595 13.3798 19.1953 13.4424 18.7709 13.6226C18.3464 13.8028 17.9771 14.094 17.7008 14.4663C17.4246 14.8385 17.2513 15.2785 17.1988 15.7409V15.7396Z"
+                    fill="#00874A"
+                  />
+                  <path
+                    d="M16.809 12.5697C16.4631 12.5697 16.125 12.4659 15.8374 12.2716C15.5498 12.0773 15.3257 11.8012 15.1933 11.478C15.0609 11.1549 15.0263 10.7993 15.0938 10.4563C15.1613 10.1133 15.3278 9.7982 15.5724 9.5509C15.817 9.30359 16.1286 9.13517 16.4679 9.06694C16.8071 8.9987 17.1587 9.03373 17.4783 9.16757C17.7978 9.30141 18.071 9.52807 18.2632 9.81887C18.4553 10.1097 18.5579 10.4516 18.5579 10.8013C18.5574 11.2701 18.373 11.7197 18.0451 12.0512C17.7173 12.3827 17.2727 12.5692 16.809 12.5697ZM16.809 9.71726C16.5968 9.71726 16.3894 9.78089 16.213 9.90011C16.0366 10.0193 15.8991 10.1888 15.8179 10.387C15.7367 10.5852 15.7155 10.8034 15.757 11.0138C15.7984 11.2242 15.9006 11.4175 16.0507 11.5691C16.2008 11.7208 16.392 11.8241 16.6001 11.8658C16.8083 11.9076 17.024 11.8861 17.22 11.8039C17.416 11.7217 17.5835 11.5825 17.7013 11.4041C17.8191 11.2256 17.8819 11.0159 17.8818 10.8013C17.8813 10.5138 17.7681 10.2383 17.567 10.0351C17.3659 9.83189 17.0933 9.71759 16.809 9.71726Z"
+                    fill="#00874A"
+                  />
+                </svg>
+                <span className='underline underline-offset-4 inline-block ml-2'>Xem thêm</span>
+              </p>
+            </div>
+          </div>
+          <img className='absolute right-0 -top-[15%]' src={decorLeaf7.src} alt="" />
+          <img className='absolute left-0 -bottom-[18%]' src={decorLeaf8.src} alt="" />
+          <img className='absolute left-0 -top-[8%]' src={decorLeaf9.src} alt="" />
+          <img className='absolute right-0 -bottom-[14%]' src={decorLeaf10.src} alt="" />
+        </article>
+
+        {/* <article id="registerPlanting" className="home__crop">
           <div
             className="home__crop-bg"
             style={{ backgroundImage: `url(${registerCropImg.src})` }}
@@ -571,9 +678,9 @@ function HomePage({ imageData: dataImage }) {
               </div>
             </div>
           </div>
-        </article>
+        </article> */}
 
-        <article id="show" className="container-custom my-10">
+        {/* <article id="show" className="container-custom my-10">
           <h1 className="color-primary font-semibold uppercase text-center mb-3 text-2xl tablet:text-2.5xl">
             Về Chương Trình
           </h1>
@@ -608,8 +715,9 @@ function HomePage({ imageData: dataImage }) {
               góp phần phủ xanh các khu vực đồi núi trọc, bảo tồn hệ sinh thái địa phương.
             </li>
           </ul>
-        </article>
-        {videoData && videoData?.data?.data && videoData?.data?.data[0]?.linkVideo && (
+        </article> */}
+
+        {/* {videoData && videoData?.data?.data && videoData?.data?.data[0]?.linkVideo && (
           <div className="laptop:w-3/5 tablet:w-3/5 mobile:w-full laptop:h-[500px] tablet:h-[500px] mobile:h-[300px] mx-auto mb-10 mobile:px-4">
             <iframe
               width="100%"
@@ -621,18 +729,21 @@ function HomePage({ imageData: dataImage }) {
               allowFullScreen
             ></iframe>
           </div>
-        )}
+        )} */}
+
         <Map></Map>
-        <article id="partner" className="home__partner mb-10">
-          <div className="container-custom">
-            <div className="py-10">
-              <h1 className="text-white-500 font-semibold uppercase text-center mb-8 text-2xl tablet:text-2.5xl">
+
+        <article id="partner" className="home__partner relative -translate-y-[100px] -mb-[100px]">
+          <img className='w-full mb-14' src={bgPattern.src} alt="" />
+          <div className="container-custom absolute top-[50%] -translate-y-1/2 left-0 w-full">
+            <div className="py-10 text-center">
+              <h1 className="text-white-500 font-bold uppercase text-center mb-8 text-2xl tablet:text-4xl">
                 Đối Tác
               </h1>
 
-              <div className="w-full flex flex-wrap justify-start gap-y-8">
+              <div className=" inline-grid  grid-cols-6  gap-8">
                 {listImgPartners?.map((partner, index) => (
-                  <div key={index} className="home__partner-image w-1/4 flex justify-center">
+                  <div key={index} className="home__partner-image text-center">
                     <Image width={120} height={120} src={partner.url} alt="" layout="fixed" />
                   </div>
                 ))}
@@ -641,7 +752,7 @@ function HomePage({ imageData: dataImage }) {
           </div>
         </article>
 
-        <div id="news">
+        <div id="news" className='pb-12'>
           <HomePost />
         </div>
 

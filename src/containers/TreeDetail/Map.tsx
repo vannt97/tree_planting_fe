@@ -159,7 +159,7 @@ const Map = ({ trackingData, children }: any) => {
   const StoryAndHistory = useMemo(() => {
     if (screenWidth) {
       return (
-        <div className="w-full h-full">
+        <div className="w-[80%] h-full mx-auto">
           {screenWidth >= 1025 && (
             <div className="">
               <p className="uppercase laptop:text-[32px] tablet:text-[24px] mobile:text-[20px] text-green-primary font-semibold mobile:text-center laptop:text-start">
@@ -413,9 +413,9 @@ const Map = ({ trackingData, children }: any) => {
   }, [DetailHighlight, HomeHighlight, MarkToMap, router, screenWidth, projection, responsiveMap]);
 
   return (
-    <div className="tree-detail w-full h-full" id="tree-map">
+    <div className="tree-detail w-full h-full relative -translate-y-[100px] -mb-[100px]" id="tree-map">
       <div
-        className="relative tree-detail__map py-8 laptop:px-5"
+        className="relative tree-detail__map py-20 laptop:px-5 flex items-center justify-evenly pb-[10%] pt-[10%]"
         style={{
           overflow: 'hidden',
           backgroundColor: '#EFF5EC',
@@ -423,23 +423,6 @@ const Map = ({ trackingData, children }: any) => {
           height: '100%',
         }}
       >
-        <div className="w-[45%] float-right mr-10 px-30">
-          {screenWidth <= 1025 ? (
-            <Modal
-              open={showStory.isShow}
-              footer={null}
-              closeIcon={false}
-              closable={true}
-              onCancel={() => setShowStory({ id: '', isShow: false })}
-            >
-              {StoryAndHistory}
-            </Modal>
-          ) : (
-            StoryAndHistory
-          )}
-          <div className="invisible h-[0px]">{StoryAndHistory}</div>
-        </div>
-
         {screenWidth < 1025 && (
           <div className="">
             <p className="uppercase laptop:text-[32px] tablet:text-[24px] mobile:text-[20px] text-green-primary font-semibold text-center">
@@ -456,7 +439,27 @@ const Map = ({ trackingData, children }: any) => {
             </div>
           </div>
         )}
+       
+
+        <div className="w-[45%]  px-30">
+          {screenWidth <= 1025 ? (
+            <Modal
+              open={showStory.isShow}
+              footer={null}
+              closeIcon={false}
+              closable={true}
+              onCancel={() => setShowStory({ id: '', isShow: false })}
+            >
+              {StoryAndHistory}
+            </Modal>
+          ) : (
+            StoryAndHistory
+          )}
+          <div className="invisible h-[0px]">{StoryAndHistory}</div>
+        </div>
+
         {TreeMap}
+
       </div>
     </div>
   );

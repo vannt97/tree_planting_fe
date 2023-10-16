@@ -276,17 +276,15 @@ function HomeFormFollow() {
       >
         <Form.Item
           name="publicCode"
-          label="Mã số cây"
           rules={[{ required: true, message: 'Mã số cây sai, vui lòng nhập lại' }]}
         >
-          <Input />
+          <Input placeholder='Mã số cây *' />
         </Form.Item>
         <Form.Item
           name="phoneNumber"
-          label="Số điện thoại"
           rules={[{ required: true, message: 'Vui lòng nhập Số điện thoại' }]}
         >
-          <Input />
+          <Input placeholder='Số điện thoại *'/>
         </Form.Item>
 
         {/* <label>Mã giới thiệu PG</label>
@@ -353,7 +351,7 @@ function HomeFormFollow() {
             htmlType="submit"
             id="g-recaptcha-response"
             name="g-recaptcha-response"
-            className="home__form-btn h-[46px] px-10"
+            className="home__form-btn py-3 px-10  text-2xl h-full"
             loading={
               responseGetTreeHistory.isFetching ||
               responseLogin.isLoading ||
@@ -365,7 +363,7 @@ function HomeFormFollow() {
           </Button>
         </div>
       </Form>
-      <div className="home__tree-share">
+      {/* <div className="home__tree-share">
         <div className="flex items-center justify-center" ref={treeShare}>
           <TreeShareFacebook
             defaultImage
@@ -410,7 +408,7 @@ function HomeFormFollow() {
             }}
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
