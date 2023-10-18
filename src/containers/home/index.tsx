@@ -559,7 +559,7 @@ function HomePage({ imageData: dataImage }) {
             <div className="w-[550px]">
               <h1 className="color-primary font-bold uppercase mb-3 text-2xl tablet:text-4xl">
                 cuộc thi
-                <span className="block">"kể chuyện rừng của bạn"</span>
+                <span className="block">&quot;kể chuyện rừng của bạn&quot;</span>
               </h1>
               <p className=" pb-6">
                 Mỗi câu chuyện chia sẻ về phút giây sống khỏe hay trải nghiệm đặc biệt của bạn với
@@ -588,8 +588,8 @@ function HomePage({ imageData: dataImage }) {
                 về chương trình
               </h2>
               <p className='mb-2'>
-                Chương trình "Sống khỏe góp xanh - Giữ chuyện rừng còn mãi" năm 2023 tiếp nối sự
-                thành công của chương trình "Sống khỏe góp xanh" năm trước nhằm hiện thực hóa cam
+                Chương trình &quot;Sống khỏe góp xanh - Giữ chuyện rừng còn mãi&quot; năm 2023 tiếp nối sự
+                thành công của chương trình &quot;Sống khỏe góp xanh&quot; năm trước nhằm hiện thực hóa cam
                 kết Green Impact của Tập đoàn Panasonic:{' '}
               </p>
               <ul className="list-disc pl-7 pb-4">
