@@ -7,6 +7,7 @@ import HomePage from "src/containers/home";
 import HomeBannerImg from "public/images/home-banner.png";
 import Head from "next/head";
 import "aos/dist/aos.css";
+import { dataImageTrial } from "src/mock/imagetrial";
 
 export interface HomeProps {
   data: any;
@@ -102,13 +103,20 @@ export default Home;
 export const getServerSideProps: GetServerSideProps<HomeProps> = async (
   context: GetServerSidePropsContext
 ) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DOMAIN_API}/api/StaticPages/ImageTrial`
-  );
-  const data = await response.json();
+  // const response = await fetch(
+  //   `${process.env.NEXT_PUBLIC_DOMAIN_API}/api/StaticPages/ImageTrial`
+  // );
+  // const data = await response.json();
+  // return {
+  //   props: {
+  //     data: data.data,
+  //   },
+  // };
+
+  // mock data
   return {
     props: {
-      data: data.data,
+      data: dataImageTrial,
     },
   };
 };

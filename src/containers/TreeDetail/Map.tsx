@@ -11,13 +11,15 @@ import { useGetTreePlantingSiteQuery, useLazyGetArrayTreeQuery } from 'src/servi
 import { geoPolyhedralWaterman } from 'd3-geo-projection';
 import { getProvinceID } from 'src/services/treeAPI';
 import TreeDetailStory from './TreeDetailStoryAndHistory/TreeDetailStory';
+import { treeplantingsite } from 'src/mock/treeplantingsite';
 
 const Map = ({ trackingData, children }: any) => {
   const screenWidth = useWindowSize()?.width;
   const screenHeight = useWindowSize()?.height;
   const router = useRouter();
   const dispatch = useDispatch();
-  const { data: siteData = [] } = useGetTreePlantingSiteQuery({ refetchOnMountOrArgChange: true });
+  // const { data: siteData = [] } = useGetTreePlantingSiteQuery({ refetchOnMountOrArgChange: true });
+  const siteData = treeplantingsite.data.data;
   const [getArrayTree, { data }] = useLazyGetArrayTreeQuery();
   const [showStory, setShowStory] = useState({
     id: '',
@@ -39,7 +41,7 @@ const Map = ({ trackingData, children }: any) => {
     if (router.pathname !== '/') {
       const codes = localStorage.getItem('my_tree_codes');
       if (codes) {
-        getArrayTree(JSON.parse(codes).join(''));
+        // getArrayTree(JSON.parse(codes).join(''));
       }
     }
   }, [getArrayTree, router]);
@@ -435,7 +437,9 @@ const Map = ({ trackingData, children }: any) => {
             <div className="laptop:flex tablet:flex mobile:block laptop:justify-center mobile:justify-center tablet:justify-center items-center laptop:mb-4 mobile:mb-2 flex-wrap">
               <p className="px-2 text-black-600 text-center">
                 Mỗi điểm trồng cây đều có một câu chuyện riêng.{' '}
-                <span className='block'>Click vào từng mảng xanh trên bản đồ để cùng tìm hiểu.</span>
+                <span className="block">
+                  Click vào từng mảng xanh trên bản đồ để cùng tìm hiểu.
+                </span>
               </p>
               {/* <p className="px-4 text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 text-center">
                 Mỗi điểm trồng cây đều có một câu chuyện riêng. Click vào từng mảng xanh trên bản đồ

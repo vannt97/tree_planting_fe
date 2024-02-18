@@ -37,6 +37,7 @@ import VideoPlayer from 'src/components/VideoPlayer/VideoPlayer';
 import WaveSurferPlayer from 'src/components/WaveSurferPlayer/WaveSurferPlayer';
 import SwiperImgCompostion from 'src/components/SwiperImgComposition/SwiperImgCompostion';
 import moment from 'moment';
+import { compositions } from 'src/mock/composition';
 
 // import audioExamp from "public/audio/audio3.mp3";
 const GalleryContainer = () => {
@@ -65,21 +66,34 @@ const GalleryContainer = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await getCompositionPage({ page: '1' });
-      if (response.isSuccess) {
-        setCompostions({
-          // data: response?.data?.data.map((item) => {
-          //   return {
-          //     ...item,
-          //     name: (item.name as string).slice((item.name as string).indexOf('|') + 1),
-          //   };
-          // }),
-          data: filterLibrary(response?.data?.data) as [],
-          limit: 6,
-          finalResult: filterFinalResult(response?.data?.data),
-          weeklyResult: filterWeeklyResult(response?.data?.data),
-        });
-      }
+      // const response = await getCompositionPage({ page: '1' });
+      // if (response.isSuccess) {
+      //   setCompostions({
+      //     // data: response?.data?.data.map((item) => {
+      //     //   return {
+      //     //     ...item,
+      //     //     name: (item.name as string).slice((item.name as string).indexOf('|') + 1),
+      //     //   };
+      //     // }),
+      //     data: filterLibrary(response?.data?.data) as [],
+      //     limit: 6,
+      //     finalResult: filterFinalResult(response?.data?.data),
+      //     weeklyResult: filterWeeklyResult(response?.data?.data),
+      //   });
+      // }
+      const response = compositions;
+      setCompostions({
+        // data: response?.data?.data.map((item) => {
+        //   return {
+        //     ...item,
+        //     name: (item.name as string).slice((item.name as string).indexOf('|') + 1),
+        //   };
+        // }),
+        data: filterLibrary(response?.data) as [],
+        limit: 6,
+        finalResult: filterFinalResult(response?.data),
+        weeklyResult: filterWeeklyResult(response?.data),
+      });
     })();
   }, []);
 
@@ -259,14 +273,14 @@ const GalleryContainer = () => {
     });
   }, [compostions, indexImage]);
 
-  const handleOnclickPage = async (value) => {
-    try {
-      const response = await getCompositionPage({ page: value });
-      if (response?.data) {
-        setCompostions(response?.data);
-      }
-    } catch (err) {}
-  };
+  // const handleOnclickPage = async (value) => {
+  //   try {
+  //     const response = await getCompositionPage({ page: value });
+  //     if (response?.data) {
+  //       setCompostions(response?.data);
+  //     }
+  //   } catch (err) {}
+  // };
 
   const handleLoadCompostion = (item: any, index, elementHtml) => {
     let image = null;

@@ -50,8 +50,6 @@ import decorLeaf2 from 'public/images/decor-leaf-2.png';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import treeDemoSlider from 'public/images/tree_silder.png';
-import { useLazyGetGreenNewsQuery } from 'src/services/greenNews';
-import PostItem from 'src/components/PostItem';
 import 'swiper/css/navigation';
 import Modal from 'antd/lib/modal/Modal';
 import { FacebookShareButton } from 'react-share';

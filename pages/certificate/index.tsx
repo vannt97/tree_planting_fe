@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useGetDetailTreeSharingQuery } from "src/services/greenNews";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import moment from "moment";
-import image200 from "public/images/200x200.png";
 import { getProvinceCode } from "src/constant/sign";
 
 interface CertificateProps {

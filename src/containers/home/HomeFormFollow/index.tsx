@@ -295,13 +295,14 @@ function HomeFormFollow() {
             htmlType="submit"
             id="g-recaptcha-response"
             name="g-recaptcha-response"
-            className="home__form-btn py-3 px-10  text-xl tablet:text-2xl h-full"
+            className="home__form-btn disable py-3 px-10  text-xl tablet:text-2xl h-full"
             loading={
               responseGetTreeHistory.isFetching ||
               responseLogin.isLoading ||
               isLoadingCreateTree ||
               loadingExport
             }
+            disabled
           >
             Truy cập
           </Button>

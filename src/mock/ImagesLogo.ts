@@ -1,0 +1,183 @@
+export const ImagesLogoPartner = {
+  statusCode: 0,
+  success: true,
+  message: null,
+  data: [
+    {
+      id: 'f82ee6f7-4919-41f4-96b7-87ff2c92cbf2',
+      attachmentId: '6a958934-6fae-404d-a36a-1b055c921532',
+      url: '/images/2b19e69f-759b-4485-bf48-9e0424ae7e8a_Untitled-1_0017_18.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0017_18.png',
+        url: '/images/2b19e69f-759b-4485-bf48-9e0424ae7e8a_Untitled-1_0017_18.png',
+        id: '6a958934-6fae-404d-a36a-1b055c921532',
+      },
+    },
+    {
+      id: 'b1b137e6-35eb-4799-af0b-c19bbd401d58',
+      attachmentId: 'ebab6971-1ec2-474e-a68e-ef8deb3e1f49',
+      url: '/images/86b3f755-4bbb-4868-9fb0-7a878ec649cf_Untitled-1_0007_Layer-8.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0007_Layer-8.png',
+        url: '/images/86b3f755-4bbb-4868-9fb0-7a878ec649cf_Untitled-1_0007_Layer-8.png',
+        id: 'ebab6971-1ec2-474e-a68e-ef8deb3e1f49',
+      },
+    },
+    {
+      id: 'cb1253ff-b4db-4709-8c7e-90e1bdd9becd',
+      attachmentId: '132a7f41-dbdd-4228-8b06-9060926d7471',
+      url: '/images/fb5eb347-6292-42eb-b8eb-c3934ed1dc65_Untitled-1_0016_17.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0016_17.png',
+        url: '/images/fb5eb347-6292-42eb-b8eb-c3934ed1dc65_Untitled-1_0016_17.png',
+        id: '132a7f41-dbdd-4228-8b06-9060926d7471',
+      },
+    },
+    {
+      id: '6cd7d48a-2093-48fc-9190-f5cadd7a07ca',
+      attachmentId: '4bfba8ce-4954-4583-98ce-9f5a14e3aa1b',
+      url: '/images/55b97e64-869a-4c84-9c5a-459ee73dd474_Untitled-1_0013_14.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0013_14.png',
+        url: '/images/55b97e64-869a-4c84-9c5a-459ee73dd474_Untitled-1_0013_14.png',
+        id: '4bfba8ce-4954-4583-98ce-9f5a14e3aa1b',
+      },
+    },
+    {
+      id: 'a42fa956-c086-4f7f-938f-c1b89b162d8b',
+      attachmentId: '0223b4ce-3216-4403-8f56-17b8c92541ce',
+      url: '/images/2f63be2b-bdf2-4272-885a-e5f40d37fc44_Untitled-1_0014_15.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0014_15.png',
+        url: '/images/2f63be2b-bdf2-4272-885a-e5f40d37fc44_Untitled-1_0014_15.png',
+        id: '0223b4ce-3216-4403-8f56-17b8c92541ce',
+      },
+    },
+    {
+      id: '60bca3c9-8def-422f-be74-5a8a365acad2',
+      attachmentId: 'fdf61803-0263-4852-ad7c-e52a9f781dbc',
+      url: '/images/5a870f2a-876b-4606-be6a-7ff18a71bc90_Untitled-1_0010_Layer-11.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0010_Layer-11.png',
+        url: '/images/5a870f2a-876b-4606-be6a-7ff18a71bc90_Untitled-1_0010_Layer-11.png',
+        id: 'fdf61803-0263-4852-ad7c-e52a9f781dbc',
+      },
+    },
+    {
+      id: 'ead32b70-f684-422d-8057-4716f42ce357',
+      attachmentId: '5143e554-096b-4c45-8f88-a024b6a75e2f',
+      url: '/images/8fc8b0bb-9ba2-40ee-9862-27b26ff8e525_Untitled-1_0011_12.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0011_12.png',
+        url: '/images/8fc8b0bb-9ba2-40ee-9862-27b26ff8e525_Untitled-1_0011_12.png',
+        id: '5143e554-096b-4c45-8f88-a024b6a75e2f',
+      },
+    },
+    {
+      id: 'c2e552b9-7937-4f83-90dd-ee3740d931d8',
+      attachmentId: 'b62ce1e3-0112-4632-8af7-8f69da22f653',
+      url: '/images/20178254-e631-46b0-bc6e-878fe0b05aa4_Untitled-1_0009_Layer-10.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0009_Layer-10.png',
+        url: '/images/20178254-e631-46b0-bc6e-878fe0b05aa4_Untitled-1_0009_Layer-10.png',
+        id: 'b62ce1e3-0112-4632-8af7-8f69da22f653',
+      },
+    },
+    {
+      id: 'd6b44e05-adc8-425b-a147-9e032d276a47',
+      attachmentId: 'eafb0557-c0f9-4456-a792-ae308be03bd5',
+      url: '/images/298d9d55-dbe8-4362-8287-b4115b2fc4e8_Untitled-1_0008_Layer-9.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0008_Layer-9.png',
+        url: '/images/298d9d55-dbe8-4362-8287-b4115b2fc4e8_Untitled-1_0008_Layer-9.png',
+        id: 'eafb0557-c0f9-4456-a792-ae308be03bd5',
+      },
+    },
+    {
+      id: '1f7c73fb-7704-4c26-be49-cdb85a235bb3',
+      attachmentId: 'eb071767-c290-43dd-bf12-1f3f3828ed99',
+      url: '/images/65887102-3f15-48c8-8306-d8b6ffabead5_Untitled-1_0006_Layer-7.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0006_Layer-7.png',
+        url: '/images/65887102-3f15-48c8-8306-d8b6ffabead5_Untitled-1_0006_Layer-7.png',
+        id: 'eb071767-c290-43dd-bf12-1f3f3828ed99',
+      },
+    },
+    {
+      id: '4b9e8f8c-6e00-4f7c-8446-e9518f603864',
+      attachmentId: '3dbbb30f-f247-41bb-8fb8-9c82836e35c8',
+      url: '/images/043a3a2e-7744-46ee-a6d6-853c42f3902c_Untitled-1_0005_Layer-6.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0005_Layer-6.png',
+        url: '/images/043a3a2e-7744-46ee-a6d6-853c42f3902c_Untitled-1_0005_Layer-6.png',
+        id: '3dbbb30f-f247-41bb-8fb8-9c82836e35c8',
+      },
+    },
+    {
+      id: '4c9124dc-9a9f-44b8-9fab-9b83e6a13428',
+      attachmentId: 'daca3b4a-8262-4260-af66-e61f13407e21',
+      url: '/images/1bb0033d-877f-4865-8799-e63522a39eb7_Untitled-1_0003_Layer-4.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0003_Layer-4.png',
+        url: '/images/1bb0033d-877f-4865-8799-e63522a39eb7_Untitled-1_0003_Layer-4.png',
+        id: 'daca3b4a-8262-4260-af66-e61f13407e21',
+      },
+    },
+    {
+      id: 'f07fc323-3537-4dd8-86c3-745066c95653',
+      attachmentId: 'd0e1fb8a-7781-4c72-961d-4d39ef1f9216',
+      url: '/images/447eada4-910b-4440-a352-831c59ddb2f4_Untitled-1_0004_Layer-5.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0004_Layer-5.png',
+        url: '/images/447eada4-910b-4440-a352-831c59ddb2f4_Untitled-1_0004_Layer-5.png',
+        id: 'd0e1fb8a-7781-4c72-961d-4d39ef1f9216',
+      },
+    },
+    {
+      id: 'ee901557-bdc5-457f-a377-6b1480e4e9ce',
+      attachmentId: '620dab91-ffbd-490e-864d-113bf0bdc377',
+      url: '/images/9d125ddb-715e-48b0-839b-513fe587266c_Untitled-1_0002_Layer-3.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0002_Layer-3.png',
+        url: '/images/9d125ddb-715e-48b0-839b-513fe587266c_Untitled-1_0002_Layer-3.png',
+        id: '620dab91-ffbd-490e-864d-113bf0bdc377',
+      },
+    },
+    {
+      id: 'b731edb3-edde-4749-ac94-a5e4145e0a91',
+      attachmentId: '84fbd321-b448-48c4-a6fc-2c86fc46e62a',
+      url: '/images/5b3a959e-e06a-477a-ba9c-d287214c24e8_Untitled-1_0001_Layer-2.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0001_Layer-2.png',
+        url: '/images/5b3a959e-e06a-477a-ba9c-d287214c24e8_Untitled-1_0001_Layer-2.png',
+        id: '84fbd321-b448-48c4-a6fc-2c86fc46e62a',
+      },
+    },
+    {
+      id: 'c80c6e6b-199d-480a-a479-8f9db9a26aa1',
+      attachmentId: '5e53cf5a-eca6-43ca-8cea-e11ffcad2da5',
+      url: '/images/20d0a9f4-3e4f-42c7-8667-f0da1f3bf7c2_Untitled-1_0000_Layer-1.png',
+      link: null,
+      image: {
+        name: 'Untitled-1_0000_Layer-1.png',
+        url: '/images/20d0a9f4-3e4f-42c7-8667-f0da1f3bf7c2_Untitled-1_0000_Layer-1.png',
+        id: '5e53cf5a-eca6-43ca-8cea-e11ffcad2da5',
+      },
+    },
+  ],
+};

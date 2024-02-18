@@ -39,21 +39,19 @@ import HomeFormFollow from './HomeFormFollow';
 import HomeFormRegister from './HomeFormRegister';
 import HomePost from './HomePost';
 import Head from 'next/head';
-import { useGetVideoQuery } from 'src/services/auth';
-import { useGetImgPartnersQuery } from 'src/services/home';
 import Map from '../TreeDetail/Map';
 import useWindowSize from 'src/app/hooks/useWindowSize';
 import { conver1DArrayTo2DArray, decodeBase64 } from 'src/utils/helpers/common';
-import WheelLucky from 'src/components/WheelLucky';
 import mountainHomePage from 'public/images/moutain-home-page.png';
 import { useRouter } from 'next/router';
+import { ImagesLogoPartner } from 'src/mock/ImagesLogo';
 
 function HomePage({ imageData: dataImage }) {
   const width = useWindowSize()?.width;
   const router = useRouter();
-  const { data: videoData } = useGetVideoQuery();
-  const { data: listImgPartners } = useGetImgPartnersQuery();
-
+  // const { data: videoData } = useGetVideoQuery();
+  // const { data: listImgPartners } = useGetImgPartnersQuery();
+  const listImgPartners = ImagesLogoPartner.data;
   const [showPopupThank, setShowPopupThank] = useState(false);
 
   const [stringReadMore, setStringReadMore] = useState('');
@@ -243,7 +241,6 @@ function HomePage({ imageData: dataImage }) {
             {VideoMemo}
           </Swiper>
         </div>
-
         <article className="home__tutorial container-custom relative z-[5]">
           <img
             src={decorLeaf1.src}

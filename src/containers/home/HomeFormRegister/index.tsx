@@ -428,9 +428,10 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
         <div className="flex justify-center absolute laptop:bottom-[0px] -bottom-[11%]  translate-y-2/4  left-[50%] -translate-x-2/4">
           <button
             type="submit"
-            className={`min-w-[200px] tablet:min-w-auto py-3 px-10 font-bold home__form-btn text-white-500 text-xl tablet:text-2xl ${
+            className={`min-w-[200px] tablet:min-w-auto py-3 px-10 font-bold home__form-btn disable text-white-500 text-xl tablet:text-2xl ${
               loading ? 'loading' : ''
             }`}
+            disabled
           >
             Kích hoạt <Spin spinning={loading}></Spin>
           </button>

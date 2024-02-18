@@ -13,6 +13,7 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import TreeDetailHistory from './TreeDetailHistory';
 import productHome5 from 'public/images/product-home-5.png';
+import { ListStoryAndHistory } from 'src/mock/StoryAndHistory';
 const TreeDetailStory = ({ data }: any) => {
   const dispatch = useDispatch();
   const [getStoryAndHistoryById] = useLazyGetStoryAndHistoryQuery();
@@ -40,7 +41,9 @@ const TreeDetailStory = ({ data }: any) => {
   useEffect(() => {
     if (!!provinces.provinceId) {
       (async () => {
-        const response = await getStoryAndHistoryById({ id: provinces.provinceId }).unwrap();
+        // const response = await getStoryAndHistoryById({ id: provinces.provinceId }).unwrap();
+        const response = CheckStoryAndHistory(provinces.provinceId);
+
         setStoryAndHistory({
           listHistory: response?.listHistory,
           listStory: response?.listStory,
@@ -58,9 +61,10 @@ const TreeDetailStory = ({ data }: any) => {
       if (data.length) {
         (async () => {
           const getDefaultId = data?.find((d) => d.provinceCodeInMap === 'geo-42');
-          const response = await getStoryAndHistoryById({
-            id: getDefaultId?.id,
-          }).unwrap();
+          // const response = await getStoryAndHistoryById({
+          //   id: getDefaultId?.id,
+          // }).unwrap();
+          const response = CheckStoryAndHistory(getDefaultId?.id);
           setStoryAndHistory({
             listHistory: response?.listHistory,
             listStory: response?.listStory,
@@ -82,6 +86,12 @@ const TreeDetailStory = ({ data }: any) => {
     );
   }, []);
 
+  const CheckStoryAndHistory = (id: string) => {
+    let item = ListStoryAndHistory.find((item) => {
+      return item.id == id;
+    });
+    return item.data;
+  };
   return (
     <div className="w-full tree-detail__story  laptop:pt-5  laptop:pb-0 mobile:p-0">
       <div className="mb-2">

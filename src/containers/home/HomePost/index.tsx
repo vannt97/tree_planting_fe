@@ -5,17 +5,18 @@ import { useEffect, useMemo } from 'react';
 import AOS from 'aos';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { GreenNewsletterManagement } from 'src/mock/GreenNewsletterManagement';
 // import 'swiper/css';
 // import 'swiper/css/navigation';
 function HomePost() {
   const [postLogin] = usePostLoginMutation();
-  const [getData, { data }] = useLazyGetGreenNewsQuery();
+  // const [getData, { data }] = useLazyGetGreenNewsQuery();
 
-  useEffect(() => {
-    getData();
-    // AOS.init()
-  }, []);
-
+  // useEffect(() => {
+  //   getData();
+  //   // AOS.init()
+  // }, []);
+  const data = GreenNewsletterManagement.data;
   // const handleLogin = async () => {
   //     const response = await postLogin({
   //         userName: "adminfo@aegona.com",
