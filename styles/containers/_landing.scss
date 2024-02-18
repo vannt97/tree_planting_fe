@@ -42,6 +42,25 @@
                 }
             }
         }
+        .swiper-button-prev, .swiper-button-next{
+            width: 22px;
+            height: 22px;
+            background-color: $green-primary;
+            border-radius: 100%;
+            border: 1px solid white;
+            @include responsive(sm-screen){
+                width: 44px;
+                 height: 44px;
+            }
+        }
+        .swiper-button-prev::after,.swiper-button-next::after{
+            font-size: 12px;
+            color: white;
+            @include responsive(sm-screen){
+                font-size: 22px;
+            }
+        }
+        
         span {
             // width: 100% !important;
             // img {

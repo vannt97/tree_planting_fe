@@ -48,10 +48,12 @@ export const HomeAPI = createApi({
       },
     }),
     getArrayTree: builder.query<any, any>({
-      query: (params) => ({
-        url: `/TreeInformations/DetailTreeFollowArrayCode?${params}`,
-        method: 'GET',
-      }),
+      query: (params) => {
+        return {
+          url: `/TreeInformations/DetailTreeFollowArrayCode?${params}`,
+          method: 'GET',
+        };
+      },
       transformResponse: (res: any) => {
         if (res.success === true) {
           return res.data;
@@ -81,5 +83,5 @@ export const {
   useGetTreePlantingSiteQuery,
   useLazyGetArrayTreeQuery,
   useLazyGetStoryAndHistoryQuery,
-  useGetImgPartnersQuery
+  useGetImgPartnersQuery,
 } = HomeAPI;

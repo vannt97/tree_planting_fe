@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as htmlToImage from 'html-to-image';
 import moment from 'moment';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import bgCertificate from 'public/images/bg-certificate.svg';
 import certificate1 from 'public/images/certificate-1.svg';
@@ -11,7 +12,8 @@ import signBo from 'public/images/sign/bo.png';
 import solutionImg from 'public/images/solution.svg';
 import { useRef } from 'react';
 import { SignData } from 'src/constant/sign';
-import { decodeBase64 } from 'src/utils/helpers/common';
+import { captureElement, decodeBase64 } from 'src/utils/helpers/common';
+import ribbon from 'public/images/ribbon-certificate.png';
 
 interface CertificateComp {
   btnRef?: any;
@@ -32,12 +34,13 @@ function CertificateComponentDownload(props: CertificateComp) {
   const router = useRouter();
 
   const downloadImage = async () => {
-    const dataUrl = await htmlToImage.toPng(domEl.current);
-    // download image
-    const link = document.createElement('a');
-    link.download = 'chung-nhan-song-khoe-gop-xanh.png';
-    link.href = dataUrl;
-    link.click();
+    // const dataUrl = await htmlToImage.toPng(domEl.current);
+    // // download image
+    // const link = document.createElement('a');
+    // link.download = 'chung-nhan-song-khoe-gop-xanh.png';
+    // link.href = dataUrl;
+    // link.click();
+    captureElement(domEl.current);
   };
 
   return (
@@ -48,149 +51,143 @@ function CertificateComponentDownload(props: CertificateComp) {
         ref={btnRef ? btnRef : btnEl}
       ></span>
       <div className={`certificateComponent__download `}>
-        <div ref={domEl} className="certificateComponent">
-          <div className="w-full certificateComponent__content">
-            <div
-              className="certificateComponent__bg"
-              style={{ backgroundImage: `url(${bgCertificate.src})` }}
-            ></div>
-            <div
-              style={{ height: '450px' }}
-              className="certificateComponent__container p-2 tablet:p-3 relative laptop:p-4"
-            >
-              <div className="h-full w-full flex flex-col">
-                <div className="flex justify-center">
-                  <div className="flex justify-center items-center">
-                    <span>
-                      <img src={certificate1.src} alt="" />
-                    </span>
-                    <span className="mx-4">
-                      <img src={logoPana.src} alt="" width={100} height={50} />
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-1 w-full relative justify-between">
-                  <div>
-                    <div className="flex certificateComponent__logo opacity-0 justify-end items-center">
-                      <span>
-                        <img src={japanQuality.src} alt="" />
-                      </span>
-                      <span className="ml-3">
-                        <img src={solutionImg.src} alt="" />
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex certificateComponent__body justify-end">
-                    <div className="w-full">
-                      <h2 className="uppercase f-oswald text-[1.3rem] text-center">Chương Trình</h2>
-                      <h1 className="color-text-4b font-bold uppercase f-oswald text-[1.5rem] text-center">
-                        Sống khỏe Góp Xanh Cùng Panasonic
-                      </h1>
-                      <div className="flex justify-center">
-                        <label className="uppercase f-oswald color-text-414 my-3 text-[1rem] text-center">
-                          Vinh Danh Khách Hàng
-                        </label>
-                      </div>
-                      <h1 className="color-primary f-oswald font-bold color-text-4b text-center mb-3 text-[1.5rem]">
-                        <span className="f-oswald text-[1.8rem] tracking-wide">
-                          {router?.query?.name
-                            ? decodeBase64(`${router?.query?.name}`)
-                            : name
-                            ? name
-                            : ''}
-                        </span>
-                      </h1>
-                      <p className="text-center uppercase f-oswald font-medium mb-3 text-[0.9rem] certificateComp__text">
-                        <span className="whitespace-nowrap">
-                          Đã góp một cây xanh cho{' '}
-                          {info?.location ? info?.location : 'Khu bảo tồn thiên nhiên Phong Điền'}
-                        </span>
-                        <br />{' '}
-                        <span className="uppercase text-[0.9rem]">
-                          Vì Một Việt Nam Xanh Khỏe Mạnh
-                        </span>
-                      </p>
+        <div ref={domEl} className={`bg-white-500  h-full certificateComponent text-size-adjust `}>
+          <div className="certificateComponent__content h-full w-full text-size-adjust relative ">
+            <div className="certificateComponent__border-secondery absolute top-0 left-0 w-full h-full bg-transparent  border-green-50"></div>
+            <div className="certificateComponent__border-primary absolute top-0 left-0 w-full h-full bg-transparent  border-green-primary"></div>
 
-                      <p className="text-end font-medium text-[0.7rem] mb-1">
-                        Ngày{' '}
-                        {info?.date
-                          ? moment(info?.date, 'DD/MM/YYYY').format('DD')
-                          : moment().format('DD')}{' '}
-                        tháng{' '}
-                        {info?.date
-                          ? moment(info?.date, 'DD/MM/YYYY').format('MM')
-                          : moment().format('MM')}{' '}
-                        năm{' '}
-                        {info?.date
-                          ? moment(info?.date, 'DD/MM/YYYY').format('YYYY')
-                          : moment().format('YYYY')}
-                      </p>
-                      <div className="flex justify-between items-start gap-5">
-                        <div className="flex flex-col items-center justify-between">
-                          <h1 className="whitespace-nowrap color-text-414 font-medium text-[0.7rem]">
-                            Đại diện Trung tâm Truyền thông TN&MT
-                          </h1>
-                          <img
-                            style={{ width: '100px', height: '60px' }}
-                            className="certificateComponent__sign"
-                            src={signBo.src}
-                            alt=""
-                          />
-                          <p className="font-semibold text-[0.7rem] uppercase">Nguyễn Việt Dũng</p>
-                        </div>
-                        {signData?.sign && (
-                          <div className="flex flex-col items-center justify-between">
-                            <h1 className="whitespace-nowrap color-text-414 font-medium text-[0.7rem]">
-                              {' '}
-                              Đại diện Ban quản lý rừng địa phương
-                            </h1>
-                            <img
-                              style={{ width: '100px', height: '60px' }}
-                              className="certificateComponent__sign"
-                              src={signData.sign}
-                              alt=""
-                            />
-                            <p className="font-semibold text-[0.7rem] uppercase">{signData.name}</p>
-                          </div>
-                        )}
-
-                        <div className="flex flex-col items-center justify-between">
-                          <h1 className="whitespace-nowrap color-text-414 font-medium text-[0.7rem]">
-                            Tổng giám đốc Panasonic Việt Nam
-                          </h1>
-                          <img
-                            style={{ width: '100px', height: '60px' }}
-                            className="certificateComponent__sign"
-                            src={signImage.src}
-                            alt=""
-                          />
-                          <p className="font-semibold text-[0.7rem]">MARUKAWA YOICHI</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-end">
-                    <div className="flex certificateComponent__logo opacity-0 justify-end items-center">
-                      <span>
-                        <img src={japanQuality.src} alt="" />
-                      </span>
-                      <span className="ml-3">
-                        <img src={solutionImg.src} alt="" />
-                      </span>
-                    </div>
-                  </div>
+            <div className="h-auto w-full flex flex-col text-size-adjust relative">
+              <div className=" w-full flex justify-center text-size-adjust  ">
+                <div className="certificateComponent__header w-full flex justify-center items-center text-size-adjust  relative ">
+                  <span className="absolute left-0  text-size-adjust flex justify-start items-center certificateComponent__certificate-img-1">
+                    {/* <Image src={certificate1} alt="" width={certificate1.width} height={certificate1.height} /> */}
+                    <img src={certificate1.src} alt="" />
+                  </span>
+                  <h2 className="certificateComp__show text-size-adjust uppercase f-oswald text-center">
+                    Chương Trình
+                  </h2>
+                  <span className="absolute right-0  certificateComponent__logo-pana flex justify-center items-center text-size-adjust">
+                    {/* <Image objectFit='cover' src={logoPana} alt="" width={logoPana.width} height={logoPana.height}/> */}
+                    <img src={logoPana.src} alt="" />
+                  </span>
                 </div>
               </div>
-              <div className="flex certificateComponent__logo absolute bottom-2 right-2 tablet:bottom-3 tablet:right-3 laptop:bottom-4 laptop:right-4 justify-end items-center">
-                <span className="flex justify-end items-end">
-                  <img src={japanQuality.src} alt="" />
-                </span>
-                <span className="flex justify-end items-end ml-2">
-                  <img src={solutionImg.src} alt="" />
-                </span>
+              <div className="flex text-size-adjust flex-1 w-full relative justify-center">
+                <div className="flex text-size-adjust justify-center ">
+                  <div>
+                    <h1 className="italic certificateComponent__title text-green-primary whitespace-nowrap font-bold text-size-adjust uppercase f-oswald  text-center">
+                      Sống khỏe Góp Xanh
+                    </h1>
+                    <p className="certificateComponent__title-1 uppercase f-oswald font-bold text-green-primary  text-center ">
+                      giữ chuyện rừng còn mãi
+                    </p>
+                    <div className="inline-flex items-center   justify-center text-size-adjust relative bg-green-primary">
+                      <p className="certificateComponent__bravo  uppercase f-oswald text-white-500 px-8 text-center relative">
+                        Vinh Danh Khách Hàng
+                      </p>
+                    </div>
+
+                    <h1 className="color-primary f-oswald font-bold color-text-4b text-center certificateComponent__name text-size-adjust  tracking-wide">
+                      {router?.query?.name
+                        ? decodeBase64(`${router?.query?.name}`)
+                        : name
+                        ? name
+                        : ''}
+                    </h1>
+                    <div className="certificateComponent__dash  h-[2px] w-full border border-dashed"></div>
+                    <p className="text-center certificateComponent__des text-size-adjust uppercase f-oswald font-medium certificateComp__text">
+                      <span className="whitespace-nowrap text-size-adjust">
+                        Đã góp một cây xanh cho{' '}
+                        {info?.location ? info.location : 'Khu bảo tồn Phong Điền'}
+                      </span>
+                      <br /> <span className="uppercase">Vì Một Việt Nam Xanh Khỏe Mạnh</span>
+                    </p>
+
+                    <p className=" text-center certificateComponent__date text-size-adjust font-medium color-text-414">
+                      Ngày {moment(info?.date, 'DD/MM/YYYY').format('DD')} tháng{' '}
+                      {moment(info?.date, 'DD/MM/YYYY').format('MM')} năm{' '}
+                      {moment(info?.date, 'DD/MM/YYYY').format('YYYY')}
+                    </p>
+                    <div className="flex relative certificateComponent__sign-wrapper text-size-adjust justify-between items-start gap-5">
+                      <div className="h-full">
+                        <div className="flex certificateComponent__sign flex-col text-size-adjust items-center justify-between">
+                          <h1 className="whitespace-nowrap text-center certificateComponent__sign-title text-size-adjust color-text-414 font-medium ">
+                            Đại diện Trung tâm
+                            <br /> Truyền thông TN&MT
+                          </h1>
+                          <span className=" certificateComponent__sign-height-img flex items-center">
+                            <img
+                              className="certificateComponent__sign-img"
+                              // width={120}
+                              // height={100}
+                              src={signBo.src}
+                              alt=""
+                            />
+                          </span>
+                          <p className="certificateComponent__sign-name text-green-primary whitespace-nowrap uppercase font-semibold text-size-adjust  f-oswald">
+                            Nguyễn Việt Dũng
+                          </p>
+                        </div>
+                      </div>
+                      {signData?.sign && (
+                        <div className="h-full">
+                          <div className="flex certificateComponent__sign flex-col text-size-adjust items-center justify-between">
+                            <h1 className="whitespace-nowrap text-center certificateComponent__sign-title text-size-adjust color-text-414 font-medium ">
+                              Đại diện Ban quản lý
+                              <br /> rừng địa phương
+                            </h1>
+                            <span className="certificateComponent__sign-height-img certificateComponent__sign-img-wrapper flex items-center">
+                              <img
+                                className="certificateComponent__sign-img"
+                                // width={120}
+                                // height={100}
+                                src={signData.sign}
+                                alt=""
+                              />
+                            </span>
+                            <p className="certificateComponent__sign-name text-green-primary whitespace-nowrap uppercase font-semibold text-size-adjust  f-oswald">
+                              {signData.name}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                      <div className="h-full">
+                        <div className="flex flex-col certificateComponent__sign text-size-adjust items-center justify-between">
+                          <h1 className="whitespace-nowrap text-center certificateComponent__sign-title text-size-adjust color-text-414 font-medium ">
+                            Tổng giám đốc
+                            <br /> Panasonic Việt Nam
+                          </h1>
+                          <span className="certificateComponent__sign-height-img certificateComponent__sign-img-wrapper flex items-center">
+                            <img
+                              className="certificateComponent__sign-img"
+                              // width={120}
+                              // height={100}
+                              src={signImage.src}
+                              alt=""
+                            />
+                          </span>
+                          <p className="certificateComponent__sign-name text-green-primary whitespace-nowrap font-semibold text-size-adjust  f-oswald">
+                            MARUKAWA YOICHI
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-center flex justify-center">
+                      <span className="text-size-adjust certificateComponent__jp-quality leading-none">
+                        {/* <Image src={japanQuality} alt="" width={japanQuality.width} height={japanQuality.height}/> */}
+                        <img src={japanQuality.src} alt="" />
+                      </span>
+                      <span className="ml-3 text-size-adjust certificateComponent__solution leading-none">
+                        {/* <Image src={solutionImg} alt="" width={solutionImg.width} height={solutionImg.height}/> */}
+                        <img src={solutionImg.src} alt="" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <img className="w-full absolute bottom-0 left-0 z-10" src={ribbon.src} alt="" />
         </div>
       </div>
     </>

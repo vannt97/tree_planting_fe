@@ -14,6 +14,7 @@
 @import "./components/tree-share";
 @import "./components/back-to-top";
 @import "./components/card-game";
+@import "./components/pagination";
 
 // Pages
 @import "./containers/landing";
@@ -23,6 +24,8 @@
 @import "./containers/garden";
 @import "./containers/quiz-verify";
 @import "./containers/quiz";
+@import "./containers/gallery";
+@import "./containers/certificate";
 
 //Layouts
 @import "./layouts/header";

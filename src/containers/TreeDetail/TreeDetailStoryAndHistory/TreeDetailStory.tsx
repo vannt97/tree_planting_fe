@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/app/store';
 import { getHistoryAndStory } from 'src/services/treeAPI';
 import { useLazyGetStoryAndHistoryQuery } from 'src/services/home';
-import { Pagination } from 'swiper';
+import { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import TreeDetailHistory from './TreeDetailHistory';
-
+import productHome5 from 'public/images/product-home-5.png';
 const TreeDetailStory = ({ data }: any) => {
   const dispatch = useDispatch();
   const [getStoryAndHistoryById] = useLazyGetStoryAndHistoryQuery();
@@ -75,12 +75,8 @@ const TreeDetailStory = ({ data }: any) => {
   const SwiperStoryItem = useCallback((item) => {
     return (
       <SwiperSlide key={item?.id}>
-        <div className="text-center mt-3 w-full">
-          <img
-            src={item?.imageLinkTreePlantingsiteStory}
-            alt=""
-            className="w-full "
-          />
+        <div className="text-center mt-3 w-full w-[85%] mx-auto">
+          <img src={item?.imageLinkTreePlantingsiteStory} alt="" className="w-full " />
         </div>
       </SwiperSlide>
     );
@@ -89,22 +85,18 @@ const TreeDetailStory = ({ data }: any) => {
   return (
     <div className="w-full tree-detail__story  laptop:pt-5  laptop:pb-0 mobile:p-0">
       <div className="mb-2">
-        <p
-          className="text-[16px] font-bold laptop:text-[24px] mobile:text-[16px]"
-          style={{ color: '#0C321E' }}
-        >
+        <p className="mt-4 leading-auto tablet:mt-0 text-[16px] font-bold laptop:text-[24px] mobile:text-[16px] mb-2">
           Câu chuyện {storyAndHistory.listStory[activeIndex]?.label}
         </p>
-        <span className="text-[14px] laptop:text-[16px]">
-          {storyAndHistory.listStory[activeIndex]?.description}
-        </span>
+        <span className="">{storyAndHistory.listStory[activeIndex]?.description}</span>
       </div>
       <div className="treeDetail__story-image">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Navigation]}
           spaceBetween={10}
           slidesPerView={1}
-          pagination={{ clickable: true }}
+          navigation={true}
+          pagination={{ clickable: true, dynamicBullets: true }}
           onSlideChange={(e) => setActiveIndex(e.activeIndex)}
         >
           {storyAndHistory?.listStory.map((item) => SwiperStoryItem(item))}

@@ -1,3 +1,4 @@
+// old
 .garden {
   color: red;
   // background-image: url('../../public/images/garden.png');
@@ -22,10 +23,231 @@
     width: 100%;
     position: absolute;
   }
+
+  &__btn-medal {
+    display: inline-flex;
+    align-items: center;
+    background: $green-primary;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 40px;
+    font-weight: 700;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    transition: all ease 0.3s;
+    animation: pulse ease 1s infinite;
+  }
+  &__btn-medal:hover {
+    background-color: #fff !important;
+    color: #00874a !important;
+    border-color: transparent !important;
+    animation: none;
+  }
 }
+
+.my-garden {
+  &__letter {
+    &-text {
+      // text-xl mobileSM:text-2xl desktopSM:text-3xl desktopXL:text-5xl
+      font-size: 16px;
+      @include responsive(sm-screen) {
+        font-size: 24px;
+      }
+      @include responsive(lg-screen) {
+        font-size: 24px;
+      }
+      @include responsive(xl-screen) {
+        font-size: 20px;
+      }
+      @include responsive(xxl-screen) {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
 .garden-tree-modal {
   .ant-modal-header,
   .ant-modal-close-x {
     display: none;
+  }
+  .ant-modal-content {
+    background-color: transparent;
+    border-radius: 0.75rem;
+  }
+  .ant-modal-body {
+    padding: 14px;
+    border-radius: 0.75rem;
+    background-color: rgba(4, 135, 74, 0.8);
+  }
+}
+// new
+.my-garden {
+  &__heading-1 {
+    font-size: 22px;
+    @include responsive(md-screen) {
+      font-size: 32px;
+    }
+
+    @include responsive(xl-screen) {
+      font-size: 28px;
+    }
+
+    @include responsive(xxl-screen) {
+      font-size: 36px;
+    }
+    @include responsive(xxxl-screen) {
+      font-size: 42px;
+    }
+  }
+
+  &__trees-slider {
+    .swiper-pagination {
+      bottom: 2% !important;
+    }
+    @include responsive(xs-screen) {
+      .swiper-pagination {
+        bottom: 0% !important;
+      }
+    }
+    
+    .swiper-button-prev {
+      background: url("/icons/pre-custom-btn-green.svg");
+      left: -14px;
+    }
+    .swiper-button-next {
+      background: url("/icons/next-custom-btn-green.svg");
+      right: -14px;
+    }
+    @include responsive(sm-screen) {
+      .swiper-button-next {
+        right: 0;
+      }
+      .swiper-button-prev {
+        left: 0;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      content: none;
+    }
+
+    @include responsive(xs-screen) {
+      .swiper {
+        overflow: visible;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background-color: rgba(151, 203, 74, 1);
+      opacity: 1;
+      width: 14px;
+      height: 14px;
+      @include responsive(sm-screen) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background-color: rgba(3, 99, 52, 1);
+    }
+
+    .custom-btn-next-slider,
+    .custom-btn-prev-slider {
+      width: 30px;
+      aspect-ratio: 1;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) scale(1) !important;
+      background: url("/icons/next-custom-btn-green.svg");
+    }
+    .custom-btn-prev-slider {
+      left: 0;
+    }
+    .custom-btn-next-slider {
+      right: 0;
+    }
+  }
+  &__medals {
+    @include responsive(xs-screen) {
+      .swiper-button-next {
+        right: -14px;
+      }
+      .swiper-button-prev {
+        left: -14px;
+      }
+    }
+    .swiper-wrapper {
+      // justify-content: center;
+    }
+
+    .swiper-button-prev {
+      background: url("/icons/pre-custom-btn-green.svg");
+      left: 0;
+    }
+    .swiper-button-next {
+      background: url("/icons/next-custom-btn-green.svg");
+      right: 0;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include responsive(lg-screen) {
+        transform: translateY(-10px);
+      }
+      @include responsive(xxl-screen) {
+      }
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      content: none;
+    }
+  }
+
+  &__medal-modal {
+    .ant-modal-body {
+      background: #00874a;
+      color: white;
+      border-radius: 0.5rem;
+      border: 1px solid black;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &__info {
+    max-height: 150px;
+    overflow-y: auto;
+    height: 100%;
+  }
+  &__info::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  &__info::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  &__info::-webkit-scrollbar-thumb {
+    background: $green-primary;
+  }
+
+  /* Handle on hover */
+  &__info::-webkit-scrollbar-thumb:hover {
+    background: $green-primary;
   }
 }

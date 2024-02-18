@@ -33,7 +33,7 @@ function HomePost() {
     return data?.map((post: any, index: number) => {
       return (
         <SwiperSlide key={post.id}>
-          <div className=''>
+          <div className="">
             <PostItem
               key={post.id}
               link={post?.pdfLink ? post.pdfLink : post.link}
@@ -51,10 +51,8 @@ function HomePost() {
     // data-aos="fade-up"
     //         data-aos-anchor-placement="center-bottom"
     //         data-aos-duration="200"
-    <article className="container-custom none pb-20 home__news">
-      <h1 className="color-primary font-bold uppercase text-center mb-8 text-2xl tablet:text-4xl">
-        bản tin xanh
-      </h1>
+    <article className="container-custom  pb-20 home__news">
+      <h1 className="color-primary font-bold uppercase text-center mb-8 heading-1">bản tin xanh</h1>
 
       {/* <div className={`grid laptop:grid-cols-2 tablet:grid-cols-2 mobile:grid-cols-1 gap-6`}>
         {data?.map((post: any, index: number) => {
@@ -69,15 +67,40 @@ function HomePost() {
           );
         })}
       </div> */}
-      <Swiper
-            modules={[Pagination, Navigation]}
-            navigation={true}
-            slidesPerView={3}
-            spaceBetween={50}
-            pagination={{ clickable: true }}
-          >
-            {postItemsMemo}
-          </Swiper>
+      <div className="relative">
+        <Swiper
+          modules={[Pagination, Navigation]}
+          slidesPerView={3}
+          spaceBetween={50}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1400: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          navigation={{
+            nextEl: '.post-next-btn',
+            prevEl: '.post-prev-btn',
+          }}
+          pagination={{ clickable: true, dynamicBullets: true }}
+        >
+          {postItemsMemo}
+        </Swiper>
+        <div className="post-next-btn"></div>
+        <div className="post-prev-btn"></div>
+      </div>
     </article>
   );
 }

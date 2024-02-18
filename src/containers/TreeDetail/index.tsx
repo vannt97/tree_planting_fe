@@ -46,6 +46,8 @@ const TreeDetail = () => {
 
   const state = useSelector(selectSubscriptionStatus);
 
+  useEffect(() => {
+  }, []);
   return (
     <>
       <Seo

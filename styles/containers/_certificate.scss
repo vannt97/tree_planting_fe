@@ -1,0 +1,16 @@
+.certificate {
+  &__wrapper {
+    container-type: inline-size;
+    width: 100%;
+    aspect-ratio: 16/11;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include responsive(md-screen) {
+      width: 600px;
+    }
+  }
+}

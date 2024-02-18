@@ -1,0 +1,94 @@
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+
+  .pagination-item {
+    height: 40px;
+    text-align: center;
+    margin: auto 6px;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    letter-spacing: 0.01071em;
+    border-radius: 50%;
+    line-height: normal;
+    font-size: 18px;
+    min-width: 40px;
+    justify-content: center;
+
+    &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: rgba(169, 218, 169, 1);
+    }
+
+    .arrow {
+      width: 40px;
+      height: 40px;
+      background: rgba(3, 110, 55, 1);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        // content: "";
+        // position: absolute;
+        // top: 50%;
+        // right: 50%;
+        // transform: translate(-50%, -50%);
+        // display: inline-block;
+        // width: 0.4em;
+        // height: 0.4em;
+        // border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+        // border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+        // border-width: 10px;
+        // border-style: solid;
+        // border-color: transparent white transparent transparent;
+        // width: 20px;
+        // height: 20px;
+        // background: url("/icons/arrow-next.svg");
+        // background-repeat: no-repeat;
+        // background-position: center;
+      }
+
+      &.left {
+        // transform: rotate(-135deg) translate(-50%);
+        svg {
+          position: relative;
+          left: -2px;
+        }
+      }
+
+      &.right {
+        // transform: rotate(45deg);
+        svg {
+          position: relative;
+          right: -2px;
+        }
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      .arrow::before {
+        // border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+        // border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+      }
+
+      &:hover {
+        // background-color: transparent;
+        // cursor: default;
+      }
+    }
+  }
+}

@@ -220,7 +220,13 @@
   }
 }
 .ant-modal-close-x {
-  display: none;
+  // display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg{
+    fill: white;
+  }
 }
 .right__content {
   // background-image: url();
@@ -263,11 +269,10 @@
 }
 .ant-modal-body {
   // min-height: 200px;
-  background-image: url(https://i.ibb.co/M2hwYnc/comic-green-bg.jpg);
-  background-color: #66cc99;
+  background-color: #04874A;
   background-size: cover;
-  border-radius: 10px;
-  color: #336666;
+  border-radius: 6px;
+  color: white;
 }
 .ant-modal-content {
   border-radius: 10px;

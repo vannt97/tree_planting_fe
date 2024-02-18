@@ -3,8 +3,8 @@ import { Button, message, Modal, Popover } from 'antd';
 import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import copyIcon from 'public/icons/copy.svg';
-import downloadIcon from 'public/icons/download.svg';
+import copyIcon from 'public/icons/copy-white.svg';
+import downloadIcon from 'public/icons/download-white.svg';
 import { useEffect, useRef } from 'react';
 import { FacebookShareButton } from 'react-share';
 import CertificateComponent from 'src/components/CertificateComponent';
@@ -138,7 +138,7 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
         className="modal-cer"
       >
         <div className="p-1">
-          <div className="home__certificate-img flex justify-center">
+          <div className="home__certificate-img aspect-[16/11] flex justify-center bg-white-500 overflow-hidden">
             <CertificateComponent
               info={{
                 location,
@@ -149,19 +149,28 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
               modal
               name={name}
               btnRef={btnDownload}
+              // info={{
+              //   location:'location',
+              //   provinceName:'',
+              //   date: moment(),
+              //   provinceCode: '',
+              // }}
+              // modal
+              // name={'dsadsa'}
+              // btnRef={btnDownload}
             />
             {/* <img src={dataTreeDetail && dataTreeDetail.data && dataTreeDetail.data.length > 0 ? dataTreeDetail.data[0].imageCertificateAttachment : ""} alt="" /> */}
           </div>
           <div className="mt-3">
-            <p className="text-center color-text-33">
+            <p className="text-center text-white-500">
               Chia sẻ để nhận 01 vé tham gia
               <br />
               {'"'}
-              <span className="uppercase text-green-29">Vòng quay xanh khỏe mạnh</span>
+              <span className="uppercase text-white-500">Vòng quay xanh khỏe mạnh</span>
               {'"'}
               <br />
               Tổng giá trị quà tặng lên tới{' '}
-              <span className="text-green-primary">
+              <span className="text-white-500">
                 <span className="font-bold">300</span> triệu
               </span>{' '}
               đồng
@@ -181,7 +190,7 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
                   }
                 >
                   <button
-                    className="uppercase home__certificate-btn mb-3 facebook w-full font-semibold"
+                    className="uppercase text-white-500 home__certificate-btn mb-3 facebook w-full font-semibold"
                     style={{ padding: '0.45rem 0 !important;' }}
                   >
                     <span className="flex items-center w-full justify-center">
@@ -224,7 +233,7 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
                 className="cursor-pointer flex items-center"
               >
                 <Image height={30} width={30} src={downloadIcon} alt="" />
-                <span className="color-primary uppercase font-semibold ml-1">Download</span>
+                <span className="text-white-500 uppercase font-semibold ml-1">Download</span>
               </span>
 
               <span
@@ -232,7 +241,7 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
                 className="cursor-pointer flex ml-4 items-center"
               >
                 <Image height={30} width={30} src={copyIcon} alt="" />
-                <span className="color-primary uppercase font-semibold ml-1">Copy Link</span>
+                <span className="text-white-500 uppercase font-semibold ml-1">Copy Link</span>
               </span>
             </div>
 
@@ -240,7 +249,7 @@ function HomePopupCertificate(props: HomePopupCertificateProps) {
               <Button
                 loading={responGetTreeHistory?.isLoading || responseLogin?.isLoading || !isSuccess}
                 onClick={handleRedirectGarden}
-                className={`uppercase relative home__certificate-login color-primary p-1 font-semibold ${
+                className={`uppercase relative home__certificate-login text-white-500 p-1 font-semibold ${
                   responGetTreeHistory.isLoading || responseLogin.isLoading ? 'loading' : ''
                 }`}
               >

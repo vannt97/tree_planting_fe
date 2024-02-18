@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.wrapper > div {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 100%;
+  margin: 0 4px;
+  cursor: pointer;
+  position: relative;
+}
+.wrapper > div:hover {
+  background-color: #04874a;
+}
+
+.btnPrev,
+.btnNext {
+  border-radius: 50%;
+  background-color: #04874a;
+}
+
+.btnPrev > div,
+.btnNext > div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px;
+  border-style: solid;
+}
+.btnPrev > div {
+  border-color: transparent white transparent transparent;
+  right: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.btnNext > div {
+  border-color: transparent transparent transparent white;
+}

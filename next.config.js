@@ -7,7 +7,17 @@ const nextConfig = {
     NEXT_APP_API_KEY: process.env.NEXT_APP_API_KEY,
   },
   output: "standalone",
-  images: { domains: ['pana-tree-planting-test-be.aegona.work', 'pana-tree-planting-uat-be.aegona.work', 'api.songkhoegopxanh.com', 'pana-tree-planting-uat-be.aegona.work'] },
+  images: {
+    domains: [
+      "plant-api-uat.marvyco.com",
+      "plant-api.marvyco.com",
+      "pana-tree-planting-test-be.aegona.work",
+      "pana-tree-planting-uat-be.aegona.work",
+      "api.songkhoegopxanh.com",
+      "pana-tree-planting-uat-be.aegona.work",
+      "plant-api-v2.marvyco.com",
+    ],
+  },
 };
 
 module.exports = nextConfig;

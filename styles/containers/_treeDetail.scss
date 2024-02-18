@@ -1,11 +1,12 @@
+// old
 .tree-detail {
-  font-size: 14px;
+  // font-size: 14px;
   width: 100%;
-  @media only screen and (min-width: 768px) {
-    font-size: 16px;
-  }
+  // @media only screen and (min-width: 768px) {
+  //   font-size: 16px;
+  // }
   &__title {
-    font-size: 16px;
+    // font-size: 16px;
     font-weight: 500;
   }
   .time-sheet {
@@ -67,25 +68,25 @@
     }
     &__map {
       min-height: 680px;
-      @media only screen and (min-width: 300px) {
-        font-size: 0.6rem !important;
-      }
+      // @media only screen and (min-width: 300px) {
+      //   font-size: 0.6rem !important;
+      // }
 
-      @media only screen and (min-width: 350px) {
-        font-size: 0.7rem !important;
-      }
+      // @media only screen and (min-width: 350px) {
+      //   font-size: 0.7rem !important;
+      // }
 
-      @media only screen and (min-width: 400px) {
-        font-size: 0.7rem !important;
-      }
+      // @media only screen and (min-width: 400px) {
+      //   font-size: 0.7rem !important;
+      // }
 
-      @media only screen and (min-width: 450px) {
-        font-size: 0.7rem !important;
-      }
+      // @media only screen and (min-width: 450px) {
+      //   font-size: 0.7rem !important;
+      // }
 
-      @media only screen and (min-width: 500px) {
-        font-size: 0.9rem !important;
-      }
+      // @media only screen and (min-width: 500px) {
+      //   font-size: 0.9rem !important;
+      // }
 
       @media only screen and (min-width: 768px) {
         min-height: 1000px !important;
@@ -143,6 +144,15 @@
     &__certificate {
       max-width: 100%;
 
+      // new
+      .certificateComponent {
+        padding: 1.4vw;
+        @include responsive(lg-screen) {
+          padding: 0.7vw;
+        }
+      }
+
+      //    old
       .certificateComponent__content {
         max-width: calc(100% - 1rem);
       }
@@ -689,14 +699,15 @@
 .treeDetail {
   &__share {
     position: absolute;
-    top: -100%;
+    top: -150%;
     display: none;
     z-index: 3;
     padding: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     background-color: #fff;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
     &.active {
       display: block;
@@ -726,6 +737,28 @@
           background-color: $green-primary;
           transform: scale(1.5);
         }
+      }
+
+      .swiper-button-prev {
+        background: url("/icons/pre-custom-btn.svg");
+        left: 0;
+      }
+      .swiper-button-next {
+        background: url("/icons/next-custom-btn.svg");
+        right: 0;
+      }
+      
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        content: none;
       }
     }
   }
@@ -786,6 +819,7 @@
     }
   }
 }
+
 .react-multi-carousel-track {
   li {
     display: flex;
@@ -834,6 +868,7 @@
     }
   }
 }
+
 .custom-carousel {
   .react-multi-carousel-dot-list {
     gap: 16px;
@@ -865,6 +900,383 @@
           border-radius: 8px;
         }
       }
+    }
+  }
+}
+// old
+
+// new
+.tree-detail {
+  // .tree-detail{
+  //   &__map-secondary{
+  //     min-height: 100% !important;
+  //     @include responsive(xl-screen){
+  //       min-height: 800px !important;
+  //     }
+  //     @include responsive(xxl-screen){
+  //       min-height: 1000px !important;
+  //     }
+  //   }
+  // }
+
+  // .tree-detail{
+  //   &__journey{
+  //     min-height: 100% !important;
+  //     @include responsive(lg-screen){
+  //       min-height: 1000px !important;
+  //     }
+  //   }
+  // }
+}
+
+// new
+.tree-detail {
+  &__session-1 {
+    &-part {
+      font-size: 15px;
+      @include responsive(xxl-screen) {
+        font-size: 16px;
+      }
+      @include responsive(xxxxl-screen) {
+        font-size: 20px;
+      }
+    }
+  }
+  .tree-detail {
+    &__map-secondary {
+      min-height: 100% !important;
+      @include responsive(xl-screen) {
+        min-height: 800px !important;
+      }
+      @include responsive(xxl-screen) {
+        min-height: 1000px !important;
+      }
+    }
+  }
+
+  .tree-detail {
+    &__journey {
+      min-height: 100% !important;
+      @include responsive(lg-screen) {
+        min-height: 920px !important;
+      }
+      @include responsive(xxl-screen) {
+        min-height: 1000px !important;
+      }
+    }
+  }
+
+  &__name::after {
+    position: absolute;
+    content: "";
+    left: 90%;
+    top: 76%;
+    transform: translateY(-50%);
+    background: url("/icons/vector-tree-detail-2.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 121px;
+    background-size: contain;
+    aspect-ratio: 52/25;
+    z-index: -1;
+    @include responsive(lg-screen) {
+      left: 77%;
+    }
+    @include responsive(xl-screen) {
+      left: 78%;
+    }
+    @include responsive(xxl-screen) {
+      left: 90%;
+    }
+  }
+
+  &__attr::after {
+    position: absolute;
+    content: "";
+    left: 77%;
+
+    top: 35%;
+    transform: translateY(-50%);
+    background: url("/icons/vector-tree-detail-1.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 121px;
+    background-size: contain;
+    aspect-ratio: 52/25;
+    z-index: -1;
+    @include responsive(lg-screen) {
+      left: 77%;
+    }
+    @include responsive(xl-screen) {
+      left: 85%;
+    }
+    @include responsive(xxl-screen) {
+      left: 90%;
+    }
+  }
+
+  &__category::after {
+    position: absolute;
+    content: "";
+    right: 80%;
+    scale: -1;
+    top: 20%;
+    transform: translateY(-50%);
+    background: url("/icons/vector-tree-detail-1.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 121px;
+    background-size: contain;
+    aspect-ratio: 52/25;
+    z-index: -1;
+    @include responsive(lg-screen) {
+      right: 67%;
+    }
+    @include responsive(xl-screen) {
+      right: 65%;
+    }
+    @include responsive(xxl-screen) {
+      right: 78%;
+    }
+  }
+
+  &__place::after {
+    position: absolute;
+    content: "";
+    right: 92%;
+    // scale: -1;
+    top: 18%;
+    transform: none;
+    background: url("/icons/vector-tree-detail-2-rever.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 121px;
+    background-size: contain;
+    aspect-ratio: 52/25;
+    z-index: -10;
+    @include responsive(lg-screen) {
+      right: 79%;
+    }
+    @include responsive(xl-screen) {
+      right: 87%;
+    }
+    @include responsive(xxl-screen) {
+      right: 92%;
+    }
+  }
+
+  &__place {
+    p {
+      height: 90px;
+      overflow-y: auto;
+    }
+    p::-webkit-scrollbar {
+      width: 5px;
+    }
+    /* Track */
+    p::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    p::-webkit-scrollbar-thumb {
+      background: $green-primary;
+    }
+
+    /* Handle on hover */
+    p::-webkit-scrollbar-thumb:hover {
+      background: $green-primary;
+    }
+  }
+
+  &__process-title {
+    overflow-y: auto;
+    height: 56px;
+  }
+
+  &__certificate {
+    .certificateComponent {
+      padding: 1.4vw;
+      @include responsive(lg-screen) {
+        padding: 0.7vw;
+      }
+    }
+
+    .certificateComponent__certificate-img-1 {
+      width: 4vw;
+      @include responsive(lg-screen) {
+        width: 2vw;
+      }
+    }
+
+    .certificateComponent__logo-pana {
+      width: 11vw;
+      @include responsive(lg-screen) {
+        width: 8vw;
+      }
+    }
+
+    .certificateComponent__content {
+      padding: 2.4vw 3.4vw;
+      @include responsive(lg-screen) {
+        padding: 1.2vw 1.7vw;
+      }
+    }
+    .certificateComponent__border-secondery {
+      border-width: 1.2vw;
+      @include responsive(lg-screen) {
+        border-width: 0.6vw;
+      }
+    }
+    .certificateComponent__border-primary {
+      border-width: 0.6vw;
+      @include responsive(lg-screen) {
+        border-width: 0.3vw;
+      }
+    }
+    .certificateComponent__header {
+      margin-top: 0.6vw;
+      @include responsive(lg-screen) {
+        margin-top: 0.3vw;
+      }
+    }
+
+    .certificateComp__show {
+      font-size: 2.4vw;
+      @include responsive(lg-screen) {
+        font-size: 1.2vw;
+      }
+    }
+    .certificateComponent__title {
+      // text-[3.8vw] laptop:text-[1.9vw]
+      font-size: 3.8vw;
+      @include responsive(lg-screen) {
+        font-size: 1.9vw;
+      }
+    }
+    .certificateComponent__title-1 {
+      // text-[1.8vw] laptop:text-[0.9vw] text-center mb-[1.4vw] laptop:mb-[0.7vw]
+      font-size: 1.8vw;
+      margin-bottom: 1.4vw;
+      @include responsive(lg-screen) {
+        font-size: 0.9vw;
+        margin-bottom: 0.7vw;
+      }
+    }
+    .certificateComponent__bravo {
+      // text-[1.8vw] laptop:text-[0.9vw] mb-[0.6vw] laptop:mb-[0.3vw]
+      font-size: 1.8vw;
+      margin-bottom: 0.6vw;
+      @include responsive(lg-screen) {
+        font-size: 0.9vw;
+        margin-bottom: 0.3vw;
+      }
+    }
+    .certificateComponent__bravo::after {
+      border-width: 2vw;
+      @include responsive(sm-screen) {
+        border-width: 0.7vw;
+      }
+    }
+    .certificateComponent__bravo::before {
+      border-width: 2vw;
+
+      @include responsive(sm-screen) {
+        border-width: 0.7vw;
+      }
+    }
+    .certificateComponent__name {
+      font-size: 3.4vw;
+      margin-bottom: 1.4vw;
+      @include responsive(lg-screen) {
+        font-size: 1.7vw;
+        margin-bottom: 0.7vw;
+      }
+    }
+    .certificateComponent__dash {
+      // mb-[1.6vw] laptop:mb-[0.8vw]
+      margin-bottom: 1.6vw;
+      @include responsive(lg-screen) {
+        margin-bottom: 0.8vw;
+      }
+    }
+    .certificateComponent__des {
+      margin-bottom: 1.4vw;
+      font-size: 1.6vw;
+      @include responsive(lg-screen) {
+        margin-bottom: 0.7vw;
+        font-size: 0.8vw;
+      }
+    }
+    .certificateComponent__date {
+      // text-[1.2vw] laptop:text-[0.6vw] mb-[1.2vw] laptop:mb-[0.6vw]
+      font-size: 1.2vw;
+      margin-bottom: 1.2vw;
+      @include responsive(lg-screen) {
+        font-size: 0.6vw;
+        margin-bottom: 0.6vw;
+      }
+    }
+    .certificateComponent__sign {
+      // text-[1.4vw] laptop:text-[0.7vw]
+      font-size: 1.4vw;
+      @include responsive(lg-screen) {
+        font-size: 0.7vw;
+      }
+    }
+    .certificateComponent__sign-wrapper {
+      margin-bottom: 1vw;
+      @include responsive(lg-screen) {
+        margin-bottom: 0.5vw;
+      }
+    }
+    .certificateComponent__sign-height-img {
+      // h-[6vw] laptop:h-[3vw]
+      height: 6vw;
+
+      @include responsive(lg-screen) {
+        height: 3vw;
+      }
+    }
+    .certificateComponent__sign-img {
+      width: 8vw;
+
+      @include responsive(lg-screen) {
+        width: 4vw;
+      }
+    }
+    .certificateComponent__jp-quality {
+      // w-[2.6vw] laptop:w-[1.3vw]
+      width: 2.6vw;
+
+      @include responsive(lg-screen) {
+        width: 1.3vw;
+      }
+    }
+    .certificateComponent__solution {
+      // w-[4vw] laptop:w-[2vw]
+      width: 4vw;
+
+      @include responsive(lg-screen) {
+        width: 2vw;
+      }
+    }
+  }
+
+  &__swiper {
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 22px;
+      height: 22px;
+      background-color: $green-primary;
+      border-radius: 100%;
+      border: 1px solid white;
+      top: 33%;
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 12px;
+      color: white;
     }
   }
 }

@@ -17,14 +17,20 @@ function PostItem(props: PostItemProps) {
   return (
     <div className="postItem h-full flex flex-col">
       <div className="postItem__img w-full flex-1 mb-3">
-        <img style={{ objectFit: 'cover' }} width={'100%'} height="100%" src={image} alt="" />
+        <a href={link} target="_blank" rel="noreferrer">
+          <img className='w-full h-full' style={{ objectFit: 'cover' }} width={'100%'} height="100%" src={image} alt="" />
+        </a>
       </div>
       <div className="postItem__body flex flex-col flex-1">
         <div className="h-[54px] mb-4">
-          <h1 className="postItem__title text-green-primary  text-1xl font-bold">{title}</h1>
+          <h1 className="postItem__title text-green-primary  text-1xl font-bold">
+            <a href={link} target="_blank" rel="noreferrer">
+              {title}
+            </a>
+          </h1>
         </div>
         <div className="flex-1 mb-4">
-          <p className="postItem__des color-text-55 text-justify text-[14px] laptop:text-[16px] tablet:text-[16px] h-max">
+          <p className="postItem__des color-text-55 text-justify  h-max">
             {description}
           </p>
         </div>

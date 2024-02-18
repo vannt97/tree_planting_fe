@@ -9,6 +9,7 @@ import TreeReducer from 'src/services/treeAPI';
 import { AuthApi } from 'src/services/auth';
 import { TreeAPI } from 'src/services/treeAPI';
 import { Facebook } from 'src/services/facebook';
+import { GalleryApi } from 'src/services/gallery';
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     [Facebook.reducerPath]: Facebook.reducer,
     [QuizAPI.reducerPath]: QuizAPI.reducer,
     [QuizManageAPI.reducerPath]: QuizManageAPI.reducer,
+    [GalleryApi.reducerPath]: GalleryApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
@@ -34,6 +36,7 @@ export const store = configureStore({
       Facebook.middleware,
       QuizAPI.middleware,
       QuizManageAPI.middleware,
+      GalleryApi.middleware
     ]),
 });
 export type AppDispatch = typeof store.dispatch;

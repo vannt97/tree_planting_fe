@@ -16,6 +16,13 @@
 }
 
 @mixin responsive($breakpoint) {
+
+    @if $breakpoint==xxs-screen{
+        @media only screen and (min-width: 376px) {
+            @content;
+        }
+    }
+
     // screen < 576px
     @if $breakpoint==xs-screen {
         @media only screen and (max-width: 576px) {
@@ -67,6 +74,13 @@
     // screen ≥ 1600px
     @if $breakpoint==xxxl-screen {
         @media only screen and (min-width: 1600px) {
+            @content;
+        }
+    }
+
+    // screen >= 1680px
+    @if $breakpoint==xxxxl-screen {
+        @media only screen and (min-width: 1680px) {
             @content;
         }
     }

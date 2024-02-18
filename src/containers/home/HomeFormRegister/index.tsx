@@ -1,4 +1,4 @@
-import { DatePicker, Form, Input, Select, Spin } from 'antd';
+import { Button, Checkbox, DatePicker, Form, Input, Select, Spin } from 'antd';
 import axios from 'axios';
 import formurlencoded from 'form-urlencoded';
 import * as htmlToImage from 'html-to-image';
@@ -19,7 +19,7 @@ import provinces from 'src/utils/helpers/provinces.json';
 import { ShowNotify } from 'src/utils/helpers/ShowNotify';
 import HomePopupThank from '../HomePopupThank';
 import HomePolicy from './HomePolicy';
-
+import checkIcon from 'public/icons/check-icon.svg';
 const { Option } = Select;
 
 enum ToastMessageWarranty {
@@ -83,16 +83,13 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
   const [getInfoTree] = useLazyGetInfoTreeQuery();
   const certificateRef = useRef<HTMLDivElement>(null);
   const [infoTree, setInfoTree] = useState<any>({});
+  const [infoNewTree, setInfoNewTree] = useState<any>({ data: [], name: '' });
   const [loading, setLoading] = useState<boolean>(false);
   const [provincesCode, setProvincesCode] = useState<any>({});
   const [show, setShow] = useState<any>(false);
-  const [infoNewTree, setInfoNewTree] = useState<any>({ data: [], name: '' });
   const [hideTextAndButton, setHideTextAndButton] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState('');
-
-  // useEffect(() => {
-  //   handleLogin();
-  // }, []);
+  const [isAgreeChecked, setAgreeChecked] = useState(false);
 
   const handleGetTreeCode = async (params = { phoneNumber: '', modelName: '', engineNo: '' }) => {
     try {
@@ -230,62 +227,44 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
     }
   };
 
+  ////////////////////// new //////////////////////////////////
   const exportHtmlToImage = async (response: any) => {
-    if (certificateRef && treeShare && htmlToImage) {
+    if (htmlToImage) {
       try {
-        const dataUrlCertificate = await htmlToImage.toPng(certificateRef.current);
+        const formData = new FormData();
+        formData.append('treeName', `${response[0].treeType}`.trim() || '');
+        formData.append('publicCode', `${response[0].treeCode}`.trim() || '');
+        formData.append('provinceCode', `${response[0].provinceCode}`.trim() || '');
+        formData.append('sharingAttachment', '');
+        formData.append('certificateAttachment', '');
+        form.getFieldValue('PGCode') &&
+          formData.append('PGCode', form.getFieldValue('PGCode') || '');
         try {
-          const dataUrlTreeShare = await htmlToImage.toPng(treeShare.current);
-          if (dataUrlCertificate && dataUrlTreeShare) {
-            const dataUrlCertificate2 = await htmlToImage.toPng(certificateRef.current);
-            const dataUrlTreeShare2 = await htmlToImage.toPng(treeShare.current);
-            try {
-              if (dataUrlTreeShare2) {
-                const dataUrlCertificate3 = await htmlToImage.toPng(certificateRef.current);
-
-                const fileCertificate = dataUrlToFile(
-                  dataUrlCertificate3,
-                  'chung-nhan-song-khoe-gop-xanh.png'
-                );
-                const fileTreeShare = dataUrlToFile(dataUrlTreeShare2, 'chia-se-cay.png');
-                const formData = new FormData();
-                formData.append('treeName', `${response[0].treeType}`.trim() || '');
-                formData.append('publicCode', `${response[0].treeCode}`.trim() || '');
-                formData.append('provinceCode', `${response[0].provinceCode}`.trim() || '');
-                formData.append('sharingAttachment', fileTreeShare);
-                formData.append('certificateAttachment', fileCertificate);
-                form.getFieldValue('PGCode') &&
-                  formData.append('PGCode', form.getFieldValue('PGCode') || '');
-                try {
-                  const resPostTree = await postCreateTreeInfo(formData).unwrap();
-                  if (resPostTree) {
-                    setLoading(false);
-                    onShowPopupThank({
-                      name: form.getFieldValue('fullName'),
-                      provinceCode: response[0]?.provinceCode,
-                      provinceName: response[0]?.provinceName,
-                      treeCode: response[0]?.treeCode,
-                      treeType: response[0]?.treeType,
-                      location: infoTree?.location || '',
-                    });
-                  }
-                  try {
-                    const responseLogin: any = await onLogin({
-                      phoneNumber: form.getFieldValue('phoneNumber'),
-                      publicCode: response[0]?.treeCode,
-                    });
-                    if (responseLogin?.data?.success) {
-                      localStorage.setItem('USER_TOKEN', responseLogin.data.data.token);
-                      localStorage.setItem('user_name', form.getFieldValue('fullName'));
-                      localStorage.setItem('tree_code', response[0]?.treeCode);
-                    }
-                  } catch (error) {}
-                } catch (error) {}
-              }
-            } catch (error) {}
+          const resPostTree = await postCreateTreeInfo(formData).unwrap();
+          if (resPostTree) {
+            setLoading(false);
+            onShowPopupThank({
+              name: form.getFieldValue('fullName'),
+              provinceCode: response[0]?.provinceCode,
+              provinceName: response[0]?.provinceName,
+              treeCode: response[0]?.treeCode,
+              treeType: response[0]?.treeType,
+              location: infoTree?.location || '',
+            });
           }
+          try {
+            const responseLogin: any = await onLogin({
+              phoneNumber: form.getFieldValue('phoneNumber'),
+              publicCode: response[0]?.treeCode,
+            });
+            if (responseLogin?.data?.success) {
+              localStorage.setItem('USER_TOKEN', responseLogin.data.data.token);
+              localStorage.setItem('user_name', form.getFieldValue('fullName'));
+              localStorage.setItem('tree_code', response[0]?.treeCode);
+            }
+          } catch (error) {}
         } catch (error) {}
-      } catch (error1) {}
+      } catch (error) {}
     }
   };
 
@@ -310,11 +289,11 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
         layout="vertical"
         onFinish={handleSubmitForm}
         autoComplete="off"
-        className="relative pt-6 pb-10 px-4 w-[80%] mx-auto"
+        className="relative home__register pt-6 laptop:pb-10 pb-6 px-0 tablet:px-4 w-full tablet:w-[90%] desktop:w-[80%] mx-auto"
       >
         <div className="absolute top-0 left-0 w-full h-full bg-white-500 opacity-10 rounded-3xl"></div>
-        <div className="px-10 relative">
-          <p className="text-center text-white-500 mb-4">
+        <div className="px-4 desktop:px-8 relative">
+          <p className="hidden laptop:block text-center text-white-500 mb-4">
             Kích hoạt bảo hành để nhận mã số cây và các thông tin chi tiết về hành trình phát triển
             cây của bạn
           </p>
@@ -327,10 +306,10 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
           >
             <Input placeholder="Họ và tên*" className="placeholder:" />
           </Form.Item>
-          <div className="flex ">
+          <div className="flex">
             <Form.Item
               name="phoneNumber"
-              className="mr-3 w-[70%]"
+              className="mr-3 w-[55%] tablet:w-[70%]"
               rules={[
                 { required: true, message: 'Vui lòng nhập số điện thoại' },
                 { max: 20, message: 'Độ dài không quá 20 kí tự' },
@@ -338,7 +317,7 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
             >
               <Input placeholder="Số điện thoại*" />
             </Form.Item>
-            <div className="custom-datepicker ml-3 w-[30%]">
+            <div className="custom-datepicker ml-0 tablet:ml-3 w-[45%] tablet:w-[30%]">
               <Form.Item
                 rules={[{ required: true, message: 'Vui lòng nhập ngày mua' }]}
                 name="buyDate"
@@ -401,32 +380,61 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
           >
             <Input />
           </Form.Item> */}
-          <Form.Item className="m-0">
-            <div
-              onClick={() => setShowPolicy(!showPolicy)}
-              className="flex cursor-pointer items-start tablet:items-center"
-            >
-              <span className="flex justify-center items-center">
-                <Image src={checkCircle} width={25} height={25} alt="" />
-              </span>
-              <p className="color-text-e text-base ml-3">
-                Bằng việc đăng ký kích hoạt bảo hành, bạn đã đồng ý với&nbsp;
-                <span className="color-text-green-29 cursor-pointer">điều khoản</span>
-                &nbsp; của chương trình
-              </p>
+          <Form.Item
+            className="m-0 relative"
+            name="agreement"
+            valuePropName="checked"
+            rules={[
+              {
+                validator: (_, value) =>
+                  value
+                    ? Promise.resolve()
+                    : Promise.reject(new Error('Bạn chưa đồng ý các điều khoản')),
+              },
+            ]}
+          >
+            <div className="flex items-center">
+              <Checkbox
+                onChange={() => {
+                  setAgreeChecked(!isAgreeChecked);
+                }}
+              >
+                <div className="flex items-center relative translate-y-[20%]">
+                  <div className="relative w-[25px] h-[25px] border-2 inline-block cursor-pointer rounded-full">
+                    {isAgreeChecked ? (
+                      <img
+                        className="  w-[100%] h-[100%] absolute top-[30%] left-[60%] -translate-x-1/2 -translate-y-1/2"
+                        src={checkIcon.src}
+                        alt=""
+                      />
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                </div>
+              </Checkbox>
+              <a
+                href="https://plant-api.marvyco.com/Uploads/GreenNewsletterManagement/cc1955f7-ae25-4da5-a06a-ed9c46bf6439_Songkhoegopxanh-Privacy%20statement-Update2023.pdf"
+                className="text-white-500 underline underline-offset-4 cursor-pointer"
+                target="_blank"
+                rel=" noreferrer"
+              >
+                Bằng việc đăng ký bảo hành, bạn đã đồng ý với Chính sách quyền riêng tư và các điều
+                kiện, cách thức tham gia chương trình
+              </a>
             </div>
           </Form.Item>
         </div>
-        <div className="flex justify-center absolute bottom-[0px]  translate-y-2/4  left-[50%] -translate-x-2/4">
-            <button
-              type="submit"
-              className={`py-3 px-10 font-bold home__form-btn text-white-500 text-2xl ${
-                loading ? 'loading' : ''
-              }`}
-            >
-              Kích hoạt <Spin spinning={loading}></Spin>
-            </button>
-          </div>
+        <div className="flex justify-center absolute laptop:bottom-[0px] -bottom-[11%]  translate-y-2/4  left-[50%] -translate-x-2/4">
+          <button
+            type="submit"
+            className={`min-w-[200px] tablet:min-w-auto py-3 px-10 font-bold home__form-btn text-white-500 text-xl tablet:text-2xl ${
+              loading ? 'loading' : ''
+            }`}
+          >
+            Kích hoạt <Spin spinning={loading}></Spin>
+          </button>
+        </div>
       </Form>
       {showError500 && (
         <p className="color-text-red-9d text-sl mt-3">
@@ -459,7 +467,8 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
         onClose={() => setShow(false)}
         hideTextAndButton={hideTextAndButton}
       />
-      {/* <div className="home__tree-share">
+
+      <div className="home__tree-share">
         <div className="flex items-center justify-center" ref={treeShare}>
           <TreeShareFacebook
             defaultImage
@@ -496,9 +505,68 @@ function HomeFormRegister(props: HomeFormRegisterProps) {
             }}
           />
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
 
 export default HomeFormRegister;
+
+////////////////////////////////// old /////////////////////////////////////
+// const exportHtmlToImage = async (response: any) => {
+//   if (certificateRef && treeShare && htmlToImage) {
+//     try {
+//       const dataUrlCertificate = await htmlToImage.toPng(certificateRef.current);
+//       try {
+//         const dataUrlTreeShare = await htmlToImage.toPng(treeShare.current);
+//         if (dataUrlCertificate && dataUrlTreeShare) {
+//           const dataUrlCertificate2 = await htmlToImage.toPng(certificateRef.current);
+//           const dataUrlTreeShare2 = await htmlToImage.toPng(treeShare.current);
+//           try {
+//             if (dataUrlTreeShare2) {
+//               const dataUrlCertificate3 = await htmlToImage.toPng(certificateRef.current);
+//               const fileCertificate = dataUrlToFile(
+//                 dataUrlCertificate3,
+//                 'chung-nhan-song-khoe-gop-xanh.png'
+//               );
+//               const fileTreeShare = dataUrlToFile(dataUrlTreeShare2, 'chia-se-cay.png');
+//               const formData = new FormData();
+//               formData.append('treeName', `${response[0].treeType}`.trim() || '');
+//               formData.append('publicCode', `${response[0].treeCode}`.trim() || '');
+//               formData.append('provinceCode', `${response[0].provinceCode}`.trim() || '');
+//               formData.append('sharingAttachment', fileTreeShare);
+//               formData.append('certificateAttachment', fileCertificate);
+//               form.getFieldValue('PGCode') &&
+//                 formData.append('PGCode', form.getFieldValue('PGCode') || '');
+//               try {
+//                 const resPostTree = await postCreateTreeInfo(formData).unwrap();
+//                 if (resPostTree) {
+//                   setLoading(false);
+//                   onShowPopupThank({
+//                     name: form.getFieldValue('fullName'),
+//                     provinceCode: response[0]?.provinceCode,
+//                     provinceName: response[0]?.provinceName,
+//                     treeCode: response[0]?.treeCode,
+//                     treeType: response[0]?.treeType,
+//                     location: infoTree?.location || '',
+//                   });
+//                 }
+//                 try {
+//                   const responseLogin: any = await onLogin({
+//                     phoneNumber: form.getFieldValue('phoneNumber'),
+//                     publicCode: response[0]?.treeCode,
+//                   });
+//                   if (responseLogin?.data?.success) {
+//                     localStorage.setItem('USER_TOKEN', responseLogin.data.data.token);
+//                     localStorage.setItem('user_name', form.getFieldValue('fullName'));
+//                     localStorage.setItem('tree_code', response[0]?.treeCode);
+//                   }
+//                 } catch (error) {}
+//               } catch (error) {}
+//             }
+//           } catch (error) {}
+//         }
+//       } catch (error) {}
+//     } catch (error1) {}
+//   }
+// };

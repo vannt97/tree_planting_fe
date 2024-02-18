@@ -210,6 +210,7 @@ const TreeInfo = ({ data, getTracking, username }: any) => {
               Cảm ơn bạn đã cùng chúng tôi đắp xanh rừng Việt Nam. Đây là chứng nhận chương trình
               trao tặng bạn
             </p>
+
             <div className="tree-info__certificate">
               <CertificateComponent
                 btnRef={btnDownload}
@@ -222,6 +223,7 @@ const TreeInfo = ({ data, getTracking, username }: any) => {
                 name={username || ''}
               />
             </div>
+
             <div className="relative">
               <div className={`treeDetail__share ${showShare ? 'active' : ''}`}>
                 <div className="flex gap-4 justify-between items-center">
@@ -302,7 +304,6 @@ const TreeInfo = ({ data, getTracking, username }: any) => {
               </div>
             </div>
           </div>
-
           {GoogleMap}
         </div>
       </div>

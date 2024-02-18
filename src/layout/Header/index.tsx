@@ -6,18 +6,23 @@ import Link from 'next/link';
 import HeaderMobile from './HeaderMobile';
 import HeaderTop from './HeaderTop';
 import { useRouter } from 'next/router';
+import useWindowSize from 'src/app/hooks/useWindowSize';
+import { Modal } from 'antd';
+import ModalMaintaince from 'src/containers/home/ModalMaintaince/ModalMaintaince';
 
 function Header() {
   const [showNav, setShowNav] = useState<boolean>(false);
   const [scroll, setScroll] = useState<number>(0);
   const router = useRouter();
   const [id, setId] = useState('');
+  const width = useWindowSize()?.width;
+  const [isShowModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    if (id !== '') {
-      handleRedirectToElement(id);
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (id !== '') {
+  //     handleRedirectToElement(id);
+  //   }
+  // }, [id]);
 
   useEffect(() => {
     const handleScroll: EventListener = (e: Event) => {
@@ -35,13 +40,24 @@ function Header() {
     if (router.pathname === '/') {
       const header = document.getElementById('header');
       const titleElement = document.getElementById(id);
+      let paddingCustom = 10;
+      if (id === 'aboutProgram' && width > 1023) {
+        paddingCustom = -120;
+      }
       window.scrollTo({
         top:
-          titleElement.getBoundingClientRect().top - (header.clientHeight + 100) + window.scrollY,
+          titleElement.getBoundingClientRect().top -
+          (header.clientHeight + paddingCustom) +
+          window.scrollY,
         left: 0,
         behavior: 'smooth',
       });
     }
+    setId(id);
+  };
+
+  const handleClickPath = (id: string) => {
+    router.push(id);
     setId(id);
   };
 
@@ -52,9 +68,9 @@ function Header() {
           <HeaderMobile />
         </div>
         <div className="hidden tablet:block">
-          <header className="header py-2">
+          <header className="header py-4">
             <div className="container-custom">
-              {scroll < 200 && <HeaderTop />}
+              {/* {scroll < 200 && <HeaderTop />} */}
               <div className="flex justify-between items-center">
                 <Link href={'/'} className="header__logo cursor-pointer">
                   <a className="header__logo">
@@ -63,35 +79,26 @@ function Header() {
                 </Link>
 
                 <ul className="header__list flex items-center">
-                  
                   <li className="">
                     <span
-                      onClick={() => handleRedirectToElement('regiterWarranty')}
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
-                        id === 'regiterWarranty'
+                      onClick={() => handleRedirectToElement('products-wrapper')}
+                      className={` block header__link color-text-1e cursor-pointer ${
+                        id === 'products-wrapper'
                           ? 'border-b-2 border-green-primary text-green-primary'
                           : 'border-b-2 border-transparent'
                       }`}
                     >
-                      Đăng Ký Bảo Hành
+                      Mỗi sản phẩm - Một cây xanh
                     </span>
                   </li>
+
                   <li className="">
                     <span
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
-                        id === 'show'
-                          ? 'border-b-2 border-green-primary text-green-primary'
-                          : 'border-b-2 border-transparent'
-                      }`}
-                      onClick={() => handleRedirectToElement('show')}
-                    >
-                      Về Chương Trình
-                    </span>
-                  </li>
-                  <li className="">
-                    <span
-                      onClick={() => handleRedirectToElement('followTree')}
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
+                      onClick={() => {
+                        handleRedirectToElement('followTree');
+                        // setShowModal(true)
+                      }}
+                      className={` block header__link color-text-1e cursor-pointer ${
                         id === 'followTree'
                           ? 'border-b-2 border-green-primary text-green-primary'
                           : 'border-b-2 border-transparent'
@@ -102,8 +109,23 @@ function Header() {
                   </li>
                   <li className="">
                     <span
+                      className={` block header__link color-text-1e cursor-pointer ${
+                        id === 'gallery'
+                          ? 'border-b-2 border-green-primary text-green-primary'
+                          : 'border-b-2 border-transparent'
+                      }`}
+                      onClick={() => {
+                        router.push('/gallery');
+                        setId('gallery');
+                      }}
+                    >
+                      Thư viện chuyện rừng
+                    </span>
+                  </li>
+                  {/* <li className="">
+                    <span
                       onClick={() => handleRedirectToElement('registerPlanting')}
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
+                      className={` block header__link color-text-1e cursor-pointer ${
                         id === 'registerPlanting'
                           ? 'border-b-2 border-green-primary text-green-primary'
                           : 'border-b-2 border-transparent'
@@ -111,11 +133,11 @@ function Header() {
                     >
                       Góp Cây
                     </span>
-                  </li>
-                  <li className="">
+                  </li> */}
+                  {/* <li className="">
                     <span
                       onClick={() => handleRedirectToElement('partner')}
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
+                      className={` block header__link color-text-1e cursor-pointer ${
                         id === 'partner'
                           ? 'border-b-2 border-green-primary text-green-primary'
                           : 'border-b-2 border-transparent'
@@ -123,17 +145,17 @@ function Header() {
                     >
                       Đối Tác
                     </span>
-                  </li>
+                  </li> */}
                   <li className="">
                     <span
-                      onClick={() => handleRedirectToElement('news')}
-                      className={`py-3 block header__link color-text-1e cursor-pointer ${
-                        id === 'news'
+                      onClick={() => handleRedirectToElement('aboutProgram')}
+                      className={` block header__link color-text-1e cursor-pointer ${
+                        id === 'aboutProgram'
                           ? 'border-b-2 border-green-primary text-green-primary'
                           : 'border-b-2 border-transparent'
                       }`}
                     >
-                      Bản Tin Xanh
+                      Về chương trình
                     </span>
                   </li>
                 </ul>
@@ -143,6 +165,7 @@ function Header() {
         </div>
       </header>
       <HeaderSideMenu onClose={() => setShowNav(!showNav)} show={showNav} />
+      {/* <ModalMaintaince isShowModal={isShowModal} setShowModal={setShowModal}/> */}
     </>
   );
 }

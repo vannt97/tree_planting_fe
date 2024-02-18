@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import vnTopo from 'src/app/gadm36_VNM_1.json';
+// import vnTopo from 'src/app/gadm41_VNM_1.json';
 import useWindowSize from 'src/app/hooks/useWindowSize';
 import { checkProvince, ISLAND } from 'src/constant/provinceSVG';
 import { useGetTreePlantingSiteQuery, useLazyGetArrayTreeQuery } from 'src/services/home';
@@ -112,6 +113,7 @@ const Map = ({ trackingData, children }: any) => {
         }
       } else {
         if (geography.rsmKey === 'geo-42') {
+          console.log('geography.rsmKey: ', geography.rsmKey);
           return '#00874a';
         } else if (siteData.find((data) => data.provinceCodeInMap === geography.rsmKey)) {
           return '#87CE29';
@@ -155,28 +157,28 @@ const Map = ({ trackingData, children }: any) => {
     return stringLocationArr;
   }, [MergeArr, trackingData]);
 
-
   const StoryAndHistory = useMemo(() => {
     if (screenWidth) {
       return (
-        <div className="w-[80%] h-full mx-auto">
+        <div className="w-[95%] desktop:w-[80%] h-full mx-auto">
           {screenWidth >= 1025 && (
             <div className="">
-              <p className="uppercase laptop:text-[32px] tablet:text-[24px] mobile:text-[20px] text-green-primary font-semibold mobile:text-center laptop:text-start">
+              <p className="uppercase heading-1 text-green-primary font-semibold mobile:text-center laptop:text-start">
                 danh sách <br className="bloack tablet:hidden" />
                 điểm trồng cây
               </p>
               <div className="laptop:flex tablet:flex mobile:block laptop:justify-start mobile:justify-center tablet:justify-center items-center laptop:mb-4 mobile:mb-2 flex-wrap">
-                <p className="text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 mobile:text-center laptop:text-start">
-                  Mỗi điểm đều có một câu chuyện riêng.&nbsp;
+                <p className=" text-black-600 mobile:text-center laptop:text-start">
+                  Mỗi điểm trồng cây đều có một câu chuyện riêng. Click vào từng mảng xanh trên bản
+                  đồ để cùng tìm hiểu.
                 </p>
-                <p className="text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 mobile:text-center laptop:text-start">
+                {/* <p className="text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 mobile:text-center laptop:text-start">
                   Cùng tìm hiểu nhé!
-                </p>
+                </p> */}
               </div>
             </div>
           )}
-          <div className="">
+          <div className="text-justify">
             <TreeDetailStory data={siteData} trackingData={trackingData} />
           </div>
         </div>
@@ -192,12 +194,14 @@ const Map = ({ trackingData, children }: any) => {
       } else if (screenHeight <= 2000) {
         return 'scale(1) translate(8%, 8%)';
       }
+    } else if (screenWidth >= 1535) {
+      return 'scale(1.1) translate(0px, 100px)';
     } else if (screenWidth >= 1400) {
-      return 'scale(1.2) translate(100px, 40px)';
+      return 'scale(1.2) translate(100px, 100px)';
     } else if (screenWidth >= 1300) {
-      return 'scale(1.2) translate(7%, 40px)';
+      return 'scale(1.2) translate(7%, 100px)';
     } else if (screenWidth >= 1200) {
-      return 'scale(1.2) translate(100px, 40px)';
+      return 'scale(1.2) translate(100px,100px)';
     } else if (screenWidth >= 1100) {
       return 'scale(1.2) translate(100px, 40px)';
     } else if (screenWidth >= 1030) {
@@ -211,7 +215,7 @@ const Map = ({ trackingData, children }: any) => {
         return 'scale(1) translate(0%, 10%)';
       }
     } else {
-      return 'scale(1.2) translate(10%, 15%)';
+      return 'scale(1.2) translate(-2%, 14%)';
     }
   }, [screenWidth, screenHeight]);
 
@@ -235,54 +239,53 @@ const Map = ({ trackingData, children }: any) => {
           >
             <Geographies geography={vnTopo} style={{ transform: 'translate(-50px, 50px)' }}>
               {({ geographies }) => {
-                return geographies.map(
-                  (geography, i: number) =>
-                    {
-                      return geography.id !== 'ATA' && (
-                        <Geography
-                          onClick={() => handleClick(geography)}
-                          key={i}
-                          geography={geography}
-                          className="cursor-pointer"
-                          style={{
-                            default: {
-                              fill:
-                                router.pathname === '/'
-                                  ? HomeHighlight(geography)
-                                  : router.pathname === '/tree-detail/[id]'
-                                  ? DetailHighlight(geography)
-                                  : '',
-                              stroke: '#F59FBC',
-                              strokeWidth: 1,
-                              outline: 'none',
-                            },
-                            hover: {
-                              fill:
-                                router.pathname === '/'
-                                  ? HomeHighlight(geography)
-                                  : router.pathname === '/tree-detail/[id]'
-                                  ? DetailHighlight(geography)
-                                  : '',
-                              stroke: '#F59FBC',
-                              strokeWidth: 1,
-                              outline: 'none',
-                            },
-                            pressed: {
-                              fill:
-                                router.pathname === '/'
-                                  ? HomeHighlight(geography)
-                                  : router.pathname === '/tree-detail/[id]'
-                                  ? DetailHighlight(geography)
-                                  : '',
-                              stroke: '#F59FBC',
-                              strokeWidth: 1,
-                              outline: 'none',
-                            },
-                          }}
-                        />
-                      )
-                    }
-                );
+                return geographies.map((geography, i: number) => {
+                  return (
+                    geography.id !== 'ATA' && (
+                      <Geography
+                        onClick={() => handleClick(geography)}
+                        key={i}
+                        geography={geography}
+                        className={`cursor-pointer ${geography.rsmKey}`}
+                        style={{
+                          default: {
+                            fill:
+                              router.pathname === '/'
+                                ? HomeHighlight(geography)
+                                : router.pathname === '/tree-detail/[id]'
+                                ? DetailHighlight(geography)
+                                : '',
+                            stroke: '#F59FBC',
+                            strokeWidth: 1,
+                            outline: 'none',
+                          },
+                          hover: {
+                            fill:
+                              router.pathname === '/'
+                                ? HomeHighlight(geography)
+                                : router.pathname === '/tree-detail/[id]'
+                                ? DetailHighlight(geography)
+                                : '',
+                            stroke: '#F59FBC',
+                            strokeWidth: 1,
+                            outline: 'none',
+                          },
+                          pressed: {
+                            fill:
+                              router.pathname === '/'
+                                ? HomeHighlight(geography)
+                                : router.pathname === '/tree-detail/[id]'
+                                ? DetailHighlight(geography)
+                                : '',
+                            stroke: '#F59FBC',
+                            strokeWidth: 1,
+                            outline: 'none',
+                          },
+                        }}
+                      />
+                    )
+                  );
+                });
               }}
             </Geographies>
             {router.pathname !== '/' &&
@@ -413,9 +416,9 @@ const Map = ({ trackingData, children }: any) => {
   }, [DetailHighlight, HomeHighlight, MarkToMap, router, screenWidth, projection, responsiveMap]);
 
   return (
-    <div className="tree-detail w-full h-full relative -translate-y-[100px] -mb-[100px]" id="tree-map">
+    <div className="tree-detail w-full h-full relative" id="tree-map">
       <div
-        className="relative tree-detail__map py-20 laptop:px-5 flex items-center justify-evenly pb-[10%] pt-[10%]"
+        className="relative tree-detail__map  laptop:px-5 flex flex-col laptop:flex-row justify-evenly pt-[30px] pb-[8%] tablet:py-[4%] laptop:py-[10%]"
         style={{
           overflow: 'hidden',
           backgroundColor: '#EFF5EC',
@@ -425,29 +428,43 @@ const Map = ({ trackingData, children }: any) => {
       >
         {screenWidth < 1025 && (
           <div className="">
-            <p className="uppercase laptop:text-[32px] tablet:text-[24px] mobile:text-[20px] text-green-primary font-semibold text-center">
+            <p className="uppercase heading-1 text-green-primary font-semibold text-center">
               danh sách <br className="bloack tablet:hidden" />
               điểm trồng cây
             </p>
             <div className="laptop:flex tablet:flex mobile:block laptop:justify-center mobile:justify-center tablet:justify-center items-center laptop:mb-4 mobile:mb-2 flex-wrap">
-              <p className="text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 text-center">
-                Mỗi điểm đều có một câu chuyện riêng.&nbsp;
+              <p className="px-2 text-black-600 text-center">
+                Mỗi điểm trồng cây đều có một câu chuyện riêng.{' '}
+                <span className='block'>Click vào từng mảng xanh trên bản đồ để cùng tìm hiểu.</span>
               </p>
-              <p className="text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 text-center">
-                Cùng tìm hiểu nhé!
-              </p>
+              {/* <p className="px-4 text-[14px] laptop:text-[16px] tablet:text-[16px] text-black-600 text-center">
+                Mỗi điểm trồng cây đều có một câu chuyện riêng. Click vào từng mảng xanh trên bản đồ
+                để cùng tìm hiểu.
+              </p> */}
             </div>
           </div>
         )}
-       
 
         <div className="w-[45%]  px-30">
           {screenWidth <= 1025 ? (
             <Modal
               open={showStory.isShow}
               footer={null}
-              closeIcon={false}
-              closable={true}
+              // closeIcon={
+              //   <svg
+              //     fill-rule="evenodd"
+              //     viewBox="64 64 896 896"
+              //     focusable="false"
+              //     data-icon="close"
+              //     width="2em"
+              //     height="2em"
+              //     fill="currentColor"
+              //     aria-hidden="true"
+              //   >
+              //     <path d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"></path>
+              //   </svg>
+              // }
+              // closable={true}
               onCancel={() => setShowStory({ id: '', isShow: false })}
             >
               {StoryAndHistory}
@@ -459,7 +476,6 @@ const Map = ({ trackingData, children }: any) => {
         </div>
 
         {TreeMap}
-
       </div>
     </div>
   );

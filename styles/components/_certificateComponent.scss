@@ -1,382 +1,651 @@
 .certificateComponent {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  &__sign {
+    &-wrapper {
+      // margin-bottom: 1vw;
 
-    &__sign {
-        &-wrapper {
-            margin-bottom: 2rem;
-        }
-        &-img {
-            width: 2rem;
-
-            @include responsive(md-screen) {
-                width: 4rem;
-            }
-            &-wrapper {
-                min-height: 60px;
-            }
-        }
+      // @include responsive(lg-screen){
+      //     margin-bottom: 0.5vw;
+      // }
     }
-    &__share {
-        width: 200px;
-        height: 200px;
-        .certificateComponent__content {
-            width: calc(100% - 1rem);
-            height: calc(100% - 1rem);
-            margin: 0 !important;
-        }
-        .certificateComponent__logo {
-            &-1 {
-                span {
-                    width: 12px !important;
-                }
-            }
-            &-japan {
-                width: 0.5rem;
-            }
-            &-solution {
-                width: 0.5rem;
-            }
-        }
-        .ertificateComponent__sign-img-wrapper {
-            height: auto !important;
-        }
-        .certificateComponent__sign-wrapper {
-            margin-bottom: 0 !important;
-        }
-        .certificateComponent__pana {
-            img {
-                width: 30px !important;
-                height: 6px !important;
-            }
-        }
-        .certificateComp__show {
-            font-size: 0.4rem;
-            width: 100%;
-        }
-        .certificateComponent__title {
-            font-size: 0.4rem;
-        }
-        .certificateComp__text-title {
-            font-size: 0.4rem;
-        }
-        .certificateComponent__des {
-            font-size: 0.25rem;
-        }
-        .certificateComponent__sign-title {
-            font-size: 0.2rem;
-        }
-        .certificateComponent__sign-title ~ span {
-            height: 40px !important;
-            min-height: 40px !important;
-        }
-        .certificateComponent__date {
-            font-size: 0.2rem;
-        }
-        .certificateComponent__sign-img {
-            width: 1rem;
-        }
-        .certificateComponent__sign-name {
-            font-size: 0.2rem;
-        }
+    &-img {
+      // width: 8vw;
+
+      // @include responsive(lg-screen) {
+      //     width: 4vw;
+      // }
+      // &-wrapper {
+      //     // min-height: 30px;
+      //     // @include responsive(sm-screen){
+      //     //     min-height: 60px;
+      //     // }
+      // }
     }
+  }
+  &__share {
+    width: 200px;
+    height: 200px;
+    .certificateComponent__content {
+      width: calc(100% - 1rem);
+      height: calc(100% - 1rem);
+      margin: 0 !important;
+    }
+    .certificateComponent__logo {
+      &-1 {
+        span {
+          width: 12px !important;
+        }
+      }
+      &-japan {
+        width: 0.5rem;
+      }
+      &-solution {
+        width: 0.5rem;
+      }
+    }
+    .ertificateComponent__sign-img-wrapper {
+      height: auto !important;
+    }
+    .certificateComponent__sign-wrapper {
+      margin-bottom: 0 !important;
+    }
+    .certificateComponent__pana {
+      img {
+        width: 30px !important;
+        height: 6px !important;
+      }
+    }
+    .certificateComp__show {
+      font-size: 0.4rem;
+      width: 100%;
+    }
+    .certificateComponent__title {
+      font-size: 0.4rem;
+    }
+    .certificateComp__text-title {
+      font-size: 0.4rem;
+    }
+    .certificateComponent__des {
+      font-size: 0.25rem;
+    }
+    .certificateComponent__sign-title {
+      font-size: 0.2rem;
+    }
+    .certificateComponent__sign-title ~ span {
+      height: 40px !important;
+      min-height: 40px !important;
+    }
+    .certificateComponent__date {
+      font-size: 0.2rem;
+    }
+    .certificateComponent__sign-img {
+      width: 1rem;
+    }
+    .certificateComponent__sign-name {
+      font-size: 0.2rem;
+    }
+  }
 
-    &__download {
-        position: fixed;
-        top: -100%;
-        z-index: 10;
-        left: 0;
-        transform: translate(-500%, -100%);
-        min-width: 700px;
-        min-height: 450px;
-        &.no-fixed {
-            position: relative;
-            top: inherit !important;
-            right: inherit;
-            z-index: inherit;
-            bottom: inherit;
-            left: inherit !important;
-            transform: inherit !important;
-        }
-        .certificateComponent__bg {
-            z-index: 1;
-        }
+  &__download {
+    position: fixed;
+    top: -100%;
+    z-index: 10;
+    left: 0;
+    transform: translate(-500%, -100%);
+    width: 600px;
+    container-type: inline-size;
+    aspect-ratio: 16/11;
 
-        .certificateComponent__container {
-            margin: 1rem;
-            position: relative;
-            z-index: 2;
-            background-color: #fffaf3;
-        }
-
-        .certificateComponent__content {
-            position: relative;
-            z-index: auto;
-            width: 100%;
-            background-color: #fffaf3;
-            min-height: 450px;
-        }
-        .certificateComponent__body {
-            width: 100%;
-
-            margin: 1rem;
-        }
+    &.no-fixed {
+      position: relative;
+      top: inherit !important;
+      right: inherit;
+      z-index: inherit;
+      bottom: inherit;
+      left: inherit !important;
+      transform: inherit !important;
     }
 
-    &__modal {
-        // @include responsive(xl-screen) {
-        //     zoom: 0.9;
-        // }
-        // @media only screen and (min-width: 200px) {
-        //     zoom: 0.6;
-        // }
-        // @media only screen and (min-width: 250px) {
-        //     zoom: 0.7;
-        // }
-        // @media only screen and (min-width: 300px) {
-        //     zoom: 0.75;
-        // }
-
-        // @media only screen and (min-width: 450px) {
-        //     zoom: 0.85;
-        // }
-        // @media only screen and (min-width: 500px) {
-        //     zoom: 0.9;
-        // }
-        // @media only screen and (min-width: 700px) {
-        //     zoom: 0.9;
-        // }
-        // @media only screen and (min-width: 1024px) {
-        //     zoom: 0.9;
-        // }
-        .certificateComponent__content {
-            // zoom: 0.8;
-
-            // @include responsive(xs-screen) {
-            //     zoom: 0.89;
-            // }
-
-            // @include responsive(md-screen) {
-            //     zoom: 0.9;
-            // }
-            // @include responsive(lg-screen) {
-            //     zoom: 0.9;
-            // }
-        }
-        .certificateComponent__pana {
-            span {
-                @media only screen and (max-width: 400px) {
-                    width: 95px !important;
-                    height: 15px !important;
-                }
-            }
-        }
-
-        .certificateComponent__logo {
-            transform: scale(0.9);
-
-            @include responsive(md-screen) {
-                transform: scale(0.9);
-            }
-            &-1 {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            &-japan {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            &-solution {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            // zoom: 0.3;
-
-            // @media only screen and (min-width: 300px) {
-            //     zoom: 0.55;
-            // }
-
-            // @media only screen and (min-width: 640px) {
-            //     zoom: 0.7;
-            // }
-            // @media only screen and (min-width: 768px) {
-            //     zoom: 0.75;
-            // }
-            // @media only screen and (min-width: 1024px) {
-            //     zoom: 0.9;
-            // }
-        }
+    .certificateComponent {
+      padding: 1.6cqw !important;
+    }
+    .certificateComponent__certificate-img-1 {
+      width: 5cqw !important;
+    }
+    .certificateComponent__logo-pana {
+      width: 14cqw !important;
     }
 
-    &.responsive {
+    .certificateComponent__content {
+      padding: 2.7cqw 3.8cqw !important;
+    }
+    .certificateComponent__border-secondery {
+      border-width: 1.4cqw !important;
+    }
+    .certificateComponent__border-primary {
+      border-width: 0.8cqw !important;
+    }
+    .certificateComponent__header {
+      margin-top: 0.8cqw !important;
+    }
+
+    .certificateComp__show {
+      font-size: 2.7cqw !important;
+    }
+    .certificateComponent__title {
+      font-size: 4.2cqw !important;
+    }
+    .certificateComponent__title-1 {
+      font-size: 2cqw !important;
+      margin-bottom: 1.5cqw !important;
+    }
+
+    .certificateComponent__bravo {
+      font-size: 2cqw !important;
+      margin-bottom: 0.7cqw !important;
+      position: relative;
+      top: -4px;
+    }
+    .certificateComponent__bravo::after {
+      border-width: 2.2cqw !important;
+      line-height: 1;
+    }
+    .certificateComponent__bravo::before {
+      border-width: 2.2cqw !important;
+    }
+    .certificateComponent__bravo::after,
+    .certificateComponent__bravo::before {
+      // content: none;
+      top: 78%;
+    }
+    .certificateComponent__name {
+      font-size: 3.8cqw !important;
+      margin-bottom: 1.5cqw !important;
+    }
+    .certificateComponent__dash {
+      margin-bottom: 1.8cqw !important;
+    }
+    .certificateComponent__des {
+      font-size: 1.8cqw !important;
+      margin-bottom: 1.5cqw !important;
+    }
+    .certificateComponent__date {
+      font-size: 1.4cqw !important;
+      margin-bottom: 1.4cqw !important;
+    }
+    .certificateComponent__sign {
+      font-size: 1.5cqw !important;
+    }
+    .certificateComponent__sign-wrapper {
+      margin-bottom: 1.1cqw !important;
+    }
+    .certificateComponent__sign-height-img {
+      height: 9cqw !important;
+    }
+    .certificateComponent__sign-img {
+      //custome
+      position: relative;
+      top: 5px;
+      //
+      width: 9cqw !important;
+    }
+    .certificateComponent__sign-name {
+      position: relative;
+      top: -5px;
+    }
+    .certificateComponent__jp-quality {
+      width: 3cqw !important;
+    }
+    .certificateComponent__solution {
+      width: 4.4cqw !important;
+    }
+  }
+
+  &__modal {
+    // @include responsive(xl-screen) {
+    //     zoom: 0.9;
+    // }
+    // @media only screen and (min-width: 200px) {
+    //     zoom: 0.6;
+    // }
+    // @media only screen and (min-width: 250px) {
+    //     zoom: 0.7;
+    // }
+    // @media only screen and (min-width: 300px) {
+    //     zoom: 0.75;
+    // }
+
+    // @media only screen and (min-width: 450px) {
+    //     zoom: 0.85;
+    // }
+    // @media only screen and (min-width: 500px) {
+    //     zoom: 0.9;
+    // }
+    // @media only screen and (min-width: 700px) {
+    //     zoom: 0.9;
+    // }
+    // @media only screen and (min-width: 1024px) {
+    //     zoom: 0.9;
+    // }
+    .certificateComponent__content {
+      // zoom: 0.8;
+
+      // @include responsive(xs-screen) {
+      //     zoom: 0.89;
+      // }
+
+      // @include responsive(md-screen) {
+      //     zoom: 0.9;
+      // }
+      // @include responsive(lg-screen) {
+      //     zoom: 0.9;
+      // }
+    }
+    .certificateComponent__pana {
+      span {
+        @media only screen and (max-width: 400px) {
+          width: 95px !important;
+          height: 15px !important;
+        }
+      }
+    }
+
+    .certificateComponent__logo {
+      transform: scale(0.9);
+
+      @include responsive(md-screen) {
+        transform: scale(0.9);
+      }
+      &-1 {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
+        }
+      }
+      &-japan {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
+        }
+      }
+      &-solution {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
+        }
+      }
+      // zoom: 0.3;
+
+      // @media only screen and (min-width: 300px) {
+      //     zoom: 0.55;
+      // }
+
+      // @media only screen and (min-width: 640px) {
+      //     zoom: 0.7;
+      // }
+      // @media only screen and (min-width: 768px) {
+      //     zoom: 0.75;
+      // }
+      // @media only screen and (min-width: 1024px) {
+      //     zoom: 0.9;
+      // }
+    }
+  }
+
+  &.responsive {
+    transform: scale(1);
+
+    .certificateComponent__pana {
+      span {
+        @media only screen and (max-width: 400px) {
+          width: 95px !important;
+          height: 15px !important;
+        }
+      }
+    }
+
+    .certificateComponent__logo {
+      transform: scale(0.7);
+
+      @include responsive(md-screen) {
         transform: scale(1);
-
-        .certificateComponent__pana {
-            span {
-                @media only screen and (max-width: 400px) {
-                    width: 95px !important;
-                    height: 15px !important;
-                }
-            }
+      }
+      &-1 {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
         }
-
-        .certificateComponent__logo {
-            transform: scale(0.7);
-
-            @include responsive(md-screen) {
-                transform: scale(1);
-            }
-            &-1 {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            &-japan {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            &-solution {
-                span {
-                    @media only screen and (max-width: 400px) {
-                        width: 20px !important;
-                    }
-                }
-            }
-            // zoom: 0.3;
-
-            // @media only screen and (min-width: 300px) {
-            //     zoom: 0.55;
-            // }
-
-            // @media only screen and (min-width: 640px) {
-            //     zoom: 0.7;
-            // }
-            // @media only screen and (min-width: 768px) {
-            //     zoom: 0.75;
-            // }
-            // @media only screen and (min-width: 1024px) {
-            //     zoom: 0.9;
-            // }
+      }
+      &-japan {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
         }
-        // @media only screen and (min-width: 200px) {
-        //     zoom: 0.6;
-        // }
-        // @media only screen and (min-width: 250px) {
-        //     zoom: 0.7;
-        // }
-        // @media only screen and (min-width: 300px) {
-        //     zoom: 0.8;
-        // }
-
-        // @media only screen and (min-width: 450px) {
-        //     zoom: 0.85;
-        // }
-        // @media only screen and (min-width: 500px) {
-        //     zoom: 0.9;
-        // }
-        // @media only screen and (min-width: 700px) {
-        //     zoom: 1;
-        // }
-        // @media only screen and (min-width: 1024px) {
-        //     transform: scale(1);
-        // }
-        // .certificateComponent__logo {
-        //     display: none;
-        //     &-japan {
-        //         display: none;
-        //         span {
-        //             max-width: 100px !important;
-        //             max-height: 30px !important;
-        //         }
-        //         @include responsive(md-screen) {
-        //         }
-        //     }
-        //     &-solution {
-        //         @include responsive(lg-screen) {
-        //         }
-        //         span {
-        //             max-width: 100px !important;
-        //             max-height: 30px !important;
-        //         }
-        //     }
-        // }
-        .certificateComponent__content {
-            // zoom: 0.8;
-
-            // @include responsive(xs-screen) {
-            //     zoom: 0.9;
-            // }
-
-            // @include responsive(md-screen) {
-            //     zoom: 1;
-            // }
+      }
+      &-solution {
+        span {
+          @media only screen and (max-width: 400px) {
+            width: 20px !important;
+          }
         }
-        .certificateComponent__logo {
-            // zoom: 0.3;
+      }
+      // zoom: 0.3;
 
-            // @media only screen and (min-width: 300px) {
-            //     zoom: 0.55;
-            // }
+      // @media only screen and (min-width: 300px) {
+      //     zoom: 0.55;
+      // }
 
-            // @media only screen and (min-width: 640px) {
-            //     zoom: 0.6;
-            // }
-            // @media only screen and (min-width: 640px) {
-            //     zoom: 0.7;
-            // }
-            // @media only screen and (min-width: 768px) {
-            //     zoom: 0.8;
-            // }
-            // @media only screen and (min-width: 1024px) {
-            //     zoom: 1;
-            // }
-        }
+      // @media only screen and (min-width: 640px) {
+      //     zoom: 0.7;
+      // }
+      // @media only screen and (min-width: 768px) {
+      //     zoom: 0.75;
+      // }
+      // @media only screen and (min-width: 1024px) {
+      //     zoom: 0.9;
+      // }
     }
+    // @media only screen and (min-width: 200px) {
+    //     zoom: 0.6;
+    // }
+    // @media only screen and (min-width: 250px) {
+    //     zoom: 0.7;
+    // }
+    // @media only screen and (min-width: 300px) {
+    //     zoom: 0.8;
+    // }
 
-    align-items: center;
+    // @media only screen and (min-width: 450px) {
+    //     zoom: 0.85;
+    // }
+    // @media only screen and (min-width: 500px) {
+    //     zoom: 0.9;
+    // }
+    // @media only screen and (min-width: 700px) {
+    //     zoom: 1;
+    // }
+    // @media only screen and (min-width: 1024px) {
+    //     transform: scale(1);
+    // }
+    // .certificateComponent__logo {
+    //     display: none;
+    //     &-japan {
+    //         display: none;
+    //         span {
+    //             max-width: 100px !important;
+    //             max-height: 30px !important;
+    //         }
+    //         @include responsive(md-screen) {
+    //         }
+    //     }
+    //     &-solution {
+    //         @include responsive(lg-screen) {
+    //         }
+    //         span {
+    //             max-width: 100px !important;
+    //             max-height: 30px !important;
+    //         }
+    //     }
+    // }
+    .certificateComponent__content {
+      // zoom: 0.8;
 
-    &__bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
-        bottom: 0;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+      // @include responsive(xs-screen) {
+      //     zoom: 0.9;
+      // }
+
+      // @include responsive(md-screen) {
+      //     zoom: 1;
+      // }
     }
+    .certificateComponent__logo {
+      // zoom: 0.3;
 
-    &__pana {
-        img {
-            max-width: 100px !important;
-            max-height: 30px !important;
-        }
+      // @media only screen and (min-width: 300px) {
+      //     zoom: 0.55;
+      // }
+
+      // @media only screen and (min-width: 640px) {
+      //     zoom: 0.6;
+      // }
+      // @media only screen and (min-width: 640px) {
+      //     zoom: 0.7;
+      // }
+      // @media only screen and (min-width: 768px) {
+      //     zoom: 0.8;
+      // }
+      // @media only screen and (min-width: 1024px) {
+      //     zoom: 1;
+      // }
     }
+  }
 
-    &__content {
-        margin: 1rem;
-        position: relative;
-        z-index: 2;
-        background-color: #fffaf3;
+  align-items: center;
 
-        // @include responsive(md-screen) {
-        //     margin: 1.5rem;
-        // }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__pana {
+    img {
+      max-width: 100px !important;
+      max-height: 30px !important;
     }
+  }
+
+  &__content {
+    margin: 0rem;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+
+    // @include responsive(md-screen) {
+    //     margin: 1.5rem;
+    // }
+  }
+
+  &__bravo::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -2px;
+    border-color: transparent transparent transparent white;
+    border-style: solid;
+  }
+  &__bravo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -2px;
+    border-color: transparent white transparent transparent;
+    border-style: solid;
+  }
+}
+.certificateComponent {
+  // padding: 1.4vw;
+  // @include responsive(xs-screen){
+  //   padding: 12.180px;
+  // }
+  padding: 1.6cqw;
+}
+.certificateComponent__certificate-img-1 {
+  width: 5cqw;
+}
+.certificateComponent__logo-pana {
+  width: 14cqw;
+
+  // @include responsive(md-screen){
+  //   width: auto;
+  // }
+}
+.certificateComponent__bravo::after {
+  border-width: 2.2cqw;
+}
+.certificateComponent__bravo::before {
+  border-width: 2.2cqw;
+}
+.certificateComponent__content {
+  // padding: 2.4vw 3.4vw;
+  // @include responsive(xs-screen){
+  //   padding: 20.88px 29.58px;
+  // }
+  padding: 2.7cqw 3.8cqw;
+}
+.certificateComponent__border-secondery {
+  // border-width: 1.2vw;
+  // @include responsive(xs-screen){
+  //   border-width: 10px;
+  // }
+  border-width: 1.4cqw;
+}
+.certificateComponent__border-primary {
+  // border-width: 0.6vw;
+  // @include responsive(xs-screen){
+  //   border-width: 5px;
+  // }
+  border-width: 0.8cqw;
+}
+.certificateComponent__header {
+  // margin-top: 0.6vw;
+  // @include responsive(xs-screen){
+  //   margin-top: 5.22px;
+  // }
+  margin-top: 0.8cqw;
+}
+
+.certificateComp__show {
+  // font-size: 2.4vw;
+  // @include responsive(xs-screen){
+  //   font-size: 20.88px;
+  // }
+  font-size: 2.7cqw;
+}
+.certificateComponent__title {
+  // text-[3.8vw] laptop:text-[1.9vw]
+  // font-size: 3.8vw;
+  // @include responsive(xs-screen){
+  //   font-size: 1.9vw;
+  // }
+  font-size: 4.2cqw;
+}
+.certificateComponent__title-1 {
+  // font-size: 1.8vw;
+  // margin-bottom: 1.4vw;
+  // @include responsive(xs-screen){
+  //   font-size: 0.9vw;
+  //   margin-bottom: 0.7vw;
+  // }
+  font-size: 2cqw;
+  margin-bottom: 1.5cqw;
+}
+.certificateComponent__bravo {
+  // font-size: 1.8vw;
+  // margin-bottom: 0.6vw;
+  // @include responsive(xs-screen){
+  //   font-size: 0.9vw;
+  // margin-bottom: 0.3vw;
+  // }
+  font-size: 2cqw;
+  margin-bottom: 0.7cqw;
+}
+.certificateComponent__name {
+  // font-size: 3.4vw;
+  // margin-bottom: 1.4vw;
+  // @include responsive(xs-screen){
+  //   font-size: 1.7vw;
+  //   margin-bottom: 0.7vw;
+  // }
+  font-size: 3.8cqw;
+  margin-bottom: 1.5cqw;
+}
+.certificateComponent__dash {
+  // margin-bottom: 1.6vw;
+  // @include responsive(lg-screen){
+  //   margin-bottom: 0.8vw;
+  // }
+  margin-bottom: 1.8cqw;
+}
+.certificateComponent__des {
+  // margin-bottom: 1.4vw;
+  // font-size: 1.6vw;
+  // @include responsive(xs-screen){
+  //   margin-bottom: 0.7vw;
+  //   font-size: 0.8vw;
+  // }
+  font-size: 1.8cqw;
+  margin-bottom: 1.5cqw;
+}
+.certificateComponent__date {
+  // font-size: 1.2vw;
+  // margin-bottom: 1.2vw;
+  // @include responsive(xs-screen){
+  //   font-size: 0.6vw;
+  //   margin-bottom: 0.6vw;
+  // }
+  font-size: 1.4cqw;
+  margin-bottom: 1.4cqw;
+}
+.certificateComponent__sign {
+  // font-size: 1.4vw;
+  // @include responsive(xs-screen){
+  //   font-size: 0.7vw;
+  // }
+  font-size: 1.5cqw;
+}
+.certificateComponent__sign-wrapper {
+  // margin-bottom: 1vw;
+  // @include responsive(xs-screen){
+  //   margin-bottom: 0.5vw;
+  // }
+  margin-bottom: 1.1cqw;
+}
+.certificateComponent__sign-height-img {
+  // h-[6vw] laptop:h-[3vw]
+  height: 9cqw;
+}
+.certificateComponent__sign-img {
+  // width: 8vw;
+  // @include responsive(xs-screen) {
+  //     width: 4vw;
+  // }
+  width: 9cqw;
+}
+.certificateComponent__jp-quality {
+  // w-[2.6vw] laptop:w-[1.3vw]
+  // width: 2.6vw;
+  // @include responsive(lg-screen) {
+  //     width: 1.3vw;
+  // }
+  width: 3cqw;
+}
+.certificateComponent__solution {
+  // w-[4vw] laptop:w-[2vw]
+  // width: 4vw;
+  // @include responsive(lg-screen) {
+  //     width: 2vw;
+  // }
+  width: 4.4cqw;
 }

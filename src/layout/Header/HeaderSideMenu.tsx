@@ -50,24 +50,15 @@ function HeaderSideMenu(props: HeaderSideMenuProps) {
           
           <li className="header__nav-list-item">
             <span
-              onClick={() => handleRedirectToElement('regiterWarranty')}
+              onClick={() => handleRedirectToElement('products-wrapper')}
               className={`header__nav-list-item-link cursor-pointer py-3 pl-5 block ${
-                id === 'regiterWarranty' && 'bg-green-29'
+                id === 'products-wrapper' && 'bg-green-29'
               }`}
             >
-              Đăng Ký Bảo Hành
+              Mỗi sản phẩm Một cây xanh
             </span>
           </li>
-          <li className="header__nav-list-item">
-            <span
-              className={`header__nav-list-item-link cursor-pointer py-3 pl-5 block ${
-                id === 'show' && 'bg-green-29'
-              }`}
-              onClick={() => handleRedirectToElement('show')}
-            >
-              Về Chương Trình
-            </span>
-          </li>
+         
           <li className="header__nav-list-item">
             <span
               onClick={() => handleRedirectToElement('followTree')}
@@ -79,6 +70,18 @@ function HeaderSideMenu(props: HeaderSideMenuProps) {
             </span>
           </li>
           <li className="header__nav-list-item">
+            <span
+              className={`header__nav-list-item-link cursor-pointer py-3 pl-5 block ${
+                id === 'show' && 'bg-green-29'
+              }`}
+              onClick={() => {
+                router.push('/gallery')
+              }}
+            >
+              Thư viện chuyện rừng
+            </span>
+          </li>
+          {/* <li className="header__nav-list-item">
             <span
               onClick={() => handleRedirectToElement('registerPlanting')}
               className={`header__nav-list-item-link cursor-pointer py-3 pl-5 block ${
@@ -97,15 +100,15 @@ function HeaderSideMenu(props: HeaderSideMenuProps) {
             >
               Đối Tác
             </span>
-          </li>
+          </li> */}
           <li className="header__nav-list-item">
             <span
-              onClick={() => handleRedirectToElement('news')}
+              onClick={() => handleRedirectToElement('aboutProgram')}
               className={`header__nav-list-item-link cursor-pointer py-3 pl-5 block ${
-                id === 'news' && 'bg-green-29'
+                id === 'aboutProgram' && 'bg-green-29'
               }`}
             >
-              Bản Tin Xanh
+              Về chương trình
             </span>
           </li>
         </ul>

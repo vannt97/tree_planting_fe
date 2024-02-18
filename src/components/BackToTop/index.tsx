@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import BackToTopIcon from 'public/icons/backToTop.svg';
+import BackToTopIcon from 'public/icons/backToTopV2.svg';
 import Image from 'next/image';
 function BackToTop() {
   const [scroll, setScroll] = useState<number>(0);
@@ -26,7 +26,7 @@ function BackToTop() {
         scroll && screenHeight && (scroll - screenHeight >= 200 ? 'active' : '')
       }`}
     >
-      <Image src={BackToTopIcon} alt="Back To Top" />
+      <Image className='scale-[0.7]' layout="fill" src={BackToTopIcon} alt="Back To Top" />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Modal } from 'antd';
 import * as htmlToImage from 'html-to-image';
 import moment from 'moment';
 import { useRouter } from 'next/router';
@@ -12,6 +12,7 @@ import { useLazyGetTreeHistoryQuery } from 'src/services/warranty';
 import { encodeBase64 } from 'src/utils/helpers/common';
 import provinces from 'src/utils/helpers/provinces.json';
 import { ShowNotify } from 'src/utils/helpers/ShowNotify';
+import ModalMaintaince from '../ModalMaintaince/ModalMaintaince';
 
 declare global {
   interface Window {
@@ -54,6 +55,7 @@ function HomeFormFollow() {
   const [infoTree, setInfoTree] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingExport, setLoadingExport] = useState(false);
+  const [isShowModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -206,6 +208,7 @@ function HomeFormFollow() {
     } else {
       phone = `84${phoneNumber.slice(1, phoneNumber.length)}`;
     }
+
     window.grecaptcha.ready(function () {
       window.grecaptcha
         .execute('6LdbPeciAAAAAG_yXb1Rtj5fDNbnNTHzpNAZ-QRY', { action: 'login' })
@@ -278,80 +281,21 @@ function HomeFormFollow() {
           name="publicCode"
           rules={[{ required: true, message: 'Mã số cây sai, vui lòng nhập lại' }]}
         >
-          <Input placeholder='Mã số cây *' />
+          <Input placeholder="Mã số cây *" />
         </Form.Item>
         <Form.Item
           name="phoneNumber"
           rules={[{ required: true, message: 'Vui lòng nhập Số điện thoại' }]}
         >
-          <Input placeholder='Số điện thoại *'/>
+          <Input placeholder="Số điện thoại *" />
         </Form.Item>
 
-        {/* <label>Mã giới thiệu PG</label>
-        <div className="flex pg-code mb-[24px]">
-          <Form.Item name="pg1" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '1')}
-              id="input-1"
-              onKeyUp={(e) => onKeyUp(e, '1')}
-            />
-          </Form.Item>
-          <Form.Item name="pg2" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '2')}
-              id="input-2"
-              onKeyUp={(e) => onKeyUp(e, '2')}
-            />
-          </Form.Item>
-          <Form.Item name="pg3" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '3')}
-              id="input-3"
-              onKeyUp={(e) => onKeyUp(e, '3')}
-            />
-          </Form.Item>
-          <Form.Item name="pg4" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '4')}
-              id="input-4"
-              onKeyUp={(e) => onKeyUp(e, '4')}
-            />
-          </Form.Item>
-          <Form.Item name="pg5" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '5')}
-              id="input-5"
-              onKeyUp={(e) => onKeyUp(e, '5')}
-            />
-          </Form.Item>
-          <Form.Item name="pg6" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '6')}
-              id="input-6"
-              onKeyUp={(e) => onKeyUp(e, '6')}
-            />
-          </Form.Item>
-          <Form.Item name="pg7" className="w-[25px]">
-            <Input
-              maxLength={1}
-              onChange={(e) => handleChange(e, '7')}
-              id="input-7"
-              onKeyUp={(e) => onKeyUp(e, '7')}
-            />
-          </Form.Item>
-        </div> */}
         <div className="flex justify-center">
           <Button
             htmlType="submit"
             id="g-recaptcha-response"
             name="g-recaptcha-response"
-            className="home__form-btn py-3 px-10  text-2xl h-full"
+            className="home__form-btn py-3 px-10  text-xl tablet:text-2xl h-full"
             loading={
               responseGetTreeHistory.isFetching ||
               responseLogin.isLoading ||
@@ -361,9 +305,26 @@ function HomeFormFollow() {
           >
             Truy cập
           </Button>
+          {/* <Button
+            htmlType="button"
+            id="g-recaptcha-response"
+            name="g-recaptcha-response"
+            className="home__form-btn py-3 px-10  text-xl tablet:text-2xl h-full"
+            // loading={
+            //   responseGetTreeHistory.isFetching ||
+            //   responseLogin.isLoading ||
+            //   isLoadingCreateTree ||
+            //   loadingExport
+            // }
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            Truy cập
+          </Button> */}
         </div>
       </Form>
-      {/* <div className="home__tree-share">
+      <div className="home__tree-share">
         <div className="flex items-center justify-center" ref={treeShare}>
           <TreeShareFacebook
             defaultImage
@@ -408,7 +369,8 @@ function HomeFormFollow() {
             }}
           />
         </div>
-      </div> */}
+      </div>
+      {/* <ModalMaintaince isShowModal={isShowModal} setShowModal={setShowModal}/> */}
     </>
   );
 }

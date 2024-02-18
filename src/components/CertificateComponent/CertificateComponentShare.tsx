@@ -36,7 +36,6 @@ function CertificateComponent(props: CertificateComp) {
   const domEl = useRef<HTMLDivElement>(null);
   const [signData, setSignData] = useState<SignData>({ name: '', provinceCode: '', sign: '' });
   const router = useRouter();
-  console.log(info);
 
   useEffect(() => {
     info?.provinceName && setSignData(getSign(getProvinceCode(info?.provinceName)));

@@ -1,0 +1,26 @@
+name: Production
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:    
+    runs-on: ubuntu-latest
+    steps:
+      - name: multiple command
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: ${{ secrets.PROD_PORT }}
+          script: |
+            cd /home/tree_planting_front_end-TEST/
+            git checkout yarn.lock
+            git pull origin main
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            nvm use v16
+            npm install --legacy-peer-deps
+            npm run build:dev
+            pm2 restart Pana_Tree_Plant_TEST

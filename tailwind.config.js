@@ -12,11 +12,14 @@ module.exports = {
   darkMode: "class",
   theme: {
     screens: {
-      mobileSM: "280px",
       mobile: "375px",
+      mobileSM: "640px",
       tablet: "768px",
       laptop: "1024px",
+      desktopSM: "1240px",
       desktop: "1400px",
+      desktopXL: "1537px",
+      desktopXXL: "1680px"
     },
     fontSize: {
       "2sl": "8px",
@@ -30,6 +33,14 @@ module.exports = {
       "2.5xl": "32px",
       "3xl": "34px",
       "4xl": "36px",
+      "5xl": "40px",
+      "6xl": "44px",
+      "7xl": "48px",
+      "8xl": "52px",
+      "9xl": "56px",
+      "10xl": "60px",
+      "11xl": "64px",
+      "12xl": "68px",
     },
     fontFamily: {
       play: ["Play", "sans-serif"],
@@ -44,8 +55,10 @@ module.exports = {
         // set up theme colors
         "secondary-color": "#e8f8ee",
         primary: {
+          10: "rgba(28, 134, 81, 1)",
           50: "#EB4B4F",
           100: "#70F0B5",
+          150: "#368B61",
           200: "#E5B0FA",
           300: "#7182c1",
           400: "#AEAAF9",
@@ -65,6 +78,7 @@ module.exports = {
           700: "#62A7EE",
         },
         white: {
+          50: "rgba(253, 255, 254, 1)",
           100: "#E5E5E5",
           200: "#C4C4C4",
           300: "#BDBDBD",
@@ -84,12 +98,18 @@ module.exports = {
           500: "#F59B5A",
         },
         green: {
+          100: "#EBF7EE",
+          200: "#1C8651",
           400: "#14B96D",
           500: "#1E8B37",
           600: "#008E28",
           700: "#2A9528",
-          primary: "#00874a",
+          primary: "#04874A",
           29: "#87ce29",
+          28: "#abfc73",
+          50: "#8ec63f",
+          60: "#94CE3F",
+          10: "#EBF9EF"
         },
         red: {
           100: "#EB4B4F",
@@ -102,7 +122,8 @@ module.exports = {
           rgb: "rgb(235, 75, 79)",
         },
         gray: {
-          100: "#E7E7E7",
+          50: "#6A6A6A",
+          100: "#EFF5EC",
           200: "#DCDCDC",
           250: "#EFEFEF",
           300: "#D0D0D0",
@@ -110,10 +131,12 @@ module.exports = {
           500: "#A0A0A0",
           600: "#888888",
           700: "#717171",
+          750: "#324457",
           800: "#7d7d7d",
           900: "#595959",
           d9: "#D9D9D9",
           AAA: "#AAAAAA",
+          //
         },
         black: {
           100: "#4D4D4D",
